@@ -1,0 +1,12 @@
+.estrelas{
+    margin-left: 300px;
+}
+
+.estrela{
+    height: 20px;
+    width: 20px;
+}
+
+.estrelaA{
+    display: inline;
+}
