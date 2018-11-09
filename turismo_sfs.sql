@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Nov-2018 às 18:53
+-- Generation Time: 09-Nov-2018 às 19:49
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -67,7 +67,7 @@ CREATE TABLE `imagem_l` (
 --
 
 CREATE TABLE `imagem_local` (
-  `imagem_id_imagem` int(11) NOT NULL,
+  `imagem_l_id_imagem` int(11) NOT NULL,
   `local_id_local` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -90,7 +90,7 @@ CREATE TABLE `imagem_r` (
 --
 
 CREATE TABLE `imagem_rota` (
-  `imagem_id_imagem` int(11) NOT NULL,
+  `imagem_r_id_imagem` int(11) NOT NULL,
   `rota_id_rota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -142,7 +142,8 @@ CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL
+  `user` varchar(255) NOT NULL,
+  `tipo_usuario_id_tipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -173,7 +174,7 @@ ALTER TABLE `imagem_l`
 -- Indexes for table `imagem_local`
 --
 ALTER TABLE `imagem_local`
-  ADD KEY `fk_imagem_l_has_local_imagem_l1` (`imagem_id_imagem`),
+  ADD KEY `fk_imagem_l_has_local_imagem_l1` (`imagem_l_id_imagem`),
   ADD KEY `fk_imagem_l_has_local_local1` (`local_id_local`);
 
 --
@@ -186,7 +187,7 @@ ALTER TABLE `imagem_r`
 -- Indexes for table `imagem_rota`
 --
 ALTER TABLE `imagem_rota`
-  ADD KEY `fk_imagem_r_has_rota_imagem_r1` (`imagem_id_imagem`),
+  ADD KEY `fk_imagem_r_has_rota_imagem_r1` (`imagem_r_id_imagem`),
   ADD KEY `fk_imagem_r_has_rota_rota1` (`rota_id_rota`);
 
 --
@@ -235,14 +236,14 @@ ALTER TABLE `curtir_rota`
 -- Limitadores para a tabela `imagem_local`
 --
 ALTER TABLE `imagem_local`
-  ADD CONSTRAINT `fk_imagem_l_has_local_imagem_l1` FOREIGN KEY (`imagem_id_imagem`) REFERENCES `imagem_l` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_imagem_l_has_local_imagem_l1` FOREIGN KEY (`imagem_l_id_imagem`) REFERENCES `imagem_l` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_imagem_l_has_local_local1` FOREIGN KEY (`local_id_local`) REFERENCES `local` (`id_local`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `imagem_rota`
 --
 ALTER TABLE `imagem_rota`
-  ADD CONSTRAINT `fk_imagem_r_has_rota_imagem_r1` FOREIGN KEY (`imagem_id_imagem`) REFERENCES `imagem_r` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_imagem_r_has_rota_imagem_r1` FOREIGN KEY (`imagem_r_id_imagem`) REFERENCES `imagem_r` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_imagem_r_has_rota_rota1` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
