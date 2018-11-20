@@ -28,7 +28,7 @@ class CRUD_local
     }
 
     public function getLocais(){
-        $sql = "SELECT 8 FROM local";
+        $sql = "SELECT * FROM local";
 
         try{
             $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -88,3 +88,5 @@ class CRUD_local
     }
     
 }
+
+//Teste FEITO

@@ -63,8 +63,7 @@ class CRUD_usuario
 
     public function createUsuario(Usuario $usuario){
 
-        $sql = "INSERT INTO usuario ('id_usuario', 'email', 'senha', 'user', 'tipo_usuario_id_tipo_usuario') VALUES 
-                ('{$usuario->getIdUsuario()}', '{$usuario->getEmail()}', '{$usuario->getSenha()}', '{$usuario->getUser()}', '{$usuario->getTipoUsuarioIdTipoUsuario()}')";
+        $sql = "INSERT INTO `usuario`(`email`, `senha`, `user`, `tipo_usuario_id_tipo_usuario`) VALUES ('{$usuario->getEmail()}','{$usuario->getSenha()}','{$usuario->getUser()}','{$usuario->getTipoUsuarioIdTipoUsuario()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -78,7 +77,7 @@ class CRUD_usuario
 
     public function updateUsuario(Usuario $usuario){
 
-        $sql = "UPDATE usuario SET 'id_usuario' = '{$usuario->getIdUsuario()}', 'email' = '{$usuario->getEmail()}', 'senha' = '{$usuario->getSenha()}', 'user' = '{$usuario->getUser()}', 'tipo_usuario_id_tipo_usuario' = '{$usuario->getTipoUsuarioIdTipoUsuario()}' WHERE 'id_usuario' = {$usuario->getIdUsuario()}";
+        $sql = "UPDATE `usuario` SET `email`= '{$usuario->getEmail()}',`senha`= '{$usuario->getSenha()}',`user`= '{$usuario->getUser()}',`tipo_usuario_id_tipo_usuario`= '{$usuario->getTipoUsuarioIdTipoUsuario()}' WHERE `id_usuario`= '{$usuario->getIdUsuario()}'";
 
         try{
             $this->conexao->exec($sql);
@@ -91,3 +90,13 @@ class CRUD_usuario
     }
 
 }
+
+//Teste
+
+$a = new Usuario('a@a', 'lllll', 'joaoV3', 1);
+$a->setIdUsuario(2);
+$b = new CRUD_usuario();
+//TODO ARRUMAR ESTRANGEIRA
+//TODO CONTINUAR
+$b->deleteteUsuario($a);
+

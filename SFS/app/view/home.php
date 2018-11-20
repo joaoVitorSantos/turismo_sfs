@@ -1,15 +1,4 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Estrelas</title>
-    <link rel="stylesheet" href="../../assets/style/mycss.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script>
+<script>
         $(document).ready(function () {
 
             $('#estrela1').click(function () {
@@ -149,26 +138,18 @@
         })
     </script>
 
-</head>
 <body>
 
-<div>
-
-    <div class="estrelas">
-        <div class="estrelaA"><input type="image" value="1" id="estrela1" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
-        <div class="estrelaA"><input type="image" value="2" id="estrela2" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
-        <div class="estrelaA"><input type="image" value="3" id="estrela3" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
-        <div class="estrelaA"><input type="image" value="4" id="estrela4" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
-        <div class="estrelaA"><input type="image" value="5" id="estrela5" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
-        <input type="button" id="enviar" value="Enviar">
+    <?php include_once '../view/navbar.php'; ?>
+    <div class="container">
+    <div class="row">
+    <div class="estrelas col-md-4 col-sm-6 mx-auto">
+        <div class="estrelaA"><input type="image" value="1" id="estrela1" class="estrela" src="../../assets/images/estrelaN.jpg" alt="">
+        <input type="image" value="2" id="estrela2" class="estrela" src="../../assets/images/estrelaN.jpg" alt="">
+        <input type="image" value="3" id="estrela3" class="estrela" src="../../assets/images/estrelaN.jpg" alt="">
+        <input type="image" value="4" id="estrela4" class="estrela" src="../../assets/images/estrelaN.jpg" alt="">
+        <input type="image" value="5" id="estrela5" class="estrela" src="../../assets/images/estrelaN.jpg" alt=""></div>
+        <input type="button" class="btn btn-primary" id="enviar" value="Enviar">
+    </div>
     </div>
 
-</div>
-
-
-
-
-
-
-</body>
-</html>

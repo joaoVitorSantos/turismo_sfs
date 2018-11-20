@@ -11,9 +11,8 @@ class Usuario
     private $user;
     private $tipo_usuario_id_tipo_usuario;
 
-    public function __construct($id_usuario = null, $email = null, $senha = null, $user =null, $tipo_usuario_id_tipo_usuario =null)
+    public function __construct($email = null, $senha = null, $user =null, $tipo_usuario_id_tipo_usuario =null)
     {
-        $this->id_usuario = $id_usuario;
         $this->email = $email;
         $this->senha = $senha;
         $this->user = $user;

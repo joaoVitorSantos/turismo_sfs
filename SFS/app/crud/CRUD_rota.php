@@ -49,9 +49,7 @@ class CRUD_rota
     }
 
     public function createRota(Rota $r){
-        $sql = "INSERT INTO rota ('nome_rota', 'tempo_medio', 'imagem_perfil', 'descricao') VALUES
-        ('{$r->getNomeRota()}', '{$r->getTempoMedio()}', '{$r->getImagemPerfil()}', '{$r->getDescricao()}')
-        ";
+        $sql = "INSERT INTO `rota`(`nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`) VALUES ('{$r->getNomeRota()}','{$r->getTempoMedio()}','{$r->getImagemPerfil()}', '{$r->getDescricao()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -91,3 +89,5 @@ class CRUD_rota
     }
 
 }
+
+//Teste FEITO
