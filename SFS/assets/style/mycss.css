@@ -10,3 +10,27 @@
 .estrelas{
     margin-top: 1em;
 }
+
+body{
+    background: lightblue !important;
+}
+
+.container{
+    background: #c8cbcf;
+    margin: 2em 0 2em 0;
+    padding: 1em 0 1em 0;
+}
+
+.rota{
+    padding: 2em 1em 2em 1em;
+}
+
+.imagem{
+    height: 360px;
+    background: #4e555b;
+}
+
+.texto{
+    height: 360px;
+    background: #1e7e34;
+}

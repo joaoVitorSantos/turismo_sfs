@@ -1,31 +1,31 @@
 <?php
 
-class Curtir_local
+class Curtir_rota
 {
 
-    private $local_id_local;
+    private $rota_id_rota;
     private $usuario_id_usuario;
     private $dt_curtir;
     private $avaliacao;
 
-    public function __construct($local_id_local = null, $usuario_id_usuario = null, $dt_curtir = null, $avaliacao = null)
+    public function __construct($rota_id_rota, $usuario_id_usuario, $dt_curtir, $avaliacao)
     {
-        $this->local_id_local = $local_id_local;
+        $this->rota_id_rota = $rota_id_rota;
         $this->usuario_id_usuario = $usuario_id_usuario;
         $this->dt_curtir = $dt_curtir;
         $this->avaliacao = $avaliacao;
     }
 
 
-    public function getLocalIdLocal()
+    public function getRotaIdRota()
     {
-        return $this->local_id_local;
+        return $this->rota_id_rota;
     }
 
 
-    public function setLocalIdLocal($local_id_local)
+    public function setRotaIdRota($rota_id_rota)
     {
-        $this->local_id_local = $local_id_local;
+        $this->rota_id_rota = $rota_id_rota;
     }
 
 
