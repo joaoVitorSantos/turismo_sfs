@@ -9,9 +9,9 @@ class Rota
     private $imagem_perfil;
     private $descricao;
 
-    public function __construct($id_rota, $nome_rota, $tempo_medio, $imagem_perfil, $descricao)
+    public function __construct($nome_rota, $tempo_medio, $imagem_perfil, $descricao)
     {
-        $this->id_rota = $id_rota;
+
         $this->nome_rota = $nome_rota;
         $this->tempo_medio = $tempo_medio;
         $this->imagem_perfil = $imagem_perfil;
