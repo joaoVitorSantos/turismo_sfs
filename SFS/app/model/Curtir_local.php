@@ -8,11 +8,10 @@ class Curtir_local
     private $dt_curtir;
     private $avaliacao;
 
-    public function __construct($local_id_local = null, $usuario_id_usuario = null, $dt_curtir = null, $avaliacao = null)
+    public function __construct($local_id_local, $usuario_id_usuario, $avaliacao)
     {
         $this->local_id_local = $local_id_local;
         $this->usuario_id_usuario = $usuario_id_usuario;
-        $this->dt_curtir = $dt_curtir;
         $this->avaliacao = $avaliacao;
     }
 
