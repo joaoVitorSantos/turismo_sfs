@@ -14,4 +14,6 @@
 
     <link rel="stylesheet" href="../../assets/style/mycss.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+
+    <script src="../view/template/scriptImage.php"></script>
 </head>
