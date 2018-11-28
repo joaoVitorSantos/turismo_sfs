@@ -64,7 +64,7 @@ class CRUD_Curtir_local
         return true;
     }
 
-    public function delete_Curtir_Local(Curtir_local $c){
+    public function delete_Curtir_local(Curtir_local $c){
 
         $sql = "DELETE FROM `curtir_local` WHERE `local_id_local` = '{$c->getLocalIdLocal()}' AND `usuario_id_usuario` = '{$c->getUsuarioIdUsuario()}'";
 
@@ -83,7 +83,3 @@ class CRUD_Curtir_local
 }
 
 //Teste FEITO
-
-$c = new Curtir_local(1, 2, 5);
-$a = new CRUD_Curtir_local();
-$a->delete_Curtir_Local($c);

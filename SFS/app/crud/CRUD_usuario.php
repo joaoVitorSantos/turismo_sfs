@@ -49,15 +49,15 @@ class CRUD_usuario
 
     public function deleteUsuario(Usuario $usuario){
 
+
+        $sql1 = "DELETE FROM `curtir_local` WHERE usuario_id_usuario = '{$usuario->getIdUsuario()}'";
+        $this->conexao->exec($sql1);
+        $sql2 = "DELETE FROM `curtir_rota` WHERE usuario_id_usuario = '{$usuario->getIdUsuario()}'";
+        $this->conexao->exec($sql2);
         $sql = "DELETE FROM usuario WHERE id_usuario = {$usuario->getIdUsuario()}";
+        $this->conexao->exec($sql);
 
-        try{
-            $this->conexao->exec($sql);
-        }catch (Exception $e){
-            return false;
-        }
 
-        return true;
 
     }
 
@@ -89,14 +89,8 @@ class CRUD_usuario
 
     }
 
+
 }
 
-//Teste
-
-$a = new Usuario('a@a', 'lllll', 'joaoV3', 1);
-$a->setIdUsuario(2);
-$b = new CRUD_usuario();
-//TODO ARRUMAR ESTRANGEIRA
-//TODO CONTINUAR
-$b->deleteteUsuario($a);
+//Teste FEITO
 
