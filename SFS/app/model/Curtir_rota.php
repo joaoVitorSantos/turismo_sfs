@@ -8,11 +8,10 @@ class Curtir_rota
     private $dt_curtir;
     private $avaliacao;
 
-    public function __construct($rota_id_rota, $usuario_id_usuario, $dt_curtir, $avaliacao)
+    public function __construct($rota_id_rota, $usuario_id_usuario, $avaliacao)
     {
         $this->rota_id_rota = $rota_id_rota;
         $this->usuario_id_usuario = $usuario_id_usuario;
-        $this->dt_curtir = $dt_curtir;
         $this->avaliacao = $avaliacao;
     }
 
