@@ -31,7 +31,7 @@
 
 <body>
 
-<?php include_once '../view/navbar.php'?>
+
 
 <div class="container rounded">
     <div class="row">
