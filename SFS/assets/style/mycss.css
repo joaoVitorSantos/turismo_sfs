@@ -1,3 +1,10 @@
+
+@font-face {
+    font-family: 'Anydore';
+    src: url("Anydore.otf");
+}
+
+
 .estrela{
     height: 20px;
     width: 20px;
@@ -13,6 +20,18 @@
 
 body{
     background: lightskyblue !important;
+}
+
+.noMargin{
+    margin: 0 0 0 0 !important;
+}
+
+.card_rota{
+    padding: 0 0 0 0;
+}
+
+.imagemTitulo{
+    opacity: 0.5;
 }
 
 .container{
@@ -36,4 +55,9 @@ hr{
 
 .imagemI{
     height: 380px !important;
+}
+
+.titulo{
+    font-family: Anydore;
+    font-size: 600%;
 }

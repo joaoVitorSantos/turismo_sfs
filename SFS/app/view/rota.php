@@ -1,17 +1,21 @@
 <body>
-<div class="container">
+<div class="container rounded">
 <div class="col-md-12">
-    <div class="row rota">
-        <div class="col-md-12 col-lg-8 text-left">
-            <div class=""><img src="../../assets/images/<?= $res->getImagemPerfil() ?>" class="img-fluid rounded imagem"></div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-            <h1 class="text-muted"><?= $res->getNomeRota() ?></h1>
-            <div class=" text-left text-muted">
-                <?= $res->getDescricao() ?>
+    <div class="row rota card rounded">
+        <div class="col-md-12 col-lg-12 text-left">
+            <div class="bg-dark rounded"><img src="../../assets/images/<?= $res->getImagemPerfil() ?>" class="card-img img-fluid rounded imagem imagemTitulo">
+
+            <div class="card-body text-center ">
+                <h1 class="text-white text-center titulo card-title"><?= $res->getNomeRota() ?></h1>
+                <div class="card-text text-muted">
+                    <?= $res->getDescricao() ?>
+                </div>
             </div>
         </div>
     </div>
+    </div>
+
+
     <div class="row rota">
         <div class="col-md-2"></div>
         <div class="col-md-8">
