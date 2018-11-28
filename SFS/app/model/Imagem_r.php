@@ -6,12 +6,31 @@ class Imagem_r
     private $id_imagem;
     private $nome_imagem;
     private $local;
+    private $maps;
 
-    public function __construct($id_imagem, $nome_imagem, $local)
+
+
+    public function __construct($nome_imagem, $local, $maps)
     {
-        $this->id_imagem = $id_imagem;
         $this->nome_imagem = $nome_imagem;
         $this->local = $local;
+        $this->maps = $maps;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaps()
+    {
+        return $this->maps;
+    }
+
+    /**
+     * @param mixed $maps
+     */
+    public function setMaps($maps): void
+    {
+        $this->maps = $maps;
     }
 
 

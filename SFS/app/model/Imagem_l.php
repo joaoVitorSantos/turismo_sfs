@@ -7,9 +7,8 @@ class Imagem_l
     private $nome_imagem;
     private $local;
 
-    public function __construct($id_imagem, $nome_imagem, $local)
+    public function __construct($nome_imagem, $local)
     {
-        $this->id_imagem = $id_imagem;
         $this->nome_imagem = $nome_imagem;
         $this->local = $local;
     }
