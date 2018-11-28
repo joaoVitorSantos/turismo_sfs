@@ -7,7 +7,11 @@
             $('.imagem').removeClass('imagemI');
             $('.titulo_rota').addClass('text-center');
             $('.container').addClass('noMargin');
-            $('.titulo').attr('style', 'font-size: 400%');
+            $('.titulo').attr('style', 'font-size: 200%');
+        }
+
+        if(size > 767){
+            $('.titulo').attr('style','font-size: 500%');
         }
 
         $(window).resize(function () {
@@ -16,14 +20,14 @@
                 $('.titulo_rota').addClass('text-center');
                 $('.imagem').removeClass('imagemI');
                 $('.container').addClass('noMargin');
-                $('.titulo').attr('style', 'font-size: 400%');
+                $('.titulo').attr('style', 'font-size: 200%');
             }
 
             if (size >= 768){
                 $('.titulo_rota').removeClass('text-center');
                 $('.imagem').addClass('imagemI');
                 $('.container').removeClass('noMargin');
-                $('.titulo').attr('style', 'font-size: 600%');
+                $('.titulo').attr('style', 'font-size: 500%');
     }
 
         })

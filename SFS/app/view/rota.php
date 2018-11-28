@@ -7,9 +7,6 @@
 
             <div class="card-body text-center ">
                 <h1 class="text-white text-center titulo card-title"><?= $res->getNomeRota() ?></h1>
-                <div class="card-text text-muted">
-                    <?= $res->getDescricao() ?>
-                </div>
             </div>
         </div>
     </div>

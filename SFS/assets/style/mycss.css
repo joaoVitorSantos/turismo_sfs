@@ -4,10 +4,18 @@
     src: url("Anydore.otf");
 }
 
+@font-face {
+    font-family: 'Cocogoose';
+    src: url("Cocogoose Pro Semilight-trial.ttf");
+}
 
 .estrela{
     height: 20px;
     width: 20px;
+}
+
+.rotaTitulo{
+    font-family: Cocogoose;
 }
 
 .estrelaA{
@@ -17,9 +25,8 @@
 .estrelas{
     margin-top: 1em;
 }
-
 body{
-    background: lightskyblue !important;
+    background: #F5F5F5 !important; ;
 }
 
 .noMargin{
@@ -34,10 +41,22 @@ body{
     opacity: 0.5;
 }
 
+.imagemPrincipal{
+    opacity: 0.5;
+    width: 100%;
+
+}
+
+
+
 .container{
     background: #F5F5F5;
-    margin: 2em 0 2em 0;
+    margin: 0 0 2em 0;
     padding: 1em 0 1em 0;
+}
+
+.inicio{
+    margin-bottom: -0.5em;
 }
 
 .rota{
@@ -59,5 +78,8 @@ hr{
 
 .titulo{
     font-family: Anydore;
-    font-size: 600%;
+}
+
+.imagemRota{
+    width: 100%;
 }
