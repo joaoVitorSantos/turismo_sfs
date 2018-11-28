@@ -24,8 +24,7 @@
 .rotaTitulo{
     font-family: Cocogoose;
     margin-top: 0.15em;
-
-}
+    }
 
 .icon{
     height: 0.5em;
@@ -103,16 +102,11 @@ hr{
 
 .rotas{
     padding: 2em;
-    background: lightgray;
 }
 
 .locais{
     padding: 2em;
-    background: lightgray;
-}
 
-.bgLightGray{
-    background: lightgray;
 }
 
 .text{
@@ -121,6 +115,10 @@ hr{
     padding: 0 0.5em 0 0.5em;
     border-radius: 0.5em;
     text-shadow: 0.1em 0.1em lightblue;
+}
+
+.card{
+    height: 48em;
 }
 
 

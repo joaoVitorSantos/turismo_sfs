@@ -37,38 +37,61 @@
 </div>
 
 <div class="container contRotas rounded">
-    <div class="bgLightGray rounded-top">
+    <div class="rounded-top">
     <div class="row ">
         <div class="col-12 text-center">
-            <h1 id="tituloR" class=" rotaTitulo">Rotas <img id="iconDrop" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+            <h1 id="tituloR" class="rotaTitulo">Rotas <img id="iconDrop" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
         </div>
     </div>
     </div>
 
     <div class="rotas rounded-bottom">
         <div class="row">
-    <?php foreach ($rotas as $r): ?>
+            <?php foreach ($rotas as $r): ?>
+                <div class="col-md-6">
+                <div class="card">
+                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
-        <div class="col-md-6 col-lg-4">
-            <form method="post" action="Home.php">
-            <div class="card">
-                <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="">
-                <div class="card-body">
-                    <h5 class="card-tittle"><?= $r->getNomeRota() ?></h5>
-                    <p class="card-text"><?= $r->getDescricao() ?></p>
-                    <button class="btn btn-outline-primary" type="submit">Ver</button>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
+                        <p class="card-text"><?= $r->getDescricao() ?>
+                        <form class="" method="post" action="Home.php">
+                            <input class="text-hide" value="ver" name="acao">
+                            <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
+                            <button class="btn btn-outline-primary" type="submit">Ver</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
+                    </div>
                 </div>
+                </div>
+            <?php endforeach; ?>
+            <?php foreach ($rotas as $r): ?>
+                <div class="col-md-6">
+                <div class="card">
+                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
-            </div>
-            <input class="text-hide" name="id_rota" value="<?= $r->getIdRota() ?>">
-            <input class="text-hide" name="acao" value="ver">
-            </form>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
+                        <p class="card-text"><?= $r->getDescricao() ?>
+                        <form class="" method="post" action="Home.php">
+                            <input class="text-hide" value="ver" name="acao">
+                            <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
+                            <button class="btn btn-outline-primary" type="submit">Ver</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
+                    </div>
+                </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
         </div>
 
 
-    <?php endforeach; ?>
-    </div>
-    </div>
+    <hr>
 
     </div>
     <div class="container contLocais rounded">
@@ -81,31 +104,38 @@
         </div>
 
 
-    <div class="locais rounded-bottom">
+    <div class="locais rounded-bottom ">
         <div class="row">
             <?php foreach ($rotas as $r): ?>
 
-                <div class="col-md-6 col-lg-4">
-                    <form method="post" action="Home.php">
-                        <div class="card">
-                            <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="">
-                            <div class="card-body">
-                                <h5 class="card-tittle"><?= $r->getNomeRota() ?></h5>
-                                <p class="card-text"><?= $r->getDescricao() ?></p>
-                                <button class="btn btn-outline-primary" type="submit">Ver</button>
-                            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
-                        </div>
-                        <input class="text-hide" name="id_rota" value="<?= $r->getIdRota() ?>">
-                        <input class="text-hide" name="acao" value="ver">
-                    </form>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
+                        <p class="card-text"><?= $r->getDescricao() ?>
+                        <form class="" method="post" action="Home.php">
+                            <input class="text-hide" value="ver" name="acao">
+                            <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
+                            <button class="btn btn-outline-primary" type="submit">Ver</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
+                    </div>
                 </div>
 
+            </div>
 
             <?php endforeach; ?>
+
         </div>
     </div>
+        <hr>
     </div>
+
+
 
 <div class="container">
     <div class="row">
