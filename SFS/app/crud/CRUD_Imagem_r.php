@@ -9,6 +9,7 @@
 require_once '../model/Conexao.php';
 require_once '../model/Imagem_r.php';
 
+
 class CRUD_Imagem_r
 {
     private $conexao;
@@ -34,22 +35,21 @@ class CRUD_Imagem_r
     }
 
     public function get_Imagem_r(Imagem_r $i){
-        $sql = "SELECT * FROM imagem_r WHERE id_imagem = {$i->getIdImagem()}";
+        $sql = "SELECT * FROM imagem_r WHERE id_imagem = '{$i->getIdImagem()}'";
 
         try{
             $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
         }catch (Exception $e){
             return false;
         }
-        //Continuar
 
-        $imagem_l = new Imagem_r($resultado['nome_imagem'], $resultado['local']);
-        $imagem_l->setIdImagem($resultado['id_imagem']);
-        return $imagem_l;
+        $imagem_r = new Imagem_r($resultado['nome_imagem'], $resultado['local'], $resultado['maps']);
+        $imagem_r->setIdImagem($resultado['id_imagem']);
+        return $imagem_r;
     }
 
-    public function get_Imagens_l(){
-        $sql = "SELECT * FROM imagem_l";
+    public function get_Imagens_r(){
+        $sql = "SELECT * FROM imagem_r";
 
         try{
             $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -58,16 +58,18 @@ class CRUD_Imagem_r
         }
         $array_imgs = [];
         foreach ($resultado as $i) {
-            $imagem_l = new Imagem_l($i['nome_imagem'], $i['local']);
-            $imagem_l->setIdImagem($i['id_imagem']);
-            $array_imgs[] = $imagem_l;
+            $imagem_r = new Imagem_r($i['nome_imagem'], $i['local'], $i['maps']);
+            $imagem_r->setIdImagem($i['id_imagem']);
+            $array_imgs[] = $imagem_r;
         }
         return $array_imgs;
     }
 
-    public function update_Imagem_l(Imagem_l $i){
 
-        $sql = "UPDATE `imagem_l` SET `nome_imagem`= '{$i->getNomeImagem()}',`local`= '{$i->getLocal()}' WHERE `id_imagem`= '{$i->getIdImagem()}'";
+
+    public function update_Imagem_r(Imagem_r $i){
+
+        $sql = "UPDATE `imagem_r` SET `nome_imagem`= '{$i->getNomeImagem()}',`local`= '{$i->getLocal()}', maps = '{$i->getMaps()}' WHERE `id_imagem`= '{$i->getIdImagem()}'";
 
         try{
             $this->conexao->exec($sql);
@@ -79,9 +81,9 @@ class CRUD_Imagem_r
 
     }
 
-    public function delete_Imagem_l(Imagem_l $i){
+    public function delete_Imagem_r(Imagem_r $i){
 
-        $sql = "DELETE FROM `imagem_l` WHERE id_imagem = '{$i->getIdImagem()}'";
+        $sql = "DELETE FROM `imagem_r` WHERE id_imagem = '{$i->getIdImagem()}'";
 
         try{
             $this->conexao->exec($sql);
@@ -97,9 +99,4 @@ class CRUD_Imagem_r
 
 }
 
-//Teste
-
-$a = new CRUD_Imagem_r();
-$b = new Imagem_r("ALA", "kdwmdsm", 1);
-$c = $a->get_Imagem_r($b);
-print_r($c);
+//Teste FEITO

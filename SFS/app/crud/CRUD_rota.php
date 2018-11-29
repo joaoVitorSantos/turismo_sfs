@@ -76,15 +76,14 @@ class CRUD_rota
     }
 
     public function deleteRota(Rota $rota){
+        $sql1 = "DELETE FROM `curtir_rota` WHERE `rota_id_rota` = '{$rota->getIdRota()}'";
+        $this->conexao->exec($sql1);
+        $sql2 = "DELETE FROM `imagem_rota` WHERE rota_id_rota = '{$rota->getIdRota()}'";
+        $this->conexao->exec($sql2);
         $sql = "DELETE FROM rota WHERE id_rota = {$rota->getIdRota()}";
+        $this->conexao->exec($sql);
 
-        try{
-            $this->conexao->exec($sql);
-        }catch (Exception $e){
-            return false;
-        }
 
-        return true;
 
     }
 

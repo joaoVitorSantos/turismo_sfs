@@ -75,15 +75,14 @@ class CRUD_local
     }
 
     public function deleteLocal(Local $local){
+        $sql1 = "DELETE FROM `curtir_local` WHERE `local_id_local` = '{$local->getIdLocal()}'";
+        $this->conexao->exec($sql1);
+        $sql2 = "DELETE FROM `imagem_local` WHERE local_id_local = '{$local->getIdLocal()}'";
+        $this->conexao->exec($sql2);
         $sql = "DELETE FROM local WHERE id_local = {$local->getIdLocal()}";
+        $this->conexao->exec($sql);
 
-        try{
-            $this->conexao->exec($sql);
-        }catch (Exception $e){
-            return false;
-        }
 
-        return true;
 
     }
     
