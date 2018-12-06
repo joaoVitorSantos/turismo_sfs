@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd68fcd3-a1ad-44aa-b5bf-e6bf7827e184" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/controller/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/controller/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/model/Rota.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/model/Rota.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/model/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/model/Usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/rota.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/rota.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/template/scriptImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/template/scriptImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/assets/style/mycss.css" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/assets/style/mycss.css" afterDir="false" />
-    </list>
+    <list default="true" id="dd68fcd3-a1ad-44aa-b5bf-e6bf7827e184" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +12,7 @@
     <session id="1570096846">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -51,14 +40,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1383" />
-          <entry key="php" value="7029" />
+          <entry key="php" value="7037" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1383" />
           <entry key="HTML" value="8" />
-          <entry key="PHP" value="7021" />
+          <entry key="PHP" value="7029" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -143,8 +132,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="505">
+              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -186,8 +175,8 @@
         <option value="$PROJECT_DIR$/SFS/app/view/template/scriptImage.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/login.php" />
         <option value="$PROJECT_DIR$/SFS/app/model/Usuario.php" />
-        <option value="$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php" />
         <option value="$PROJECT_DIR$/SFS/app/controller/Home.php" />
+        <option value="$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php" />
       </list>
     </option>
   </component>
@@ -355,16 +344,15 @@
       <workItem from="1543409104758" duration="13836000" />
       <workItem from="1543441444482" duration="4729000" />
       <workItem from="1543531113401" duration="599000" />
-      <workItem from="1544089813165" duration="11344000" />
+      <workItem from="1544089813165" duration="11958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44716000" />
+    <option name="totallyTimeSpent" value="45330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27114093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -538,8 +526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="505">
+          <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
         </state>
       </provider>
     </entry>

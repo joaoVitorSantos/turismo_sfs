@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Nov-2018 às 19:49
+-- Generation Time: 06-Dez-2018 às 16:16
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -121,6 +121,14 @@ CREATE TABLE `rota` (
   `descricao` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `rota`
+--
+
+INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`) VALUES
+(1, 'Tour 1h', '1 hora', 'ROTA 3.jpg', 'felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero'),
+(2, 'Rota 2h Gastro', '2 horas', 'ROTA 2 (1).jpg', 'ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit');
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +153,13 @@ CREATE TABLE `usuario` (
   `user` varchar(255) NOT NULL,
   `tipo_usuario_id_tipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `email`, `senha`, `user`, `tipo_usuario_id_tipo_usuario`) VALUES
+(1, 'erkmann08@gmail.com', '123', 'Russo', 1);
 
 --
 -- Indexes for dumped tables
