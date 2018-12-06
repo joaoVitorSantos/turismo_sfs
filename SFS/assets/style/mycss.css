@@ -9,7 +9,7 @@
     src: url("Cocogoose Pro Semilight-trial.ttf");
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 600px) {
     .contLocais{
         padding-bottom: 0.8em !important;
         padding-top: 0 !important;
@@ -17,10 +17,31 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .card{
+    .carde{
         height: 50em;
     }
+
+    .tituloCard{
+        font-size: 5em;
+    }
+
+    .cardeR{
+        margin: 0 -1em 0 -1em ;
+    }
 }
+
+@media only screen and (max-width: 600px) {
+    .tituloCard{
+        font-size: 2em;
+    }
+
+}
+
+.cardeR{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 
 .estrela{
     height: 20px;
@@ -100,8 +121,7 @@ hr{
 }
 
 #imagemRota{
-
-height: 300px!important;
+    opacity: 0.5;
 }
 
 .imagemI{
@@ -140,6 +160,12 @@ height: 300px!important;
 
 .formLogin{
     border: 2px solid gray;
+}
+
+.tituloCard{
+    width: 100%;
+    background: #343a40;
+    font-family: Anydore;
 }
 
 

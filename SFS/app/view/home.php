@@ -54,7 +54,7 @@
         <div class="row">
             <?php foreach ($rotas as $r): ?>
                 <div class="col-md-6 col-lg-4 rotaCard">
-                <div class="card">
+                <div class="card carde">
                     <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
                     <div class="card-body">
@@ -94,7 +94,7 @@
             <?php foreach ($rotas as $r): ?>
 
             <div class="col-md-6 col-lg-4">
-                <div class="card">
+                <div class="card carde">
                     <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
                     <div class="card-body">
