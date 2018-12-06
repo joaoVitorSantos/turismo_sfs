@@ -1,27 +1,20 @@
 <script>
 
     $(document).ready(function () {
-        var size = $(window).width();
 
-        if (size <= 767){
-            $('.imagemRota').removeClass('imagemI');
-        }
+        $('.nav-link').click(function () {
+           $(this).toggleClass('active');
+           $('#todosR').removeClass('active');
 
-        // if (size >= 768){
-        //      $('.imagemRota').addClass('imagemI');
-        // }
-
-        $(window).resize(function () {
-            var size = $(window).width();
-            if (size <= 767){
-                $('.imagemRota').removeClass('imagemI');
+            if ($('#gastronomiaR').hasClass('active') == false && $('#historiaR').hasClass('active') == false){
+                $('#todosR').addClass('active');
             }
 
-            if (size >= 768){
-                $('.imagemRota').addClass('imagemI');
-            }
+        });
+        
 
-        })
+
+
 
     });
 
@@ -47,28 +40,20 @@
 
     <div class="rotas rounded-bottom">
         <div class="row">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <btn id="todosR" class="nav-link active">Todos</btn>
+                </li>
+                <li class="nav-item">
+                    <btn id="gastronomiaR" class="nav-link">Gastronomia</btn>
+                </li>
+                <li class="nav-item">
+                    <btn id="historiaR" class="nav-link">Historia</btn>
+                </li>
+            </ul></div>
+        <div class="row">
             <?php foreach ($rotas as $r): ?>
-                <div class="col-md-6">
-                <div class="card">
-                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
-
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
-                        <p class="card-text"><?= $r->getDescricao() ?>
-                        <form class="" method="post" action="Home.php">
-                            <input class="text-hide" value="ver" name="acao">
-                            <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
-                            <button class="btn btn-outline-primary" type="submit">Ver</button>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
-                    </div>
-                </div>
-                </div>
-            <?php endforeach; ?>
-            <?php foreach ($rotas as $r): ?>
-                <div class="col-md-6">
+                <div class="col-md-6 col-lg-4 rotaCard">
                 <div class="card">
                     <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
@@ -108,7 +93,7 @@
         <div class="row">
             <?php foreach ($rotas as $r): ?>
 
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-4">
                 <div class="card">
                     <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 

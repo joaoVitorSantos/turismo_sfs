@@ -18,6 +18,7 @@
 
         if(size > 767){
             $('.titulo').attr('style','font-size: 500%');
+            //$('.marginFooter').attr('style','margin-top: 350px');
         }
 
         $(window).resize(function () {

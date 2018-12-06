@@ -14,6 +14,7 @@ class CRUD_usuario
     }
 
     public function getUsuario(Usuario $usuario){
+
         $sql = "SELECT * FROM usuario WHERE id_usuario = {$usuario->getIdUsuario()}";
 
         try{
@@ -24,6 +25,7 @@ class CRUD_usuario
 
         $usuario = new Usuario($resultado['id_usuario'], $resultado['email'], $resultado['senha'], $resultado['user'], $resultado['tipo_usuario_id_tipo_usuario']);
         return $usuario;
+
     }
 
     public function getUsuarios(){
@@ -49,15 +51,12 @@ class CRUD_usuario
 
     public function deleteUsuario(Usuario $usuario){
 
-
         $sql1 = "DELETE FROM `curtir_local` WHERE usuario_id_usuario = '{$usuario->getIdUsuario()}'";
         $this->conexao->exec($sql1);
         $sql2 = "DELETE FROM `curtir_rota` WHERE usuario_id_usuario = '{$usuario->getIdUsuario()}'";
         $this->conexao->exec($sql2);
         $sql = "DELETE FROM usuario WHERE id_usuario = {$usuario->getIdUsuario()}";
         $this->conexao->exec($sql);
-
-
 
     }
 
@@ -75,6 +74,26 @@ class CRUD_usuario
 
     }
 
+    public function verificaUsuario($email, $senha){
+        $sql = "SELECT * FROM usuario WHERE email = '{$email}' AND senha = '{$senha}'";
+
+        try {
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return $e->getMessage();
+        }
+
+        if (is_array($resultado) and count($resultado) > 0){
+            $res = new Usuario($resultado['id_usuario'], $resultado['email'], $resultado['senha'], $resultado['user'], $resultado['tipo_usuario_id_tipo_usuario']);
+            return $res;
+        }
+
+        else {
+            return false;
+        }
+
+    }
+
     public function updateUsuario(Usuario $usuario){
 
         $sql = "UPDATE `usuario` SET `email`= '{$usuario->getEmail()}',`senha`= '{$usuario->getSenha()}',`user`= '{$usuario->getUser()}',`tipo_usuario_id_tipo_usuario`= '{$usuario->getTipoUsuarioIdTipoUsuario()}' WHERE `id_usuario`= '{$usuario->getIdUsuario()}'";
@@ -88,7 +107,6 @@ class CRUD_usuario
         return true;
 
     }
-
 
 }
 

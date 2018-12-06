@@ -1,6 +1,7 @@
 <?php
 
 require_once '../crud/CRUD_rota.php';
+require_once '../crud/CRUD_usuario.php';
 
 $c = new CRUD_rota();
 
@@ -15,6 +16,46 @@ function loadRota(){
     include_once '../view/template/footer.php';
 
 }
+
+function loadLogin(){
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/login.php';
+    include_once '../view/template/footer.php';
+}
+
+function verificaLogin($email, $senha){
+    $c = new CRUD_usuario();
+    $res = $c->verificaUsuario($email, $senha);
+
+    if ($res != false and is_object($res)){
+        session_start();
+        $_SESSION['usuario'] = $res->getUser();
+        $_SESSION['id_usuario'] = $res->getIdUsuario();
+        $_SESSION['tipo'] = $res->getTipoUsuarioIdTipoUsuario();
+
+        include_once '../view/template/header.php';
+        include_once '../view/template/navbar.php';
+        include_once '../view/home.php';
+        include_once '../view/template/footer.php';
+    }
+
+    else{
+        echo "<script>
+    alert('Email ou senha incorretos!');
+</script>
+<form id='form' method='post' action='Home.php'>
+<input style='display: none' name='acao' value='formLogin'>
+</form>
+<script>
+document.getElementById('form').submit();
+</script>
+";
+    }
+
+
+}
+
 
 if (!isset($_POST['acao'])){
 
@@ -32,5 +73,14 @@ else {
         case 'ver':
             loadRota();
             break;
+
+        case 'formLogin':
+            loadLogin();
+            break;
+
+        case 'verificaLogin':
+            verificaLogin($_POST['email'], $_POST['senha']);
+            break;
     }
+
 }
