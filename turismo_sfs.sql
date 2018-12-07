@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Dez-2018 √†s 16:16
--- Vers√£o do servidor: 10.1.34-MariaDB
+-- Generation Time: 06-Dez-2018 ‡s 16:16
+-- Vers„o do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";

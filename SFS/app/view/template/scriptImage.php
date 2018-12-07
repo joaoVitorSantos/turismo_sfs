@@ -73,5 +73,31 @@
             }, 265);
         });
 
+        $('.navLink').click(function () {
+            $(this).toggleClass('active');
+            $('#todosR').removeClass('active');
+
+            if ($('#gastronomiaR').hasClass('active') == false && $('#historiaR').hasClass('active') == false){
+                $('#todosR').addClass('active');
+            }
+
+        });
+
+
+        $('#todosR').click(function () {
+            $('.navLink').removeClass('active');
+            $(this).addClass('active');
+        });
+
+
+
+
+
+
+
+
+
+
+
     });
 

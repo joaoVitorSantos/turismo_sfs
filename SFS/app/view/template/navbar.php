@@ -19,10 +19,29 @@
         </form>";
         }
 
-        elseif (isset($_SESSION['tipo'])){
+        elseif (isset($_SESSION['tipo']) and $_SESSION['tipo'] == 1){
             echo "<form action=\"\" method=\"post\">
             <input type=\"text\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-info\">". $_SESSION['usuario'] ."</button>
+        </form>
+        <form action=\"Home.php\" method=\"post\">
+            <input type=\"text\" name=\"acao\" value=\"logout\" class=\"text-hide\">
+            <button type=\"\" class=\"btn btn-outline-warning\">Logout</button>
+        </form>";
+        }
+
+        elseif (isset($_SESSION['tipo']) and $_SESSION['tipo'] == 2){
+            echo "<form action=\"\" method=\"post\">
+            <input type=\"text\" class=\"text-hide\">
+            <button type=\"\" class=\"btn btn-info\">". $_SESSION['usuario'] ."</button>
+        </form>
+        <form action=\"Home.php\" method=\"post\">
+            <input type=\"text\" name=\"acao\" value=\"viewAdmin\" class=\"text-hide\">
+            <button type=\"\" class=\"btn btn-info\">Área do Admin</button>
+        </form>
+        <form action=\"Home.php\" method=\"post\">
+            <input type=\"text\" name=\"acao\" value=\"logout\" class=\"text-hide\">
+            <button type=\"\" class=\"btn btn-outline-warning\">Logout</button>
         </form>";
         }
 

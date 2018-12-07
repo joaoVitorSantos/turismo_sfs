@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+
 require_once '../crud/CRUD_rota.php';
 require_once '../crud/CRUD_usuario.php';
 
@@ -29,7 +32,7 @@ function verificaLogin($email, $senha){
     $res = $c->verificaUsuario($email, $senha);
 
     if ($res != false and is_object($res)){
-        session_start();
+
         $_SESSION['usuario'] = $res->getUser();
         $_SESSION['id_usuario'] = $res->getIdUsuario();
         $_SESSION['tipo'] = $res->getTipoUsuarioIdTipoUsuario();
@@ -42,18 +45,21 @@ function verificaLogin($email, $senha){
 
     else{
         echo "<script>
-    alert('Email ou senha incorretos!');
-</script>
-<form id='form' method='post' action='Home.php'>
-<input style='display: none' name='acao' value='formLogin'>
-</form>
-<script>
-document.getElementById('form').submit();
-</script>
-";
+            alert('Email ou senha incorretos!');
+        </script>
+        <form id='form' method='post' action='Home.php'>
+        <input style='display: none' name='acao' value='formLogin'>
+        </form>
+        <script>
+        document.getElementById('form').submit();
+        </script>
+        ";
     }
+}
 
-
+function logout(){
+    session_destroy();
+    header('location: Home.php');
 }
 
 
@@ -81,6 +87,9 @@ else {
         case 'verificaLogin':
             verificaLogin($_POST['email'], $_POST['senha']);
             break;
+
+        case 'logout':
+            logout();
     }
 
 }

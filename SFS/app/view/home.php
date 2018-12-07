@@ -2,15 +2,7 @@
 
     $(document).ready(function () {
 
-        $('.nav-link').click(function () {
-           $(this).toggleClass('active');
-           $('#todosR').removeClass('active');
 
-            if ($('#gastronomiaR').hasClass('active') == false && $('#historiaR').hasClass('active') == false){
-                $('#todosR').addClass('active');
-            }
-
-        });
         
 
 
@@ -45,10 +37,10 @@
                     <btn id="todosR" class="nav-link active">Todos</btn>
                 </li>
                 <li class="nav-item">
-                    <btn id="gastronomiaR" class="nav-link">Gastronomia</btn>
+                    <btn id="gastronomiaR" class="nav-link navLink">Gastronomia</btn>
                 </li>
                 <li class="nav-item">
-                    <btn id="historiaR" class="nav-link">Historia</btn>
+                    <btn id="historiaR" class="nav-link navLink">Historia</btn>
                 </li>
             </ul></div>
         <div class="row">
