@@ -3,6 +3,10 @@
     <button class="navbar-brand btn btn-danger" type="submit">Click São Chico</button>
     </form>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
@@ -13,33 +17,33 @@
         </form>
 
         <?php if(!isset($_SESSION['tipo'])){
-            echo "<form action=\"Home.php\" method=\"post\">
+            echo "<form class=\"formNav\"  action=\"Home.php\" method=\"post\">
             <input type=\"text\" class=\"text-hide\" name=\"acao\" value=\"formLogin\">
             <button type=\"submit\" class=\"btn btn-info\">Login</button>
         </form>";
         }
 
         elseif (isset($_SESSION['tipo']) and $_SESSION['tipo'] == 1){
-            echo "<form action=\"\" method=\"post\">
+            echo "<form class=\"formNav\" action=\"\" method=\"post\">
             <input type=\"text\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-info\">". $_SESSION['usuario'] ."</button>
         </form>
-        <form action=\"Home.php\" method=\"post\">
+        <form class=\"formNav\" action=\"Home.php\" method=\"post\">
             <input type=\"text\" name=\"acao\" value=\"logout\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-outline-warning\">Logout</button>
         </form>";
         }
 
         elseif (isset($_SESSION['tipo']) and $_SESSION['tipo'] == 2){
-            echo "<form action=\"\" method=\"post\">
+            echo "<form class=\"formNav\" action=\"\" method=\"post\">
             <input type=\"text\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-info\">". $_SESSION['usuario'] ."</button>
         </form>
-        <form action=\"Home.php\" method=\"post\">
+        <form class=\"formNav\" action=\"Home.php\" method=\"post\">
             <input type=\"text\" name=\"acao\" value=\"viewAdmin\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-info\">Área do Admin</button>
         </form>
-        <form action=\"Home.php\" method=\"post\">
+        <form class=\"formNav\" action=\"Home.php\" method=\"post\">
             <input type=\"text\" name=\"acao\" value=\"logout\" class=\"text-hide\">
             <button type=\"\" class=\"btn btn-outline-warning\">Logout</button>
         </form>";

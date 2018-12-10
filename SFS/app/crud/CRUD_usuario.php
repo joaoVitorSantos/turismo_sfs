@@ -108,7 +108,27 @@ class CRUD_usuario
 
     }
 
+    public function verificaEmail($email){
+        $sql = "SELECT * FROM usuario WHERE email = '{$email}'";
+
+
+
+        try{
+            $res = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        if (is_array($res)){
+            return 'false';
+        }
+
+        return 'true';
+
+    }
+
 }
 
 //Teste FEITO
+
 

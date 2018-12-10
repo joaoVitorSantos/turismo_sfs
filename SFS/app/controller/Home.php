@@ -37,10 +37,7 @@ function verificaLogin($email, $senha){
         $_SESSION['id_usuario'] = $res->getIdUsuario();
         $_SESSION['tipo'] = $res->getTipoUsuarioIdTipoUsuario();
 
-        include_once '../view/template/header.php';
-        include_once '../view/template/navbar.php';
-        include_once '../view/home.php';
-        include_once '../view/template/footer.php';
+        header('location: Home.php');
     }
 
     else{
@@ -57,9 +54,41 @@ function verificaLogin($email, $senha){
     }
 }
 
+function index(){
+    header('location: Home.php');
+}
+
 function logout(){
     session_destroy();
     header('location: Home.php');
+}
+
+function loadCadastro(){
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/cadastro.php';
+    include_once '../view/template/footer.php';
+}
+
+function cadastroUser($email, $senha, $user){
+    $c = new CRUD_usuario();
+    $us = new Usuario(null, $email, $senha, $user,1);
+
+    $c->createUsuario($us);
+
+    header('location: Home.php');
+
+}
+
+function verificaEmail($email){
+    $c = new CRUD_usuario();
+    $res = $c->verificaEmail($email);
+
+    if ($res == 'false'){
+        return 'falso';
+    }
+
+    return 'suave';
 }
 
 
@@ -90,6 +119,22 @@ else {
 
         case 'logout':
             logout();
+            break;
+
+        case 'cadastroForm':
+            loadCadastro();
+            break;
+
+        case 'cadastroUsuario':
+            cadastroUser($_POST['email'], $_POST['senha'], $_POST['user']);
+            break;
+
+        case 'verificaEmail':
+            verificaEmail($_POST['email']);
+
+        default:
+            index();
+            break;
     }
 
 }

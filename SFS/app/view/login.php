@@ -21,7 +21,12 @@
         <input type="text" class="text-hide" value="verificaLogin" name="acao">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+        <form action="Home.php" method="post">
+            <input class="text-hide" name="acao" value="cadastroForm">
+            <label for="btnCadastro">Nao tem um Cadastro?</label>
+            <button class="btn btn-success btn-sm" id="btnCadastro" type="submit">Cadastrar</button>
+        </form>
 </div>
 </div>
-    <div class="marginFooter" style="margin-bottom: 100%"></div>
+    <div class="marginFooter" style="margin-bottom: 110%"></div>
 </div>
