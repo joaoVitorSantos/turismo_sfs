@@ -17,4 +17,6 @@
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 
     <script src="../view/template/scriptImage.php"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
 </head>

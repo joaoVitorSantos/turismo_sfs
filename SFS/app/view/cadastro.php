@@ -10,17 +10,84 @@
     }
 
     $(document).ready(function () {
-       $('.formulario').submit(function () {
+       $('#email').change(function () {
            var email = $('#email').val();
-           $.post("../controller/Home.php", {acao: verificaEmail, email: email}, function (data, status) {
-               if (data = 'falso'){
+           $.post("../controller/Home.php", {acao: 'verificaE', email: $('#email').val()}, function (data) {
+
+               if (data == email + 'falso'){
+                   $('#btnEnviar').addClass('disabled');
                    alert('Email ja cadastrado!');
-                   $('#email').focus();
                    return false;
+               }
+
+               else if (data == email+ 'suave'){
+                   $('#btnEnviar').removeClass('disabled');
                }
           });
        });
+
+        $( ".formulario" ).validate({
+            highlight: function(element) {
+                $(element).parent().parent().addClass('has-error');
+            },
+            unhighlight: function(element) {
+                $(element).parent().parent().removeClass('has-error');
+            },
+            debug: false,
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+                user:{
+                    required: true,
+                    rangelength: [3,18]
+                },
+                senha:{
+                    required: true,
+                    rangelength: [6,18]
+                },
+
+                senha_rp:{
+                    required: true,
+
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Esse campo é obrigatorio!',
+                    email: 'Endereço de email inválido!'
+                },
+
+                user: {
+                    required: 'Esse campo é obrigatorio!',
+                    rangelength: 'Utilize no mínimo 3 e no máximo 18 caracteres!'
+                },
+
+                senha: {
+                    required: 'Esse campo é obrigatorio!',
+                    rangelength: 'Utilize no mínimo 6 e no máximo 18 caracteres!'
+                },
+
+                senha_rp: {
+                    required: 'Esse campo é obrigatorio!'
+                }
+            }
+        });
+
+        $('#btnEnviar').click(function () {
+            if ($('#email').hasClass('border-danger')){
+                $('#email').focus();
+                alert('Email ja cadastrado!');
+            }
+
+            else {
+                $('.formulario').submit();
+            }
+        })
     });
+
+
 </script>
 <body>
 <div class="container">
@@ -31,25 +98,25 @@
             <form action="../controller/Home.php" method="post" onsubmit="return validarSenha(this);" class="formulario">
                 <div class="form-group">
                     <label for="email">Endereço de Email</label>
-                    <input type="email" required name="email" class="form-control" id="email" placeholder="Seu email">
+                    <input type="email" required="required" name="email" class="form-control" id="email" placeholder="Seu email">
                     <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com ninguém</small>
                 </div>
                 <div class="form-group">
                     <label for="user">Nome de Usuário</label>
-                    <input type="text" required name="user" class="form-control" id="user" placeholder="Usuário">
+                    <input type="text" required="required" name="user" class="form-control" id="user" placeholder="Usuário">
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" required name="senha" class="form-control senha" id="password" placeholder="Senha">
+                    <input type="password" required="required" name="senha" class="form-control senha" id="password" placeholder="Senha">
                 </div>
                 <div class="form-group">
                     <label for="password_rp">Repita sua Senha</label>
-                    <input type="password" required name="senha_rp" class="form-control password_rp" id="password_rp" placeholder="Repita sua Senha">
+                    <input type="password" required="required" name="senha_rp" class="form-control password_rp" id="password_rp" placeholder="Repita sua Senha">
                 </div>
                 <input type="text" class="text-hide" value="cadastroUsuario" name="acao">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="button" id="btnEnviar" class="btn btn-primary disabled">Enviar</button>
             </form>
         </div>
     </div>
-    <div class="marginFooter" style="margin-bottom: 110%"></div>
+    <div class="marginFooter" style=""></div>
 </div>

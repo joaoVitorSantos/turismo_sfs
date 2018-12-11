@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Dez-2018 às 18:55
--- Versão do servidor: 10.1.35-MariaDB
--- versão do PHP: 7.2.9
+-- Generation Time: 11-Dez-2018 às 16:55
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -107,6 +107,13 @@ CREATE TABLE `local` (
   `imagem_perfil` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `local`
+--
+
+INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`) VALUES
+(1, 'Local 1', 'descricao do local 1', '123.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +139,14 @@ CREATE TABLE `tipo_usuario` (
   `desc` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tipo_usuario`
+--
+
+INSERT INTO `tipo_usuario` (`id_tipo_usuario`, `desc`) VALUES
+(1, 'Comum'),
+(2, 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +160,17 @@ CREATE TABLE `usuario` (
   `user` varchar(255) NOT NULL,
   `tipo_usuario_id_tipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `email`, `senha`, `user`, `tipo_usuario_id_tipo_usuario`) VALUES
+(1, 'erkmann08@gmail.com', '123', 'Mateus Moller Erkmann', 1),
+(8, '123@123', '123', '123', 1),
+(9, 'asdasda@dsa', 'asd', 'asd', 1),
+(12, 'email@email', 'russo', 'Russao', 1),
+(13, 'erkmann08@gm', '123123', 'Mateus M', 2);
 
 --
 -- Indexes for dumped tables
@@ -235,13 +261,19 @@ ALTER TABLE `imagem_r`
 -- AUTO_INCREMENT for table `local`
 --
 ALTER TABLE `local`
-  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rota`
 --
 ALTER TABLE `rota`
   MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

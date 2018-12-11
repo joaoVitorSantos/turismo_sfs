@@ -120,15 +120,14 @@ class CRUD_usuario
         }
 
         if (is_array($res)){
-            return 'false';
+            return false;
         }
 
-        return 'true';
+        return true;
 
     }
 
 }
 
 //Teste FEITO
-
 

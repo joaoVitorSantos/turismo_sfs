@@ -35,6 +35,19 @@
         font-size: 2em;
     }
 
+    .marginFooter{
+        margin-bottom: 80%;
+    }
+
+}
+
+.marginTop{
+    margin-top: 2em !important ;
+}
+
+.error{
+    color: red;
+    font-size: small;
 }
 
 .cardeR{
@@ -96,12 +109,6 @@ body{
     background: #F5F5F5;
     margin: 0 0 2em 0;
 }
-
-.marginFooter{
-    display: none;
-}
-
-
 
 .inicio{
     margin-bottom: -0.5em;
@@ -171,6 +178,8 @@ hr{
     background: #343a40;
     font-family: Anydore;
 }
+
+
 
 
 

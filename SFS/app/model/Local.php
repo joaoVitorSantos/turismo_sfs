@@ -8,8 +8,9 @@ class Local
     private $descricao;
     private $imagem_perfil;
 
-    public function __construct($nome_local, $descricao, $imagem_perfil)
+    public function __construct($id_local, $nome_local, $descricao, $imagem_perfil)
     {
+        $this->id_local = $id_local;
         $this->nome_local = $nome_local;
         $this->descricao = $descricao;
         $this->imagem_perfil = $imagem_perfil;

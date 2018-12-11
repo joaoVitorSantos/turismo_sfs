@@ -28,5 +28,5 @@
         </form>
 </div>
 </div>
-    <div class="marginFooter" style="margin-bottom: 110%"></div>
+    <div class="marginFooter" style=""></div>
 </div>

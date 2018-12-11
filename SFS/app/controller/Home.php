@@ -4,6 +4,7 @@ session_start();
 
 
 require_once '../crud/CRUD_rota.php';
+require_once '../crud/CRUD_local.php';
 require_once '../crud/CRUD_usuario.php';
 
 $c = new CRUD_rota();
@@ -84,11 +85,24 @@ function verificaEmail($email){
     $c = new CRUD_usuario();
     $res = $c->verificaEmail($email);
 
-    if ($res == 'false'){
-        return 'falso';
+    if ($res == false){
+        echo 'falso';
     }
 
-    return 'suave';
+    else {echo 'suave';}
+}
+
+function viewAdmin(){
+    $c = new CRUD_rota();
+    $rotas = $c->getRotas();
+
+    $d = new CRUD_local();
+    $locais = $d->getLocais();
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/admin.php';
+    include_once '../view/template/footer.php';
 }
 
 
@@ -129,8 +143,13 @@ else {
             cadastroUser($_POST['email'], $_POST['senha'], $_POST['user']);
             break;
 
-        case 'verificaEmail':
+        case 'verificaE':
             verificaEmail($_POST['email']);
+            break;
+
+        case 'viewAdmin':
+            viewAdmin();
+            break;
 
         default:
             index();
