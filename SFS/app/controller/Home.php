@@ -105,6 +105,20 @@ function viewAdmin(){
     include_once '../view/template/footer.php';
 }
 
+function viewRotaAdm($id){
+    $c = new CRUD_rota();
+
+    $rota = new Rota($id);
+
+    $r = $c->getRota($rota);
+
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/editRota.php';
+    include_once '../view/template/footer.php';
+}
+
 
 if (!isset($_POST['acao'])){
 
@@ -149,6 +163,10 @@ else {
 
         case 'viewAdmin':
             viewAdmin();
+            break;
+
+        case 'editarR':
+            viewRotaAdm($_POST['id']);
             break;
 
         default:

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Dez-2018 às 16:55
+-- Generation Time: 11-Dez-2018 às 19:49
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -127,6 +127,13 @@ CREATE TABLE `rota` (
   `imagem_perfil` varchar(150) NOT NULL,
   `descricao` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `rota`
+--
+
+INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`) VALUES
+(1, 'Rota Numero 1', '2 horas', 'fotoprincipal.jpg', 'Essa é a Rota 1');
 
 -- --------------------------------------------------------
 
@@ -267,7 +274,7 @@ ALTER TABLE `local`
 -- AUTO_INCREMENT for table `rota`
 --
 ALTER TABLE `rota`
-  MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `usuario`
