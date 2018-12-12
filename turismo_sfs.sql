@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Dez-2018 às 19:49
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: 12-Dez-2018 às 19:52
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -80,7 +80,8 @@ CREATE TABLE `imagem_local` (
 CREATE TABLE `imagem_r` (
   `id_imagem` int(11) NOT NULL,
   `nome_imagem` varchar(200) NOT NULL,
-  `local` varchar(200) NOT NULL
+  `local` varchar(200) NOT NULL,
+  `maps` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -104,15 +105,16 @@ CREATE TABLE `local` (
   `id_local` int(11) NOT NULL,
   `nome_local` varchar(150) NOT NULL,
   `descricao` varchar(5000) NOT NULL,
-  `imagem_perfil` varchar(250) NOT NULL
+  `imagem_perfil` varchar(250) NOT NULL,
+  `rota_id_rota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `local`
 --
 
-INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`) VALUES
-(1, 'Local 1', 'descricao do local 1', '123.jpg');
+INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`, `rota_id_rota`) VALUES
+(1, 'Local 1', 'descricao do local 1', '123.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,9 @@ CREATE TABLE `rota` (
 --
 
 INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`) VALUES
-(1, 'Rota Numero 1', '2 horas', 'fotoprincipal.jpg', 'Essa é a Rota 1');
+(1, 'Rota Religiosa', '30 minutos', 'FOTO PRINCIPAL.jpg', 'Uma rota muito recomendada...'),
+(2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...'),
+(3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ');
 
 -- --------------------------------------------------------
 
@@ -227,7 +231,8 @@ ALTER TABLE `imagem_rota`
 -- Indexes for table `local`
 --
 ALTER TABLE `local`
-  ADD PRIMARY KEY (`id_local`);
+  ADD PRIMARY KEY (`id_local`),
+  ADD KEY `fk_local_has_rota` (`rota_id_rota`);
 
 --
 -- Indexes for table `rota`
@@ -274,7 +279,7 @@ ALTER TABLE `local`
 -- AUTO_INCREMENT for table `rota`
 --
 ALTER TABLE `rota`
-  MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -313,6 +318,12 @@ ALTER TABLE `imagem_local`
 ALTER TABLE `imagem_rota`
   ADD CONSTRAINT `fk_imagem_r_has_rota_imagem_r1` FOREIGN KEY (`imagem_r_id_imagem`) REFERENCES `imagem_r` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_imagem_r_has_rota_rota1` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `local`
+--
+ALTER TABLE `local`
+  ADD CONSTRAINT `a` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `usuario`
