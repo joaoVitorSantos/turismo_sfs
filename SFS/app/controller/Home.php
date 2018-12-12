@@ -124,6 +124,24 @@ if (!isset($_POST['acao'])){
 
     $c = new CRUD_rota();
     $rotas = $c->getRotas();
+    $num_rotas = count($rotas);
+
+    $descricoes = [];
+    foreach ($rotas as $rota){
+        $descricao = $rota->getDescricao();
+        $descricao_array = str_split($descricao);
+        $descricoes[] = $descricao;
+    }
+//    $matrizes = [];
+//    $palavras_encurtadas = [];
+//    foreach ($descricoes as $descricao){
+//        $matriz = str_split($descricao);
+//        for ($i = 0; $i<= 10; $i++){
+//            $palavras_encurtadas[] = $matriz[$i];
+//        }
+//        $matrizes[] = $matriz;
+//    }
+
 
     $l = new CRUD_local();
     $locais = $l->getLocais();

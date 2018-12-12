@@ -32,7 +32,7 @@
 
                 <!--Image-->
                 <div class="  ">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg" class="img-fluid" alt="">
+                    <a href="https://www.hoteisvillareal.com.br/hotel-sao-francisco-do-sul/"><img src="https://www.hoteisvillareal.com.br/hotel-sao-francisco-do-sul/wp-content/themes/hoteis-villa-real/public/images/logo-hotel-sfs.png" class="img-fluid" alt=""></a>
                 </div>
 
             </div>

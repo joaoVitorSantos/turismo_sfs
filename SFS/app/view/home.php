@@ -39,7 +39,7 @@
             <?php foreach ($rotas as $r): ?>
                 <div class="col-md-6 col-lg-4 rotaCard">
                 <div class="card carde">
-                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
+                    <img class="card-img-top img_miniatura_index" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
                     <div class="card-body">
                         <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
