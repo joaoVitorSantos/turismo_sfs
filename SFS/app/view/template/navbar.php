@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <form method="post" action="Home.php">
-    <button class="navbar-brand btn btn-danger" type="submit">Click São Chico</button>
+    <button class="navbar-brand btn btn-danger titulonav" type="submit">Click São Chico</button>
     </form>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
