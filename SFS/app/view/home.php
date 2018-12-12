@@ -60,7 +60,7 @@
         </div>
 
 
-    <hr>
+
 
     </div>
     <div class="container contLocais rounded">
@@ -75,23 +75,20 @@
 
     <div class="locais rounded-bottom ">
         <div class="row">
-            <?php foreach ($rotas as $r): ?>
+            <?php foreach ($locais as $lo): ?>
 
             <div class="col-md-6 col-lg-4">
                 <div class="card carde">
-                    <img class="card-img-top" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
+                    <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap">
 
                     <div class="card-body">
-                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
-                        <p class="card-text"><?= $r->getDescricao() ?>
+                        <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
+                        <p class="card-text"><?= $lo->getDescricao() ?>
                         <form class="" method="post" action="Home.php">
-                            <input class="text-hide" value="ver" name="acao">
-                            <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
+                            <input class="text-hide" value="verL" name="acao">
+                            <input class="text-hide" value="<?= $lo->getIdLocal() ?>" name="id_local">
                             <button class="btn btn-outline-primary" type="submit">Ver</button>
                         </form>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
                     </div>
                 </div>
 
@@ -101,7 +98,7 @@
 
         </div>
     </div>
-        <hr>
+
     </div>
 
 

@@ -125,6 +125,9 @@ if (!isset($_POST['acao'])){
     $c = new CRUD_rota();
     $rotas = $c->getRotas();
 
+    $l = new CRUD_local();
+    $locais = $l->getLocais();
+
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';
     include_once '../view/home.php';

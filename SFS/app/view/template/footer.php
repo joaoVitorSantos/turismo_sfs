@@ -14,7 +14,7 @@
         <div class="row">
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6  bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6  bg-danger">
 
                 <!--Image-->
                 <div class=" ">
@@ -28,7 +28,7 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6 bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6 bg-danger">
 
                 <!--Image-->
                 <div class="  ">
@@ -39,7 +39,7 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6 bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6 bg-danger">
 
                 <!--Image-->
                 <div class="  bg-danger">
@@ -50,7 +50,7 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6  bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6 bg-danger">
 
                 <!--Image-->
                 <div class=" bg-danger">
@@ -61,7 +61,7 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6  bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6 bg-danger">
 
                 <!--Image-->
                 <div class=" bg-danger">
@@ -72,7 +72,7 @@
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-2 col-md-6  bg-danger">
+            <div class="col-lg-2 col-md-6 col-sm-6 bg-danger">
 
                 <!--Image-->
                 <div class=" bg-danger">

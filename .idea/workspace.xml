@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dd68fcd3-a1ad-44aa-b5bf-e6bf7827e184" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFS/app/controller/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/controller/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SFS/app/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SFS/app/view/template/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/template/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SFS/assets/style/mycss.css" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/assets/style/mycss.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,15 +49,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1866" />
-          <entry key="php" value="12972" />
+          <entry key="css" value="1872" />
+          <entry key="php" value="13126" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1866" />
+          <entry key="CSS" value="1872" />
           <entry key="HTML" value="14" />
-          <entry key="PHP" value="12958" />
+          <entry key="PHP" value="13112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -71,17 +72,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SFS/app/controller/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="117" column="40" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
+            <state relative-caret-position="1">
+              <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SFS/app/view/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            <state relative-caret-position="360">
+              <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -122,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SFS/app/view/template/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            <state relative-caret-position="252">
+              <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
               </folding>
@@ -146,8 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SFS/assets/style/mycss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+            <state relative-caret-position="198">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -185,19 +186,19 @@
         <option value="$PROJECT_DIR$/SFS/app/model/Usuario.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/rota.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/template/scriptImage.php" />
-        <option value="$PROJECT_DIR$/SFS/app/view/home.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/template/header.php" />
         <option value="$PROJECT_DIR$/SFS/app/crud/CRUD_usuario.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/login.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/cadastro.php" />
         <option value="$PROJECT_DIR$/SFS/app/model/Local.php" />
-        <option value="$PROJECT_DIR$/SFS/app/controller/Home.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/editRota.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/admin.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/template/navbar.php" />
         <option value="$PROJECT_DIR$/SFS/app/model/Conexao.php" />
         <option value="$PROJECT_DIR$/SFS/assets/style/mycss.css" />
+        <option value="$PROJECT_DIR$/SFS/app/controller/Home.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/template/footer.php" />
+        <option value="$PROJECT_DIR$/SFS/app/view/home.php" />
       </list>
     </option>
   </component>
@@ -274,6 +275,19 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turismo_sfs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turismo_sfs" type="462c0819:PsiDirectoryNode" />
+              <item name="SFS" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turismo_sfs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turismo_sfs" type="462c0819:PsiDirectoryNode" />
+              <item name="SFS" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -353,12 +367,12 @@
       <workItem from="1544201629560" duration="2287000" />
       <workItem from="1544439279992" duration="4877000" />
       <workItem from="1544523147463" duration="10579000" />
-      <workItem from="1544552452248" duration="5201000" />
+      <workItem from="1544552452248" duration="5970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73194000" />
+    <option name="totallyTimeSpent" value="73963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -506,20 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SFS/app/controller/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="117" column="40" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SFS/app/view/template/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SFS/app/crud/CRUD_rota.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -531,13 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="120" column="37" selection-start-line="120" selection-start-column="37" selection-end-line="120" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SFS/app/view/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -557,18 +550,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SFS/assets/style/mycss.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+        <state relative-caret-position="198">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SFS/app/controller/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="105" column="1" lean-forward="true" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SFS/app/view/template/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SFS/app/view/template/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        <state relative-caret-position="252">
+          <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SFS/app/view/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="92" column="22" selection-start-line="92" selection-start-column="22" selection-end-line="92" selection-end-column="22" />
         </state>
       </provider>
     </entry>

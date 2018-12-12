@@ -18,7 +18,7 @@
 
 @media only screen and (min-width: 600px) {
     .carde{
-        height: 50em;
+        height: 25em;
     }
 
     .tituloCard{
@@ -34,7 +34,7 @@
     .tituloCard{
         font-size: 2em;
     }
-    
+
 
 }
 
