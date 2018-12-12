@@ -7,6 +7,7 @@
  */
 require_once '../model/Conexao.php';
 require_once '../model/Imagem_rota.php';
+require_once '../model/Imagem_r.php';
 require_once '../model/Rota.php';
 class CRUD_Imagem_rota
 {
@@ -35,7 +36,7 @@ class CRUD_Imagem_rota
     }
 
     public function get_Imagem_r_maps(Rota $r){
-        $sql = "SELECT imagem_r.id_imagem, imagem_r.nome_imagem, imagem_r.local, imagem_r.maps FROM `imagem_rota`, rota, imagem_r WHERE imagem_rota.imagem_r_id_imagem = imagem_r.id_imagem AND imagem_rota.rota_id_rota = rota.id_rota AND imagem_rota.rota_id_rota = '{$r->getIdRota()}' AND imagem_r.maps = 1";
+        $sql = "SELECT * FROM `imagem_rota`, rota, imagem_r WHERE imagem_rota.imagem_r_id_imagem = imagem_r.id_imagem AND imagem_rota.rota_id_rota = rota.id_rota AND imagem_rota.rota_id_rota = {$r->getIdRota()} AND imagem_r.maps = 1";
 
         try{
             $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -81,3 +82,4 @@ class CRUD_Imagem_rota
 }
 
 //Teste FEITO
+

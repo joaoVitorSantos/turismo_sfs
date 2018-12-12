@@ -1,3 +1,12 @@
+<script>
+    $(document).ready(function () {
+       $('#btnIr').click(function () {
+           var end = $(this).attr('name');
+           window.open(end);
+       });
+    });
+</script>
+
 <body>
 <div class="container">
     <div class="card bg-dark" style="margin-top: 2em">
@@ -16,6 +25,14 @@
             <div class="card-footer">
                 Tempo Médio: <?= $res->getTempoMedio() ?>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 text-center fundo rounded">
+            <h3 class="rotaM">Rota no Maps</h3>
+            <img class="img-fluid rounded" src="../../assets/images/maps/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
+            <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
     </div>
 </div>

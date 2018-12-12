@@ -8,15 +8,16 @@ class Rota
     private $tempo_medio;
     private $imagem_perfil;
     private $descricao;
+    private $link;
 
-    public function __construct($id_rota = null,$nome_rota = null, $tempo_medio = null, $imagem_perfil = null, $descricao = null)
+    public function __construct($id_rota = null,$nome_rota = null, $tempo_medio = null, $imagem_perfil = null, $descricao = null, $link = null)
     {
         $this->id_rota = $id_rota;
         $this->nome_rota = $nome_rota;
         $this->tempo_medio = $tempo_medio;
         $this->imagem_perfil = $imagem_perfil;
         $this->descricao = $descricao;
-
+        $this->link = $link;
     }
 
     public function getIdRota()
@@ -76,6 +77,16 @@ class Rota
     public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
+    }
+
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    public function setLink($link)
+    {
+        $this->link = $link;
     }
 
 }

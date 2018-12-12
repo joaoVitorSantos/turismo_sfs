@@ -21,7 +21,7 @@ class CRUD_rota
             return false;
         }
 
-        $rotaO = new Rota($resultado['id_rota'], $resultado['nome_rota'], $resultado['tempo_medio'], $resultado['imagem_perfil'], $resultado['descricao']);
+        $rotaO = new Rota($resultado['id_rota'], $resultado['nome_rota'], $resultado['tempo_medio'], $resultado['imagem_perfil'], $resultado['descricao'], $resultado['link']);
 
         return $rotaO;
 
@@ -40,7 +40,7 @@ class CRUD_rota
         $rotas = array();
 
         foreach ($resultado as $r){
-            $rota = new Rota($r['id_rota'], $r['nome_rota'], $r['tempo_medio'], $r['imagem_perfil'], $r['descricao']);
+            $rota = new Rota($r['id_rota'], $r['nome_rota'], $r['tempo_medio'], $r['imagem_perfil'], $r['descricao'], $r['link']);
             $rotas[] = $rota;
         }
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Dez-2018 às 19:52
--- Versão do servidor: 10.1.35-MariaDB
--- versão do PHP: 7.2.9
+-- Generation Time: 12-Dez-2018 às 22:13
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -84,6 +84,13 @@ CREATE TABLE `imagem_r` (
   `maps` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `imagem_r`
+--
+
+INSERT INTO `imagem_r` (`id_imagem`, `nome_imagem`, `local`, `maps`) VALUES
+(1, 'fotoprincipal.jpg', 'alow', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +101,13 @@ CREATE TABLE `imagem_rota` (
   `imagem_r_id_imagem` int(11) NOT NULL,
   `rota_id_rota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `imagem_rota`
+--
+
+INSERT INTO `imagem_rota` (`imagem_r_id_imagem`, `rota_id_rota`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -127,17 +141,18 @@ CREATE TABLE `rota` (
   `nome_rota` varchar(150) NOT NULL,
   `tempo_medio` varchar(150) NOT NULL,
   `imagem_perfil` varchar(150) NOT NULL,
-  `descricao` varchar(5000) NOT NULL
+  `descricao` varchar(5000) NOT NULL,
+  `link` varchar(1500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `rota`
 --
 
-INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`) VALUES
-(1, 'Rota Religiosa', '30 minutos', 'FOTO PRINCIPAL.jpg', 'Uma rota muito recomendada...'),
-(2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...'),
-(3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ');
+INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`, `link`) VALUES
+(1, 'Rota Religiosa', '30 minutos', 'FOTO PRINCIPAL.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
+(2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...', NULL),
+(3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ', NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +282,7 @@ ALTER TABLE `imagem_l`
 -- AUTO_INCREMENT for table `imagem_r`
 --
 ALTER TABLE `imagem_r`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `local`
@@ -318,18 +333,6 @@ ALTER TABLE `imagem_local`
 ALTER TABLE `imagem_rota`
   ADD CONSTRAINT `fk_imagem_r_has_rota_imagem_r1` FOREIGN KEY (`imagem_r_id_imagem`) REFERENCES `imagem_r` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_imagem_r_has_rota_rota1` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `local`
---
-ALTER TABLE `local`
-  ADD CONSTRAINT `a` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `tipo_usuario_id_tipo_usuario` FOREIGN KEY (`tipo_usuario_id_tipo_usuario`) REFERENCES `tipo_usuario` (`id_tipo_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
