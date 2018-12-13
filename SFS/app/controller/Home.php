@@ -194,6 +194,10 @@ else {
             viewRotaAdm($_POST['id']);
             break;
 
+        case 'editaRota':
+            print_r($_POST);
+            break;
+
         default:
             index();
             break;

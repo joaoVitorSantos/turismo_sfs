@@ -191,7 +191,7 @@ hr{
 }
 
 .img_miniatura_index{
-    height: 10em !important;
+    height: 12em !important;
 }
 
 #btnIr{
@@ -210,6 +210,14 @@ hr{
 .rotaM{
     margin-bottom: 0.8em;
     font-family: Cocogoose;
+}
+
+.linhaForm{
+    margin: 2em 0 2em 0;
+}
+
+.btnEnviar{
+    width: 100%;
 }
 
 
