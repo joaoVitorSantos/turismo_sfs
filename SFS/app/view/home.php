@@ -23,7 +23,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="height: 40em !important;">
+        <div class="carousel-inner" style="height: 20em !important;">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="../../assets/images/ROTA%203.jpg" alt="First slide">
             </div>
@@ -31,7 +31,7 @@
                 <img class="d-block w-100"  src="../../assets/images/fotoprincipal.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/images/ROTA%203.jpg" alt="Third slide">
+                <img class="d-block w-100" src="../../assets/images/maps/fotoprincipal.jpg" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -46,7 +46,7 @@
 
     <div class="rounded-top">
     <div class="row ">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" style="margin-top: 1em;">
             <h1 id="tituloR" class="rotaTitulo">Rotas <img id="iconDrop" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
         </div>
     </div>

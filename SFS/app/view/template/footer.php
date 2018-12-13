@@ -32,7 +32,7 @@
 
                 <!--Image-->
                 <div class="  ">
-                    <a href="https://www.hoteisvillareal.com.br/hotel-sao-francisco-do-sul/"><img src="../../assets/images/hoteisVilareal.png" class="img-fluid" alt=""></a>
+                    <a href="#" class="patrocionio" id="https://www.hoteisvillareal.com.br/hotel-sao-francisco-do-sul/"><img src="../../assets/images/hoteisVilareal.png" class="img-fluid" alt=""></a>
                 </div>
 
             </div>
@@ -87,6 +87,14 @@
     <!-- Footer Elements -->
 </footer>
 <!-- Footer -->
+
+<script>
+    $(document).ready(function () {
+       $('.patrocionio').click(function () {
+          window.open($(this).attr('id'));
+       });
+    });
+</script>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <form method="post" action="Home.php">
-    <button class="navbar-brand btn btn-danger titulonav" type="submit">Click São Chico</button>
+        <button class="navbar-brand btn btn-danger titulonav" type="submit">Click São Chico</button>
     </form>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -11,9 +11,10 @@
         <ul class="navbar-nav mr-auto">
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" action="Home.php" method="post">
+            <input class="text-hide" name="acao" value="pesquisa">
+            <input class="form-control mr-sm-2" type="search" name="termo" placeholder="Procure" aria-label="Search">
+            <button class="btn btn-success my-2 my-sm-0" id="btnSearch" type="submit">Procurar</button>
         </form>
 
         <?php if(!isset($_SESSION['tipo'])){

@@ -6,6 +6,7 @@ session_start();
 require_once '../crud/CRUD_rota.php';
 require_once '../crud/CRUD_local.php';
 require_once '../crud/CRUD_usuario.php';
+require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
 
 $c = new CRUD_rota();
@@ -123,6 +124,18 @@ function viewRotaAdm($id){
     include_once '../view/template/footer.php';
 }
 
+function pesquisa($termo){
+    $c = new CRUD_Pesquisa();
+
+    $resultado = $c->pesquisa($termo);
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/resPes.php';
+    include_once '../view/template/footer.php';
+
+}
+
 
 if (!isset($_POST['acao'])){
 
@@ -195,7 +208,10 @@ else {
             break;
 
         case 'editaRota':
-            print_r($_POST);
+            break;
+
+        case 'pesquisa':
+            pesquisa($_POST['termo']);
             break;
 
         default:
