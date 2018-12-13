@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Dez-2018 às 22:13
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: 13-Dez-2018 às 13:44
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `turismo_sfs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `curtir_estabelecimento`
+--
+
+CREATE TABLE `curtir_estabelecimento` (
+  `estabelecimento_id_estabelecimento` int(11) NOT NULL,
+  `usuario_id_usuario` int(11) NOT NULL,
+  `dt_curtir` varchar(45) NOT NULL,
+  `avaliacao` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,6 +59,21 @@ CREATE TABLE `curtir_rota` (
   `usuario_id_usuario` int(11) NOT NULL,
   `dt_curtir` varchar(45) NOT NULL,
   `avaliacao` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estabelecimento`
+--
+
+CREATE TABLE `estabelecimento` (
+  `id_estabelecimento` int(11) NOT NULL,
+  `nome_estabelecimento` varchar(150) NOT NULL,
+  `link_site` varchar(1000) DEFAULT NULL,
+  `link_maps` varchar(1500) NOT NULL,
+  `imagem_perfil` varchar(200) NOT NULL,
+  `tipo_estabelecimento_id_tipo_estabelecimento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -119,16 +147,15 @@ CREATE TABLE `local` (
   `id_local` int(11) NOT NULL,
   `nome_local` varchar(150) NOT NULL,
   `descricao` varchar(5000) NOT NULL,
-  `imagem_perfil` varchar(250) NOT NULL,
-  `rota_id_rota` int(11) NOT NULL
+  `imagem_perfil` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `local`
 --
 
-INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`, `rota_id_rota`) VALUES
-(1, 'Local 1', 'descricao do local 1', '123.jpg', 0);
+INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`) VALUES
+(1, 'Local 1', 'descricao do local 1', '123.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,6 +180,28 @@ INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `des
 (1, 'Rota Religiosa', '30 minutos', 'FOTO PRINCIPAL.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
 (2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...', NULL),
 (3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `rota_local`
+--
+
+CREATE TABLE `rota_local` (
+  `rota_id_rota` int(11) NOT NULL,
+  `local_id_local` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_estabelecimento`
+--
+
+CREATE TABLE `tipo_estabelecimento` (
+  `id_tipo_estabelecimento` int(11) NOT NULL,
+  `desc` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -203,6 +252,13 @@ INSERT INTO `usuario` (`id_usuario`, `email`, `senha`, `user`, `tipo_usuario_id_
 --
 
 --
+-- Indexes for table `curtir_estabelecimento`
+--
+ALTER TABLE `curtir_estabelecimento`
+  ADD KEY `fk_estabelecimento_has_usuario_estabelecimento1` (`estabelecimento_id_estabelecimento`),
+  ADD KEY `fk_estabelecimento_has_usuario_usuario1` (`usuario_id_usuario`);
+
+--
 -- Indexes for table `curtir_local`
 --
 ALTER TABLE `curtir_local`
@@ -215,6 +271,13 @@ ALTER TABLE `curtir_local`
 ALTER TABLE `curtir_rota`
   ADD KEY `fk_rota_has_usuario_rota1` (`rota_id_rota`),
   ADD KEY `fk_rota_has_usuario_usuario1` (`usuario_id_usuario`);
+
+--
+-- Indexes for table `estabelecimento`
+--
+ALTER TABLE `estabelecimento`
+  ADD PRIMARY KEY (`id_estabelecimento`),
+  ADD KEY `fk_estabelecimento_tipo_estabelecimento1` (`tipo_estabelecimento_id_tipo_estabelecimento`);
 
 --
 -- Indexes for table `imagem_l`
@@ -246,14 +309,26 @@ ALTER TABLE `imagem_rota`
 -- Indexes for table `local`
 --
 ALTER TABLE `local`
-  ADD PRIMARY KEY (`id_local`),
-  ADD KEY `fk_local_has_rota` (`rota_id_rota`);
+  ADD PRIMARY KEY (`id_local`);
 
 --
 -- Indexes for table `rota`
 --
 ALTER TABLE `rota`
   ADD PRIMARY KEY (`id_rota`);
+
+--
+-- Indexes for table `rota_local`
+--
+ALTER TABLE `rota_local`
+  ADD KEY `fk_rota_has_local_rota1` (`rota_id_rota`),
+  ADD KEY `fk_rota_has_local_local1` (`local_id_local`);
+
+--
+-- Indexes for table `tipo_estabelecimento`
+--
+ALTER TABLE `tipo_estabelecimento`
+  ADD PRIMARY KEY (`id_tipo_estabelecimento`);
 
 --
 -- Indexes for table `tipo_usuario`
@@ -307,6 +382,13 @@ ALTER TABLE `usuario`
 --
 
 --
+-- Limitadores para a tabela `curtir_estabelecimento`
+--
+ALTER TABLE `curtir_estabelecimento`
+  ADD CONSTRAINT `fk_estabelecimento_has_usuario_estabelecimento1` FOREIGN KEY (`estabelecimento_id_estabelecimento`) REFERENCES `estabelecimento` (`id_estabelecimento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_estabelecimento_has_usuario_usuario1` FOREIGN KEY (`usuario_id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Limitadores para a tabela `curtir_local`
 --
 ALTER TABLE `curtir_local`
@@ -321,6 +403,12 @@ ALTER TABLE `curtir_rota`
   ADD CONSTRAINT `fk_rota_has_usuario_usuario1` FOREIGN KEY (`usuario_id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Limitadores para a tabela `estabelecimento`
+--
+ALTER TABLE `estabelecimento`
+  ADD CONSTRAINT `fk_estabelecimento_tipo_estabelecimento1` FOREIGN KEY (`tipo_estabelecimento_id_tipo_estabelecimento`) REFERENCES `tipo_estabelecimento` (`id_tipo_estabelecimento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Limitadores para a tabela `imagem_local`
 --
 ALTER TABLE `imagem_local`
@@ -333,6 +421,19 @@ ALTER TABLE `imagem_local`
 ALTER TABLE `imagem_rota`
   ADD CONSTRAINT `fk_imagem_r_has_rota_imagem_r1` FOREIGN KEY (`imagem_r_id_imagem`) REFERENCES `imagem_r` (`id_imagem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_imagem_r_has_rota_rota1` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `rota_local`
+--
+ALTER TABLE `rota_local`
+  ADD CONSTRAINT `fk_rota_has_local_local1` FOREIGN KEY (`local_id_local`) REFERENCES `local` (`id_local`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_rota_has_local_rota1` FOREIGN KEY (`rota_id_rota`) REFERENCES `rota` (`id_rota`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `b` FOREIGN KEY (`tipo_usuario_id_tipo_usuario`) REFERENCES `tipo_usuario` (`id_tipo_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
