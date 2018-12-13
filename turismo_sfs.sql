@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Dez-2018 às 13:44
+-- Generation Time: 13-Dez-2018 às 17:30
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `curtir_estabelecimento` (
   `estabelecimento_id_estabelecimento` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` varchar(45) NOT NULL,
+  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -44,7 +44,7 @@ CREATE TABLE `curtir_estabelecimento` (
 CREATE TABLE `curtir_local` (
   `local_id_local` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` varchar(45) NOT NULL,
+  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,7 +57,7 @@ CREATE TABLE `curtir_local` (
 CREATE TABLE `curtir_rota` (
   `rota_id_rota` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` varchar(45) NOT NULL,
+  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -75,6 +75,13 @@ CREATE TABLE `estabelecimento` (
   `imagem_perfil` varchar(200) NOT NULL,
   `tipo_estabelecimento_id_tipo_estabelecimento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `estabelecimento`
+--
+
+INSERT INTO `estabelecimento` (`id_estabelecimento`, `nome_estabelecimento`, `link_site`, `link_maps`, `imagem_perfil`, `tipo_estabelecimento_id_tipo_estabelecimento`) VALUES
+(1, 'Cabana do Zé', 'www.ze.com.br', 'https:jmmdwmkdmdkmddkmdkm', 'loja.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +199,13 @@ CREATE TABLE `rota_local` (
   `local_id_local` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `rota_local`
+--
+
+INSERT INTO `rota_local` (`rota_id_rota`, `local_id_local`) VALUES
+(3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -202,6 +216,13 @@ CREATE TABLE `tipo_estabelecimento` (
   `id_tipo_estabelecimento` int(11) NOT NULL,
   `desc` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipo_estabelecimento`
+--
+
+INSERT INTO `tipo_estabelecimento` (`id_tipo_estabelecimento`, `desc`) VALUES
+(1, 'Gastronomia');
 
 -- --------------------------------------------------------
 
@@ -348,6 +369,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `estabelecimento`
+--
+ALTER TABLE `estabelecimento`
+  MODIFY `id_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `imagem_l`
 --
 ALTER TABLE `imagem_l`
@@ -370,6 +397,18 @@ ALTER TABLE `local`
 --
 ALTER TABLE `rota`
   MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tipo_estabelecimento`
+--
+ALTER TABLE `tipo_estabelecimento`
+  MODIFY `id_tipo_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `usuario`
