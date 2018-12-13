@@ -1,3 +1,18 @@
+<script>
+    $(document).ready(function () {
+        var id = 1;
+
+        $('#addImg').click(function () {
+            id +=1;
+            $('.imagens').append('<div class="form-group">\n' +
+                '                        <div class="custom-file">\n' +
+                '                        <input type="file" name="outrasFotos' + id +'" class="custom-file-input" id="outrasFotos' + id + '">\n' +
+                '                        <label class="custom-file-label" for="customFile">Outras Fotos</label>\n' +
+                '                        </div>\n' +
+                '                    </div>')
+        });
+    });
+</script>
 <body>
     <div class="container">
         <div class="row linhaForm">
@@ -22,6 +37,28 @@
                         <label for="link">Link Maps</label>
                         <textarea style="height: 10em" required name="link" class="form-control" id="link" placeholder="Ex: http://google.com"><?= $r->getLink() ?></textarea>
                     </div>
+                    <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="fotoMaps" class="custom-file-input" id="fotoMaps">
+                        <label class="custom-file-label" for="customFile">Foto do Maps</label>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="fotoPrincipal" class="custom-file-input" id="fotoPrincipal">
+                        <label class="custom-file-label" for="customFile">Foto Principal da Rota</label>
+                    </div>
+                    </div>
+                    <div class="imagens">
+                    <div class="form-group">
+                        <div class="custom-file">
+                        <input type="file" name="outrasFotos1" class="custom-file-input" id="outrasFotos1">
+                        <label class="custom-file-label" for="customFile">Outras Fotos</label>
+                        </div>
+                    </div>
+                    </div>
+                    <a class="btn btn-info text-center text-white" id="addImg">+</a>
+                    <br>
                     <input type="text" class="text-hide" value="editaRota" name="acao">
                     <input type="text" class="text-hide" value="<?= $r->getIdRota() ?>" name="id">
                     <button type="submit" class="btn btn-primary btnEnviar">Enviar</button>
