@@ -43,18 +43,30 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento']);
-            $locais[] = $loca;
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
         }
 
-        return $locais;
+        return $estabelecimentos;
+
+    }
+
+    public function createEstabelecimento(Estabelecimento $l){
+        $sql = "INSERT INTO `estabelecimento`(`nome_estabelecimento`, `link_site`, `link_maps`, `imagem_perfil`, `tipo_estabelecimento_id_tipo_estabelecimento`) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
 
     }
 }
 
 //Teste
 
-$a = new Estabelecimento(1, "a", "a", "a", "a", 1);
+$a = new Estabelecimento("", "a", "a", "a", "a", 1);
 $b = new CRUD_estabelecimento();
-$c = $b->getEstabelecimento($a);
-print_r($c);
+$b->createEstabelecimento($a);
