@@ -52,7 +52,7 @@ class CRUD_estabelecimento
     }
 
     public function createEstabelecimento(Estabelecimento $l){
-        $sql = "INSERT INTO `estabelecimento`(`nome_estabelecimento`, `link_site`, `link_maps`, `imagem_perfil`, `tipo_estabelecimento_id_tipo_estabelecimento`) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
+        $sql = "INSERT INTO estabelecimento(nome_estabelecimento, link_site, link_maps, imagem_perfil, tipo_estabelecimento_id_tipo_estabelecimento) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -63,10 +63,29 @@ class CRUD_estabelecimento
         return true;
 
     }
+
+    public function updateEstabelecimento(Estabelecimento $l){
+        $sql = "UPDATE `estabelecimento` SET nome_estabelecimento='{$l->getNomeEstabelecimento()}',`link_site`='{$l->getLinkSite()}', link_maps = '{$l->getLinkMaps()}', imagem_perfil = '{$l->getImagemPerfil()}', tipo_estabelecimento_id_tipo_estabelecimento = '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}'
+                WHERE id_estabelecimento = {$l->getIdEstabelecimento()}";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
+
+    }
+
+    public function deleteEstabelecimento(Estabelecimento $estabelecimento){
+        $sql1 = "DELETE FROM `curtir_estabelecimento` WHERE `estabelecimento_id_estabelecimento` = '{$estabelecimento->getIdEstabelecimento()}'";
+        $this->conexao->exec($sql1);
+        $sql2 = "DELETE FROM `estabelecimento` WHERE id_estabelecimento = '{$estabelecimento->getIdEstabelecimento()}'";
+        $this->conexao->exec($sql2);
+    }
 }
 
-//Teste
+//Teste FEITO
 
-$a = new Estabelecimento("", "a", "a", "a", "a", 1);
-$b = new CRUD_estabelecimento();
-$b->createEstabelecimento($a);
+

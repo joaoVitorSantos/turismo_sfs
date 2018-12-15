@@ -8,7 +8,7 @@
 
 class Estabelecimento
 {
-    private $id_estabelecimento;
+    private $id_estabelecimento = null;
     private $nome_estabelecimento;
     private $link_site;
     private $link_maps;
