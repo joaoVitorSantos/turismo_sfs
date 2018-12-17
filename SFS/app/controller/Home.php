@@ -143,41 +143,60 @@ function editaRota(){
     $cI = new CRUD_Imagem_r();
     $cIR = new CRUD_Imagem_rota();
 
+    $rV = new Rota($_POST['id']);
+    $rotaV = $c->getRota($rV);
+
     $count = count($_FILES) - 2;
 
+    if($_FILES['fotoMaps']['size'] != 0) {
 
-    $nomearq = date('dmYhis').$_FILES['fotoMaps']['name'];
-    move_uploaded_file($_FILES['fotoMaps']['tmp_name'], '../../assets/images/'.$nomearq);
-    $imM = new Imagem_r($nomearq,null,1);
-    $cI->create_imagem_r($imM);
 
-    $id = $cI->getLast();
-
-    $imgR = new Imagem_rota($id, $_POST['id']);
-
-    $cIR->create_imagem_rota($imgR);
-
-    $nomearq = date('dmYhis').$_FILES['fotoPrincipal']['name'];
-    move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/'.$nomearq);
-
-    $rota = new Rota($_POST['id'], $_POST['nome'], $_POST['tempo_medio'], $nomearq, $_POST['descricao']);
-    $c->updateRota($rota);
-
-    for ($i = 1; $i <= $count; $i++){
-        $nomearq = date('dmYhis').$_FILES['outrasFotos'.$i]['name'];
-        move_uploaded_file($_FILES['outrasFotos'.$i]['tmp_name'], '../../assets/images/'.$nomearq);
-
-        $im = new Imagem_r($nomearq, null, 0);
-        $cI->create_imagem_r($im);
-
+        $nomearq = date('dmYhis') . $_FILES['fotoMaps']['name'];
+        move_uploaded_file($_FILES['fotoMaps']['tmp_name'], '../../assets/images/' . $nomearq);
+        $imM = new Imagem_r($nomearq, null, 1);
+        $cI->create_imagem_r($imM);
         $id = $cI->getLast();
 
+        $del = $cIR->get_Imagem_r_maps($rotaV);
+        $asd = new Imagem_rota($del->getIdImagem(), $rotaV->getIdRota());
+        $cIR->delete_Imagem_rota($asd);
+        $cI->delete_Imagem_r($del);
+
         $imgR = new Imagem_rota($id, $_POST['id']);
+
         $cIR->create_imagem_rota($imgR);
 
     }
 
+    if ($_FILES['fotoPrincipal']['size'] != 0) {
+        $ft_principal = date('dmYhis') . $_FILES['fotoPrincipal']['name'];
+        move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/' . $ft_principal);
+    }else{
+        $ft_principal = $rV->getImagemPerfil();
+    }
+
+    $rota = new Rota($_POST['id'], $_POST['nome'], $_POST['tempo_medio'], $ft_principal, $_POST['descricao']);
+    $c->updateRota($rota);
+
+    if ($_FILES['outrasFotos1']['size'] != 0){
+        for ($i = 1; $i <= $count; $i++){
+            $nomearq = date('dmYhis').$_FILES['outrasFotos'.$i]['name'];
+            move_uploaded_file($_FILES['outrasFotos'.$i]['tmp_name'], '../../assets/images/'.$nomearq);
+
+            $im = new Imagem_r($nomearq, null, 0);
+            $cI->create_imagem_r($im);
+
+            $id = $cI->getLast();
+
+            $imgR = new Imagem_rota($id, $_POST['id']);
+            $cIR->create_imagem_rota($imgR);
+
+        }
+    }
+
     header('location: Home.php');
+
+    //print_r($_FILES);
 
 }
 

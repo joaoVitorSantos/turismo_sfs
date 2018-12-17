@@ -82,7 +82,7 @@
 
         <div class="col-md-7 float-left text-center fundo rounded">
             <h3 class="rotaM">Rota no Maps</h3>
-            <img class="img-fluid rounded" src="../../assets/images/maps/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
+            <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
             <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
 
