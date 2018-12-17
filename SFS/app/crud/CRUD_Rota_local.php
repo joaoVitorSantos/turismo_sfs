@@ -44,7 +44,7 @@ class CRUD_Rota_local
     }
 
     public function get_rotas_por_local(Rota_local $r){
-        $sql = "SELECT rota.id_rota, rota.nome_rota, rota.tempo_medio, rota.imagem_perfil, rota.descricao, rota.link FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND local.id_local = '{}'"
+        $sql = "SELECT rota.id_rota, rota.nome_rota, rota.tempo_medio, rota.imagem_perfil, rota.descricao, rota.link FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND local.id_local = '{}'";
     }
 }
 

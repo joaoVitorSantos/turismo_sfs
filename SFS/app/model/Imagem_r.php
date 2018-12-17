@@ -10,7 +10,7 @@ class Imagem_r
 
 
 
-    public function __construct($nome_imagem, $local, $maps)
+    public function __construct($nome_imagem=null, $local=null, $maps=null)
     {
         $this->nome_imagem = $nome_imagem;
         $this->local = $local;

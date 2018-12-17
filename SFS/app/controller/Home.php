@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -8,6 +9,7 @@ require_once '../crud/CRUD_local.php';
 require_once '../crud/CRUD_usuario.php';
 require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
+require_once '../crud/CRUD_Imagem_r.php';
 
 $c = new CRUD_rota();
 
@@ -136,6 +138,49 @@ function pesquisa($termo){
 
 }
 
+function editaRota(){
+    $c= new CRUD_rota();
+    $cI = new CRUD_Imagem_r();
+    $cIR = new CRUD_Imagem_rota();
+
+    $count = count($_FILES) - 2;
+
+
+    $nomearq = date('dmYhis').$_FILES['fotoMaps']['name'];
+    move_uploaded_file($_FILES['fotoMaps']['tmp_name'], '../../assets/images/'.$nomearq);
+    $imM = new Imagem_r($nomearq,null,1);
+    $cI->create_imagem_r($imM);
+
+    $id = $cI->getLast();
+
+    $imgR = new Imagem_rota($id, $_POST['id']);
+
+    $cIR->create_imagem_rota($imgR);
+
+    $nomearq = date('dmYhis').$_FILES['fotoPrincipal']['name'];
+    move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/'.$nomearq);
+
+    $rota = new Rota($_POST['id'], $_POST['nome'], $_POST['tempo_medio'], $nomearq, $_POST['descricao']);
+    $c->updateRota($rota);
+
+    for ($i = 1; $i <= $count; $i++){
+        $nomearq = date('dmYhis').$_FILES['outrasFotos'.$i]['name'];
+        move_uploaded_file($_FILES['outrasFotos'.$i]['tmp_name'], '../../assets/images/'.$nomearq);
+
+        $im = new Imagem_r($nomearq, null, 0);
+        $cI->create_imagem_r($im);
+
+        $id = $cI->getLast();
+
+        $imgR = new Imagem_rota($id, $_POST['id']);
+        $cIR->create_imagem_rota($imgR);
+
+    }
+
+    header('location: Home.php');
+
+}
+
 
 if (!isset($_POST['acao'])){
 
@@ -208,6 +253,7 @@ else {
             break;
 
         case 'editaRota':
+            editaRota();
             break;
 
         case 'pesquisa':

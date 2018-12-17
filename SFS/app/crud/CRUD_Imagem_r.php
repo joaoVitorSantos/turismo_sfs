@@ -34,6 +34,14 @@ class CRUD_Imagem_r
 
     }
 
+    public function getLast(){
+        $sql = "SELECT max(id_imagem) as id FROM imagem_r";
+
+        $id = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $id['id'];
+
+    }
+
     public function get_Imagem_r(Imagem_r $i){
         $sql = "SELECT * FROM imagem_r WHERE id_imagem = '{$i->getIdImagem()}'";
 
