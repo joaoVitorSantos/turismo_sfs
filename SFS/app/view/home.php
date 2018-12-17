@@ -23,15 +23,15 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="height: 20em !important;">
+        <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="../../assets/images/ROTA%203.jpg" alt="First slide">
+                <img class="d-block w-100" src="../../assets/images/Gastronomia.png" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100"  src="../../assets/images/fotoprincipal.jpg" alt="Second slide">
+                <img class="d-block w-100"  src="../../assets/images/Gastronomia.png" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/images/maps/fotoprincipal.jpg" alt="Third slide">
+                <img class="d-block w-100" src="../../assets/images/Gastronomia.png" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
