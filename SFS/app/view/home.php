@@ -74,7 +74,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
                         <p class="card-text"><?= $r->getDescricao() ?>
-                        <form class="" method="post" action="Home.php">
+                        <form class="" method="post" action="RotaController.php">
                             <input class="text-hide" value="ver" name="acao">
                             <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
                             <button class="btn btn-outline-primary" type="submit">Ver</button>

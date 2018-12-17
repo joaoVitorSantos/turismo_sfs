@@ -30,8 +30,8 @@ class CRUD_Rota_local
     }
 
     public function get_locais_por_rota(Rota_local $r){
-       $sql = "SELECT local.id_local, local.nome_local, local.descricao, local.imagem_perfil FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND rota.id_rota = '{$r->getIdRota()}'";
-       $res = $this->conexao->query($sql);
+        $sql = "SELECT local.id_local, local.nome_local, local.descricao, local.imagem_perfil FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND rota.id_rota = '{$r->getIdRota()}'";
+        $res = $this->conexao->query($sql);
 
         $locais = array();
 
@@ -44,14 +44,18 @@ class CRUD_Rota_local
     }
 
     public function get_rotas_por_local(Rota_local $r){
-        $sql = "SELECT rota.id_rota, rota.nome_rota, rota.tempo_medio, rota.imagem_perfil, rota.descricao, rota.link FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND local.id_local = '{}'";
+        $sql = "SELECT rota.id_rota, rota.nome_rota, rota.tempo_medio, rota.imagem_perfil, rota.descricao, rota.link FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND local.id_local = '{$r->getIdLocal()}'";
+        $res = $this->conexao->query($sql);
+
+        $rotas = array();
+
+        foreach ($res as $r){
+            $rota = new Rota($r['id_rota'], $r['nome_rota'], $r['tempo_medio'], $r['imagem_perfil'], $r['descricao'], $r['link']);
+            $rotas[] = $rota;
+        }
+
+        return $rotas;
     }
 }
 
-//Teste
-
-$a = new Rota_local(3, 1);
-$b = new CRUD_Rota_local();
-$b->create_Rota_local($a);
-$c = $b->get_locais_por_rota($a);
-print_r($c);
+//Teste FEITO

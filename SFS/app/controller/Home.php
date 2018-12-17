@@ -1,7 +1,9 @@
 
 <?php
 
-session_start();
+if (!isset($_SESSION['tipo'])) {
+    session_start();
+}
 
 
 require_once '../crud/CRUD_rota.php';
@@ -13,20 +15,6 @@ require_once '../crud/CRUD_Imagem_r.php';
 
 $c = new CRUD_rota();
 
-function loadRota(){
-    $c = new CRUD_rota();
-    $ro = new Rota($_POST['id_rota']);
-    $res = $c->getRota($ro);
-
-    $m = new CRUD_Imagem_rota();
-    $imgMaps = $m->get_Imagem_r_maps($ro);
-
-    include_once '../view/template/header.php';
-    include_once '../view/template/navbar.php';
-    include_once '../view/rota.php';
-    include_once '../view/template/footer.php';
-
-}
 
 function loadLogin(){
     include_once '../view/template/header.php';
@@ -235,10 +223,6 @@ if (!isset($_POST['acao'])){
 
 else {
     switch ($_POST['acao']) {
-        case 'ver':
-            loadRota();
-            break;
-
         case 'formLogin':
             loadLogin();
             break;

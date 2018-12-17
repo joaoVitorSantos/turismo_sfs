@@ -31,7 +31,20 @@ class CRUD_Curtir_rota
         return $curtir_rota;
     }
 
-    public function get_media_Curtidas_rota(Curtir_rota $c)
+    public function get_Curtir_r_verificacao(Curtir_rota $c)
+    {
+        $sql = "SELECT * FROM `curtir_rota` WHERE `rota_id_rota` = '{$c->getRotaIdRota()}' and `usuario_id_usuario` = '{$c->getUsuarioIdUsuario()}'";
+
+        try {
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return false;
+        }
+        $curtir_rota = new Curtir_rota($resultado['rota_id_rota'], $resultado['usuario_id_usuario'], $resultado['avaliacao']);
+        return $curtir_rota;
+    }
+
+    public function get_media_Curtidas_rota_round(Curtir_rota $c)
     {
         $sql = "SELECT AVG(avaliacao) as media FROM `curtir_rota` WHERE rota_id_rota = '{$c->getRotaIdRota()}'";
 
@@ -41,6 +54,19 @@ class CRUD_Curtir_rota
             return false;
         }
         $resultadoF = round($resultado['media']);
+        return $resultadoF;
+    }
+
+    public function get_media_Curtidas_rota(Curtir_rota $c)
+    {
+        $sql = "SELECT AVG(avaliacao) as media FROM `curtir_rota` WHERE rota_id_rota = '{$c->getRotaIdRota()}'";
+
+        try {
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return false;
+        }
+        $resultadoF = round($resultado['media'], 4);
         return $resultadoF;
     }
 
@@ -84,3 +110,4 @@ class CRUD_Curtir_rota
 }
 
 //Teste FEITO
+

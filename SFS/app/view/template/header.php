@@ -1,4 +1,9 @@
+<?php
+    if (!isset($_SESSION['tipo'])) {
+        session_start();
+    }
 
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>
