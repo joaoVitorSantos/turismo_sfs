@@ -282,9 +282,42 @@
             <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
             <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
+    </div>
+    <div class="container contLocais rounded">
+        <div class="bgLightGray rounded-top">
+            <div class="row ">
+                <div class="col-12 text-center">
+                    <h1 id="tituloL" class="rotaTitulo">Locais <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                </div>
+            </div>
+        </div>
 
+        <div class="locais rounded-bottom ">
+            <div class="row">
+                <?php foreach ($locais as $lo): ?>
 
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card carde">
+                            <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
+                                <p class="card-text"><?= $lo->getDescricao() ?>
+                                <form class="" method="post" action="Home.php">
+                                    <input class="text-hide" value="verL" name="acao">
+                                    <input class="text-hide" value="<?= $lo->getIdLocal() ?>" name="id_local">
+                                    <button class="btn btn-outline-primary" type="submit">Ver</button>
+                                </form>
+                            </div>
+                        </div>
 
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+        </div>
 
     </div>
+</div>
+
 </div>
