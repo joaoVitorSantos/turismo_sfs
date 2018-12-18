@@ -29,7 +29,7 @@ class CRUD_Rota_local
         $this->conexao->exec($sql);
     }
 
-    public function get_locais_por_rota(Rota_local $r){
+    public function get_locais_por_rota(Rota $r){
         $sql = "SELECT local.id_local, local.nome_local, local.descricao, local.imagem_perfil FROM `local`, rota, rota_local WHERE local.id_local = rota_local.local_id_local AND rota.id_rota = rota_local.rota_id_rota AND rota.id_rota = '{$r->getIdRota()}'";
         $res = $this->conexao->query($sql);
 
