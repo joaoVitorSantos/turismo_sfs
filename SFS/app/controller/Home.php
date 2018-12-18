@@ -1,9 +1,7 @@
 
 <?php
 
-if (!isset($_SESSION['tipo'])) {
     session_start();
-}
 
 
 require_once '../crud/CRUD_rota.php';

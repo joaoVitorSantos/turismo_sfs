@@ -1,7 +1,4 @@
 <?php
-    if (!isset($_SESSION['tipo'])) {
-        session_start();
-    }
 
 ?>
 <!doctype html>

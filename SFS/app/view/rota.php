@@ -6,8 +6,8 @@
        });
 
        var avaliacao = 0;
-       var id_usuario = $("#id_usuario").html();
-       var id_rota = $("#id_rota").html();
+       var id_usuario = $("#id_usuario").text();
+       var id_rota = $("#id_rota").text();
        var avaliacao_propria = $("#avaliacao_propria").html();
        var avaliacao_geral = $("#avaliacao_geral").html();
        var avaliacao_geral_real = $("#avaliacao_geral_real").html();
@@ -60,7 +60,25 @@
                     id_rota: id_rota
             },
              function(data){
-                location.reload();
+                 if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
+                     $('#5').attr('src','../../assets/images/estrelaN.jpg');
+                     $('#1').attr('src','../../assets/images/estrelaN.jpg');
+                     $('#2').attr('src','../../assets/images/estrelaN.jpg');
+                     $('#3').attr('src','../../assets/images/estrelaN.jpg');
+                     $('#4').attr('src','../../assets/images/estrelaN.jpg');
+                 }
+                 else{alert('Avaliação Cadastrada!');
+                     //location.reload();
+                     $.post("RotaController.php",
+                         {
+                             acao: 'avalMed',
+                             id_rota: id_rota
+                         },
+                         function (data) {
+                             $('#avaliacao_geral_real').text(data);
+                         }
+                     )
+                 }
             });
         });
 
@@ -79,7 +97,25 @@
                     id_rota: id_rota
                 },
                 function(data){
-                    location.reload()
+                    if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
+                        $('#5').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#1').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#2').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#3').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#4').attr('src','../../assets/images/estrelaN.jpg');
+                    }
+                    else{alert('Avaliação Cadastrada!');
+                        //location.reload();
+                        $.post("RotaController.php",
+                            {
+                                acao: 'avalMed',
+                                id_rota: id_rota
+                            },
+                            function (data) {
+                                $('#avaliacao_geral_real').text(data);
+                            }
+                        )
+                    }
                 });
         });
 
@@ -98,7 +134,26 @@
                     id_rota: id_rota
                 },
                 function(data){
-                    location.reload();
+
+                    if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
+                        $('#5').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#1').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#2').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#3').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#4').attr('src','../../assets/images/estrelaN.jpg');
+                    }
+                    else{alert('Avaliação Cadastrada!');
+                        //location.reload();
+                        $.post("RotaController.php",
+                            {
+                                acao: 'avalMed',
+                                id_rota: id_rota
+                            },
+                            function (data) {
+                                $('#avaliacao_geral_real').text(data);
+                            }
+                        )
+                    }
                 });
         });
 
@@ -117,7 +172,26 @@
                     id_rota: id_rota
                 },
                 function(data){
-                    location.reload();
+                    if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
+                        $('#5').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#1').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#2').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#3').attr('src','../../assets/images/estrelaN.jpg');
+                        $('#4').attr('src','../../assets/images/estrelaN.jpg');
+                    }
+                    else{alert('Avaliação Cadastrada!');
+                        //location.reload();
+
+                        $.post("RotaController.php",
+                            {
+                                acao: 'avalMed',
+                                id_rota: id_rota
+                            },
+                            function (data) {
+                                $('#avaliacao_geral_real').text(data);
+                            }
+                        )
+                    }
                 });
         });
 
@@ -136,7 +210,26 @@
                     id_rota: id_rota
                 },
                 function(data){
-                    location.reload();
+                if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
+                    $('#5').attr('src','../../assets/images/estrelaN.jpg');
+                    $('#1').attr('src','../../assets/images/estrelaN.jpg');
+                    $('#2').attr('src','../../assets/images/estrelaN.jpg');
+                    $('#3').attr('src','../../assets/images/estrelaN.jpg');
+                    $('#4').attr('src','../../assets/images/estrelaN.jpg');
+                }
+                else{
+                    alert('Avaliação Cadastrada!');
+                    // location.reload();
+                    $.post("RotaController.php",
+                        {
+                            acao: 'avalMed',
+                            id_rota: id_rota
+                        },
+                        function (data) {
+                            $('#avaliacao_geral_real').text(data);
+                        }
+                    )
+                    }
                 });
         });
 
