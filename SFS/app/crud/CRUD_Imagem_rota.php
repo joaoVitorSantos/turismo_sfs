@@ -19,7 +19,7 @@ class CRUD_Imagem_rota
     }
 
     public function get_Images_for_route(Rota $r){
-        $sql = "SELECT imagem_r.id_imagem, imagem_r.nome_imagem, imagem_r.local, imagem_r.maps FROM `imagem_rota`, rota, imagem_r WHERE imagem_rota.imagem_r_id_imagem = imagem_r.id_imagem AND imagem_rota.rota_id_rota = rota.id_rota AND imagem_rota.rota_id_rota = '{$r->getIdRota()}'";
+        $sql = "SELECT imagem_r.id_imagem, imagem_r.nome_imagem, imagem_r.local, imagem_r.maps FROM `imagem_rota`, rota, imagem_r WHERE imagem_rota.imagem_r_id_imagem = imagem_r.id_imagem AND imagem_rota.rota_id_rota = rota.id_rota AND imagem_rota.rota_id_rota = '{$r->getIdRota()}' AND maps = 0";
 
         try{
             $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -79,6 +79,18 @@ class CRUD_Imagem_rota
 
     }
 
+    public function delete_Imagens_rota($idRota)
+    {
+        $sql = "DELETE FROM imagem_rota WHERE rota_id_rota = {$idRota} AND imagem_r_id_imagem != imagem_r.id_imagem";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
+    }
 }
 
 //Teste FEITO

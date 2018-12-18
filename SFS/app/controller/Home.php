@@ -107,6 +107,7 @@ function viewRotaAdm($id){
 
     $m = new CRUD_Imagem_rota();
     $imgMaps = $m->get_Imagem_r_maps($r);
+    $imgs = $m->get_Images_for_route($r);
 
 
     include_once '../view/template/header.php';
@@ -158,10 +159,11 @@ function editaRota(){
     }
 
     if ($_FILES['fotoPrincipal']['size'] != 0) {
+        print_r($_FILES['fotoPrincipal']);
         $ft_principal = date('dmYhis') . $_FILES['fotoPrincipal']['name'];
         move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/' . $ft_principal);
     }else{
-        $ft_principal = $rV->getImagemPerfil();
+        $ft_principal = $rotaV->getImagemPerfil();
     }
 
     $rota = new Rota($_POST['id'], $_POST['nome'], $_POST['tempo_medio'], $ft_principal, $_POST['descricao']);
@@ -169,23 +171,35 @@ function editaRota(){
 
     if ($_FILES['outrasFotos1']['size'] != 0){
         for ($i = 1; $i <= $count; $i++){
-            $nomearq = date('dmYhis').$_FILES['outrasFotos'.$i]['name'];
-            move_uploaded_file($_FILES['outrasFotos'.$i]['tmp_name'], '../../assets/images/'.$nomearq);
+            if ($_FILES['outrasFotos'.$i]['size'] != 0) {
+                $nomearq = date('dmYhis') . $_FILES['outrasFotos' . $i]['name'];
+                move_uploaded_file($_FILES['outrasFotos' . $i]['tmp_name'], '../../assets/images/' . $nomearq);
 
-            $im = new Imagem_r($nomearq, null, 0);
-            $cI->create_imagem_r($im);
+                $im = new Imagem_r($nomearq, null, 0);
+                $cI->create_imagem_r($im);
 
-            $id = $cI->getLast();
+                $id = $cI->getLast();
 
-            $imgR = new Imagem_rota($id, $_POST['id']);
-            $cIR->create_imagem_rota($imgR);
+                $imgR = new Imagem_rota($id, $_POST['id']);
+                $cIR->create_imagem_rota($imgR);
+            }
+        }
+    }
 
+    $cIR->delete_Imagens_rota($_POST['id']);
+
+    if(isset($_POST['fotos'])) {
+        foreach ($_POST['fotos'] as $f) {
+            $iR = new CRUD_Imagem_r();
+            $rr = new Imagem_r(null, null,null, $f);
+            $iI = $iR->get_Imagem_r($rr);
+            $img = new Imagem_rota($iI->getIdImagem(), $rotaV->getIdRota());
+
+            $cIR->create_imagem_rota($img);
         }
     }
 
     header('location: Home.php');
-
-    //print_r($_FILES);
 
 }
 
