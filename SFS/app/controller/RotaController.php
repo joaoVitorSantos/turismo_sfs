@@ -14,6 +14,7 @@ require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
 require_once '../crud/CRUD_Imagem_r.php';
 require_once __DIR__. '/../crud/CRUD_Curtir_rota.php';
+require_once __DIR__. '/../crud/CRUD_Rota_local.php';
 
 function loadRota()
 {
@@ -24,6 +25,10 @@ function loadRota()
 
     $m = new CRUD_Imagem_rota();
     $imgMaps = $m->get_Imagem_r_maps($ro);
+
+    $l = new CRUD_Rota_local();
+    $locais = $l->get_locais_por_rota($res);
+
 
     if(isset($_SESSION['id_usuario'])) {
         $id_usuario = $_SESSION['id_usuario'];
