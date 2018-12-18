@@ -6,10 +6,10 @@
             id +=1;
             $('.imagens').append('<div class="form-group">\n' +
                 '                        <div class="custom-file">\n' +
-                '                        <input type="file" name="outrasFotos' + id +'" class="custom-file-input" id="outrasFotos' + id + '">\n' +
-                '                        <label class="custom-file-label" for="customFile">Outras Fotos</label>\n' +
+                                        '<label for="customFile">Outras Fotos: </label>\n' +
+                '                        <input type="file" name="outrasFotos' + id +'" id="outrasFotos' + id + '">\n' +
                 '                        </div>\n' +
-                '                    </div>')
+                '                        </div>')
         });
     });
 </script>
@@ -39,25 +39,28 @@
                     </div>
                     <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" name="fotoMaps" class="custom-file-input" id="fotoMaps">
-                        <label class="custom-file-label" for="customFile">Foto do Maps</label>
+                        <label for="customFile">Foto do Maps: </label>
+                        <input type="file" name="fotoMaps" id="fotoMaps">
+
                     </div>
                     </div>
                     <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" name="fotoPrincipal" class="custom-file-input" id="fotoPrincipal">
-                        <label class="custom-file-label" for="customFile">Foto Principal da Rota</label>
+                        <label for="fotoPrincipal">Foto Principal da Rota:</label>
+                        <input type="file" name="fotoPrincipal" class="" id="fotoPrincipal">
+
                     </div>
                     </div>
                     <div class="imagens">
                     <div class="form-group">
                         <div class="custom-file">
-                        <input type="file" name="outrasFotos1" class="custom-file-input" id="outrasFotos1">
-                        <label class="custom-file-label" for="customFile">Outras Fotos</label>
+                            <label for="customFile">Outras Fotos: </label>
+                            <input type="file" name="outrasFotos1"  id="outrasFotos1">
+
                         </div>
                     </div>
                     </div>
-                    <a class="btn btn-info text-center text-white" id="addImg">+</a>
+                    <a class="btn btn-info text-center text-white" id="addImg">+ Fotos</a>
                     <br>
                     <input type="text" class="text-hide" value="editaRota" name="acao">
                     <input type="text" class="text-hide" value="<?= $r->getIdRota() ?>" name="id">

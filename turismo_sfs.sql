@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Dez-2018 às 17:30
--- Versão do servidor: 10.1.35-MariaDB
--- versão do PHP: 7.2.9
+-- Generation Time: 18-Dez-2018 às 13:08
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `curtir_estabelecimento` (
   `estabelecimento_id_estabelecimento` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dt_curtir` varchar(45) NOT NULL,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -44,7 +44,7 @@ CREATE TABLE `curtir_estabelecimento` (
 CREATE TABLE `curtir_local` (
   `local_id_local` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dt_curtir` varchar(45) NOT NULL,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,9 +57,16 @@ CREATE TABLE `curtir_local` (
 CREATE TABLE `curtir_rota` (
   `rota_id_rota` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dt_curtir` varchar(45) NOT NULL,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `curtir_rota`
+--
+
+INSERT INTO `curtir_rota` (`rota_id_rota`, `usuario_id_usuario`, `dt_curtir`, `avaliacao`) VALUES
+(1, 13, '2018-12-18 09:33:45', 2);
 
 -- --------------------------------------------------------
 
@@ -75,13 +82,6 @@ CREATE TABLE `estabelecimento` (
   `imagem_perfil` varchar(200) NOT NULL,
   `tipo_estabelecimento_id_tipo_estabelecimento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `estabelecimento`
---
-
-INSERT INTO `estabelecimento` (`id_estabelecimento`, `nome_estabelecimento`, `link_site`, `link_maps`, `imagem_perfil`, `tipo_estabelecimento_id_tipo_estabelecimento`) VALUES
-(1, 'Cabana do Zé', 'www.ze.com.br', 'https:jmmdwmkdmdkmddkmdkm', 'loja.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,16 @@ CREATE TABLE `imagem_r` (
 --
 
 INSERT INTO `imagem_r` (`id_imagem`, `nome_imagem`, `local`, `maps`) VALUES
-(1, 'fotoprincipal.jpg', 'alow', 1);
+(2, '1712201812545320180816_181100-min.jpg', '', 0),
+(4, '17122018125548', '', 0),
+(6, '17122018125722', '', 0),
+(8, '17122018125858', '', 0),
+(11, '17122018010124logo_teste.png', '', 0),
+(13, '1712201801024517122018010124fotoprincipal.jpg', '', 0),
+(15, '17122018010553', '', 0),
+(16, '17122018010749', '', 0),
+(17, '17122018010921fotoprincipal.jpg', '', 1),
+(18, '171220180109211712201812235820180816_181100-min.jpg', '', 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +151,16 @@ CREATE TABLE `imagem_rota` (
 --
 
 INSERT INTO `imagem_rota` (`imagem_r_id_imagem`, `rota_id_rota`) VALUES
-(1, 1);
+(2, 1),
+(4, 1),
+(6, 1),
+(8, 1),
+(11, 1),
+(13, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1);
 
 -- --------------------------------------------------------
 
@@ -184,7 +202,7 @@ CREATE TABLE `rota` (
 --
 
 INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`, `link`) VALUES
-(1, 'Rota Religiosa', '30 minutos', 'FOTO PRINCIPAL.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
+(1, 'Rota Religiosa', '30 minutos', '17122018010921loja.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
 (2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...', NULL),
 (3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ', NULL);
 
@@ -199,13 +217,6 @@ CREATE TABLE `rota_local` (
   `local_id_local` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `rota_local`
---
-
-INSERT INTO `rota_local` (`rota_id_rota`, `local_id_local`) VALUES
-(3, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -216,13 +227,6 @@ CREATE TABLE `tipo_estabelecimento` (
   `id_tipo_estabelecimento` int(11) NOT NULL,
   `desc` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tipo_estabelecimento`
---
-
-INSERT INTO `tipo_estabelecimento` (`id_tipo_estabelecimento`, `desc`) VALUES
-(1, 'Gastronomia');
 
 -- --------------------------------------------------------
 
@@ -369,12 +373,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT for table `estabelecimento`
---
-ALTER TABLE `estabelecimento`
-  MODIFY `id_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `imagem_l`
 --
 ALTER TABLE `imagem_l`
@@ -384,7 +382,7 @@ ALTER TABLE `imagem_l`
 -- AUTO_INCREMENT for table `imagem_r`
 --
 ALTER TABLE `imagem_r`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `local`
@@ -397,18 +395,6 @@ ALTER TABLE `local`
 --
 ALTER TABLE `rota`
   MODIFY `id_rota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tipo_estabelecimento`
---
-ALTER TABLE `tipo_estabelecimento`
-  MODIFY `id_tipo_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tipo_usuario`
---
-ALTER TABLE `tipo_usuario`
-  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `usuario`

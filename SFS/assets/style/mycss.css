@@ -219,3 +219,16 @@ hr{
 .btnEnviar{
     width: 100%;
 }
+
+.carousel-control-next-icon:after
+{
+    content: '>';
+    font-size: 55px;
+    color: red;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 55px;
+    color: red;
+}
