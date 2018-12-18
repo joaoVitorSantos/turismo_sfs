@@ -37,19 +37,24 @@
                         <label for="link">Link Maps</label>
                         <textarea style="height: 10em" required name="link" class="form-control" id="link" placeholder="Ex: http://google.com"><?= $r->getLink() ?></textarea>
                     </div>
-                    <div class="form-group">
-                    <div class="custom-file">
-                        <label for="customFile">Foto do Maps: </label>
-                        <input type="file" name="fotoMaps" id="fotoMaps">
+                    <div class="form-group ">
+                        <div class="col-md-6">
+                            <label for="customFile">Foto do Maps: <small>(Se nao alterar, continua a mesma!)</small></label><br>
+                            <img src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="" class="img-fluid rounded" style="height: 10em; padding: 0 0 1em 0">
 
+                        </div>
+                        <div class="col-md-6 align-text-middle">
+                            <input class="" type="file" name="fotoMaps" id="fotoMaps">
+                        </div>
                     </div>
-                    </div>
-                    <div class="form-group">
-                    <div class="custom-file">
-                        <label for="fotoPrincipal">Foto Principal da Rota:</label>
-                        <input type="file" name="fotoPrincipal" class="" id="fotoPrincipal">
-
-                    </div>
+                    <div class="form-group ">
+                        <div class="col-md-7">
+                            <label for="fotoPrincipal">Foto Principal da Rota: <small>(Se nao alterar, continua a mesma!)</small></label>
+                            <img src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="" class="img-fluid rounded" style="height: 10em; padding: 0 0 1em 0">
+                        </div>
+                           <div class="col-md-6 ">
+                               <input type="file" name="fotoPrincipal" class="align-middle" id="fotoPrincipal">
+                           </div>
                     </div>
                     <div class="imagens">
                     <div class="form-group">

@@ -105,6 +105,9 @@ function viewRotaAdm($id){
 
     $r = $c->getRota($rota);
 
+    $m = new CRUD_Imagem_rota();
+    $imgMaps = $m->get_Imagem_r_maps($r);
+
 
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';
