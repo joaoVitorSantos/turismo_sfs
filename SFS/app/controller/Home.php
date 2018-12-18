@@ -5,7 +5,6 @@
 
 
 require_once '../crud/CRUD_rota.php';
-require_once '../crud/CRUD_local.php';
 require_once '../crud/CRUD_usuario.php';
 require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
@@ -213,8 +212,6 @@ if (!isset($_POST['acao'])){
 //    }
 
 
-    $l = new CRUD_local();
-    $locais = $l->getLocais();
 
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';

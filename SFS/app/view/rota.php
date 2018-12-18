@@ -302,8 +302,8 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
                                 <p class="card-text"><?= $lo->getDescricao() ?>
-                                <form class="" method="post" action="Home.php">
-                                    <input class="text-hide" value="verL" name="acao">
+                                <form class="" method="post" action="LocalController.php">
+                                    <input class="text-hide" value="ver" name="acao">
                                     <input class="text-hide" value="<?= $lo->getIdLocal() ?>" name="id_local">
                                     <button class="btn btn-outline-primary" type="submit">Ver</button>
                                 </form>
