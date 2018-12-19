@@ -9,6 +9,7 @@ require_once '../crud/CRUD_usuario.php';
 require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
 require_once '../crud/CRUD_Imagem_r.php';
+require_once '../crud/CRUD_local.php';
 
 $c = new CRUD_rota();
 
@@ -134,7 +135,7 @@ function editaRota(){
 
     $rV = new Rota($_POST['id']);
     $rotaV = $c->getRota($rV);
-
+    $cIR->delete_Imagens_rota($_POST['id']);
     $count = count($_FILES) - 2;
 
     if($_FILES['fotoMaps']['size'] != 0) {
@@ -170,9 +171,10 @@ function editaRota(){
 
     if ($_FILES['outrasFotos1']['size'] != 0){
         for ($i = 1; $i <= $count; $i++){
+
             if ($_FILES['outrasFotos'.$i]['size'] != 0) {
                 $nomearq = date('dmYhis') . $_FILES['outrasFotos' . $i]['name'];
-                move_uploaded_file($_FILES['outrasFotos' . $i]['tmp_name'], '../../assets/images/' . $nomearq);
+                move_uploaded_file($_FILES['outrasFotos'.$i]['tmp_name'], '../../assets/images/' . $nomearq);
 
                 $im = new Imagem_r($nomearq, null, 0);
                 $cI->create_imagem_r($im);
@@ -185,7 +187,8 @@ function editaRota(){
         }
     }
 
-    $cIR->delete_Imagens_rota($_POST['id']);
+
+
 
     if(isset($_POST['fotos'])) {
         foreach ($_POST['fotos'] as $f) {

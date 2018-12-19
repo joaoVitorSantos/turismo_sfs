@@ -79,17 +79,23 @@ class CRUD_Imagem_rota
 
     }
 
-    public function delete_Imagens_rota($idRota)
+    public function delete_Imagens_rota( $idRota)
     {
-        $sql = "DELETE FROM imagem_rota WHERE rota_id_rota = {$idRota} AND imagem_r_id_imagem != imagem_r.id_imagem";
+        $a = new Rota($idRota);
+        $res = $this->get_Images_for_route($a);
 
-        try{
-            $this->conexao->exec($sql);
-        }catch (Exception $e){
-            return false;
+        foreach ($res as $r){
+            $sql = "DELETE FROM imagem_rota WHERE rota_id_rota = {$idRota} AND imagem_r_id_imagem = {$r->getIdImagem()}";
+
+            try{
+                $this->conexao->exec($sql);
+            }catch (Exception $e){
+                echo $e->getMessage();
+            }
         }
 
         return true;
+
     }
 }
 
