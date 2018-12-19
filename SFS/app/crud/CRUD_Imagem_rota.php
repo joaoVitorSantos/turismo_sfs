@@ -97,6 +97,19 @@ class CRUD_Imagem_rota
         return true;
 
     }
+
+    public function deleteAllImagensRota($idRota){
+        $sql = "DELETE FROM imagem_rota WHERE rota_id_rota = {$idRota}";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
+
+    }
 }
 
 //Teste FEITO

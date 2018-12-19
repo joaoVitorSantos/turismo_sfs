@@ -205,6 +205,38 @@ function editaRota(){
 
 }
 
+function excluiRota(){
+    $c = new CRUD_rota();
+    $a = new Rota($_POST['id']);
+
+    $cI = new CRUD_Imagem_rota();
+    $cI->deleteAllImagensRota($_POST['id']);
+
+    $c->deleteRota($a);
+
+    echo "
+<form id='formA' method='post' action='Home.php' class='text-hide'>
+<input name='acao' value='viewAdmin'>
+</form>
+<script>
+       document.getElementById('formA').submit();
+</script>
+";
+
+}
+
+function confirmarExcluir(){
+    $c = new CRUD_rota();
+    $ro = new Rota($_POST['id']);
+    $r = $c->getRota($ro);
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/confirmaDR.php';
+    include_once '../view/template/footer.php';
+
+}
+
 
 if (!isset($_POST['acao'])){
 
@@ -276,6 +308,14 @@ else {
 
         case 'pesquisa':
             pesquisa($_POST['termo']);
+            break;
+
+        case 'excluirR':
+            confirmarExcluir();
+            break;
+
+        case 'deleteRota':
+            excluiRota();
             break;
 
         default:
