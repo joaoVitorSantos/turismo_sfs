@@ -30,7 +30,20 @@ class CRUD_Curtir_local
         return $curtir_local;
     }
 
-    public function get_media_Curtidas_local(Curtir_local $c)
+    public function get_Curtir_local_verificacao(Curtir_local $c)
+    {
+        $sql = "SELECT * FROM `curtir_local` WHERE `local_id_local` = '{$c->getLocalIdLocal()}' and `usuario_id_usuario` = '{$c->getUsuarioIdUsuario()}'";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+        $curtir_local = new Curtir_local($resultado['local_id_local'], $resultado['usuario_id_usuario'], $resultado['avaliacao']);
+        return $curtir_local;
+    }
+
+    public function get_media_Curtidas_local_round(Curtir_local $c)
     {
         $sql = "SELECT AVG(avaliacao) as media FROM `curtir_local` WHERE local_id_local = '{$c->getLocalIdLocal()}'";
 
@@ -40,6 +53,19 @@ class CRUD_Curtir_local
             return false;
         }
         $resultadoF = round($resultado['media']);
+        return $resultadoF;
+    }
+
+    public function get_media_Curtidas_local(Curtir_local $c)
+    {
+        $sql = "SELECT AVG(avaliacao) as media FROM `curtir_local` WHERE local_id_local = '{$c->getLocalIdLocal()}'";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+        $resultadoF = round($resultado['media'], 4);
         return $resultadoF;
     }
 

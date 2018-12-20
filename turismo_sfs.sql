@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Dez-2018 às 13:08
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: 20-Dez-2018 às 01:47
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,9 +44,17 @@ CREATE TABLE `curtir_estabelecimento` (
 CREATE TABLE `curtir_local` (
   `local_id_local` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `dt_curtir` varchar(45) NOT NULL,
+  `dt_curtir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `avaliacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `curtir_local`
+--
+
+INSERT INTO `curtir_local` (`local_id_local`, `usuario_id_usuario`, `dt_curtir`, `avaliacao`) VALUES
+(1, 13, '2018-12-19 21:08:12', 4),
+(1, 8, '2018-12-19 20:42:05', 4);
 
 -- --------------------------------------------------------
 
@@ -66,7 +74,8 @@ CREATE TABLE `curtir_rota` (
 --
 
 INSERT INTO `curtir_rota` (`rota_id_rota`, `usuario_id_usuario`, `dt_curtir`, `avaliacao`) VALUES
-(1, 13, '2018-12-18 09:33:45', 2);
+(1, 13, '2018-12-19 18:43:23', 5),
+(1, 8, 'CURRENT_TIMESTAMP', 5);
 
 -- --------------------------------------------------------
 
@@ -92,8 +101,17 @@ CREATE TABLE `estabelecimento` (
 CREATE TABLE `imagem_l` (
   `id_imagem` int(11) NOT NULL,
   `nome_imagem` varchar(200) NOT NULL,
-  `local` varchar(200) NOT NULL
+  `local` varchar(200) NOT NULL,
+  `maps` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `imagem_l`
+--
+
+INSERT INTO `imagem_l` (`id_imagem`, `nome_imagem`, `local`, `maps`) VALUES
+(1, 'a', 'hotel_vila_real.png', 1),
+(2, 'a', 'b', 0);
 
 -- --------------------------------------------------------
 
@@ -105,6 +123,14 @@ CREATE TABLE `imagem_local` (
   `imagem_l_id_imagem` int(11) NOT NULL,
   `local_id_local` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `imagem_local`
+--
+
+INSERT INTO `imagem_local` (`imagem_l_id_imagem`, `local_id_local`) VALUES
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -172,15 +198,16 @@ CREATE TABLE `local` (
   `id_local` int(11) NOT NULL,
   `nome_local` varchar(150) NOT NULL,
   `descricao` varchar(5000) NOT NULL,
-  `imagem_perfil` varchar(250) NOT NULL
+  `imagem_perfil` varchar(250) NOT NULL,
+  `link` varchar(1500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `local`
 --
 
-INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`) VALUES
-(1, 'Local 1', 'descricao do local 1', '123.jpg');
+INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`, `link`) VALUES
+(1, 'Centro Histórico', 'Um ótimo lugar para visitar', 'fotoprincipal.jpg', 'https://www.google.com.br/maps/dir//Museu+Hist%C3%B3rico+Prefeito+Jos%C3%A9+Schmidt,+R.+Cel.+Carvalho,+1+-+Centro,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.2473461,-48.647829,16.97z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94c2b2ad8ec47:0xccacd6c842722df1!2m2!1d-48.641694!2d-26.2491167+R.+Francisco+Machado+de+Souza,+1135+-+Do+Paulas,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.230175,-48.6294897,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94e6f18cede69:0x69ee994bdf03ac02!2m2!1d-48.627301!2d-26.230175');
 
 -- --------------------------------------------------------
 
@@ -216,6 +243,18 @@ CREATE TABLE `rota_local` (
   `rota_id_rota` int(11) NOT NULL,
   `local_id_local` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `rota_local`
+--
+
+INSERT INTO `rota_local` (`rota_id_rota`, `local_id_local`) VALUES
+(1, 1),
+(1, 1),
+(1, 1),
+(1, 1),
+(1, 1),
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -376,7 +415,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `imagem_l`
 --
 ALTER TABLE `imagem_l`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `imagem_r`

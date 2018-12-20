@@ -22,7 +22,7 @@ class CRUD_local
             return false;
         }
 
-        $local = new Local($res['id_local'], $res['nome_local'], $res['descricao'], $res['imagem_perfil']);
+        $local = new Local($res['id_local'], $res['nome_local'], $res['descricao'], $res['imagem_perfil'], $res['link']);
 
         return $local;
     }
@@ -39,7 +39,7 @@ class CRUD_local
         $locais = array();
 
         foreach ($resultado as $r){
-            $loca = new Local($r['id_local'], $r['nome_local'], $r['descricao'], $r['imagem_perfil']);
+            $loca = new Local($r['id_local'], $r['nome_local'], $r['descricao'], $r['imagem_perfil'], $r['link']);
             $locais[] = $loca;
         }
 
@@ -48,7 +48,7 @@ class CRUD_local
     }
 
     public function createLocal(Local $l){
-        $sql = "INSERT INTO local (nome_local, descricao, imagem_perfil) VALUES ('{$l->getNomeLocal()}', '{$l->getDescricao()}', '{$l->getImagemPerfil()}')";
+        $sql = "INSERT INTO local (nome_local, descricao, imagem_perfil, link) VALUES ('{$l->getNomeLocal()}', '{$l->getDescricao()}', '{$l->getImagemPerfil()}', '{$l->getLink()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -61,7 +61,7 @@ class CRUD_local
     }
 
     public function updateLocal(Local $l){
-        $sql = "UPDATE `local` SET `nome_local`= '{$l->getNomeLocal()}',`descricao`='{$l->getDescricao()}',`imagem_perfil`='{$l->getImagemPerfil()}'
+        $sql = "UPDATE `local` SET `nome_local`= '{$l->getNomeLocal()}',`descricao`='{$l->getDescricao()}',`imagem_perfil`='{$l->getImagemPerfil()}', link = '{$l->getLink()}'
                 WHERE id_local = {$l->getIdLocal()}";
 
         try{

@@ -265,7 +265,7 @@
     <div class="row">
             <div style="height: 4em" class="col-md-4 float-right text-center fundo rounded">
                 <div  style="display: inline">
-                    <img class="estrela" id="1" src="../../assets/images/estrelaN.jpg" alt="">
+                    <img class="estrela" id="1" src="../../assets/images/estrelaN.jpg" alt=s=>
                     <img class="estrela" id="2" src="../../assets/images/estrelaN.jpg" alt="">
                     <img class="estrela" id="3" src="../../assets/images/estrelaN.jpg" alt="">
                     <img class="estrela" id="4" src="../../assets/images/estrelaN.jpg" alt="">

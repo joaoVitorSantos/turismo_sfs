@@ -20,7 +20,7 @@ class CRUD_Imagem_l
 
     public function create_imagem_l(Imagem_l $i)
     {
-        $sql = "INSERT INTO `imagem_l`(`nome_imagem`, `local`) VALUES ('{$i->getNomeImagem()}', '{$i->getLocal()}')";
+        $sql = "INSERT INTO `imagem_l`(`nome_imagem`, `local`, maps) VALUES ('{$i->getNomeImagem()}', '{$i->getLocal()}', '{$i->getMaps()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -42,10 +42,12 @@ class CRUD_Imagem_l
             return false;
         }
 
-        $imagem_l = new Imagem_l($resultado['nome_imagem'], $resultado['local']);
+        $imagem_l = new Imagem_l($resultado['nome_imagem'], $resultado['local'], $resultado['maps']);
         $imagem_l->setIdImagem($resultado['id_imagem']);
         return $imagem_l;
     }
+
+
 
     public function get_Imagens_l(){
         $sql = "SELECT * FROM imagem_l";
@@ -57,7 +59,7 @@ class CRUD_Imagem_l
         }
         $array_imgs = [];
         foreach ($resultado as $i) {
-            $imagem_l = new Imagem_l($i['nome_imagem'], $i['local']);
+            $imagem_l = new Imagem_l($i['nome_imagem'], $i['local'], $i['maps']);
             $imagem_l->setIdImagem($i['id_imagem']);
             $array_imgs[] = $imagem_l;
         }
@@ -66,7 +68,7 @@ class CRUD_Imagem_l
 
     public function update_Imagem_l(Imagem_l $i){
 
-        $sql = "UPDATE `imagem_l` SET `nome_imagem`= '{$i->getNomeImagem()}',`local`= '{$i->getLocal()}' WHERE `id_imagem`= '{$i->getIdImagem()}'";
+        $sql = "UPDATE `imagem_l` SET `nome_imagem`= '{$i->getNomeImagem()}',`local`= '{$i->getLocal()}', maps = '{$i->getMaps()}' WHERE `id_imagem`= '{$i->getIdImagem()}'";
 
         try{
             $this->conexao->exec($sql);
@@ -97,3 +99,6 @@ class CRUD_Imagem_l
 
 //Teste FEITO
 
+$a = new Imagem_l("a", "b", "");
+$b = new CRUD_Imagem_l();
+$b->create_imagem_l($a);

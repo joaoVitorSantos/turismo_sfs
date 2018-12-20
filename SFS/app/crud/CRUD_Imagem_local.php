@@ -36,6 +36,20 @@ class CRUD_Imagem_local
         return $array_imgs;
     }
 
+    public function get_Imagem_l_maps(Local $l){
+        $sql = "SELECT * FROM `imagem_local`, local, imagem_l WHERE imagem_local.imagem_l_id_imagem = imagem_l.id_imagem AND imagem_local.local_id_local = local.id_local AND imagem_local.local_id_local = '{$l->getIdLocal()}' AND imagem_l.maps = 1";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $imagem_l = new Imagem_l($resultado['nome_imagem'], $resultado['local'], $resultado['maps']);
+        $imagem_l->setIdImagem($resultado['id_imagem']);
+        return $imagem_l;
+    }
+
 
     public function create_imagem_local(Imagem_local $i)
     {

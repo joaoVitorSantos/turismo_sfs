@@ -6,14 +6,32 @@ class Imagem_l
     private $id_imagem;
     private $nome_imagem;
     private $local;
+    private $maps;
 
-    public function __construct($nome_imagem, $local)
+
+
+    public function __construct($nome_imagem = null, $local = null, $maps = null)
     {
         $this->nome_imagem = $nome_imagem;
         $this->local = $local;
+        $this->maps = $maps;
     }
 
+    /**
+     * @return null
+     */
+    public function getMaps()
+    {
+        return $this->maps;
+    }
 
+    /**
+     * @param null $maps
+     */
+    public function setMaps($maps)
+    {
+        $this->maps = $maps;
+    }
     public function getIdImagem()
     {
         return $this->id_imagem;

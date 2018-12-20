@@ -7,15 +7,33 @@ class Local
     private $nome_local;
     private $descricao;
     private $imagem_perfil;
+    private $link;
 
-    public function __construct($id_local = null, $nome_local = null, $descricao = null, $imagem_perfil = null)
+
+    public function __construct($id_local = null, $nome_local = null, $descricao = null, $imagem_perfil = null, $link = null)
     {
         $this->id_local = $id_local;
         $this->nome_local = $nome_local;
         $this->descricao = $descricao;
         $this->imagem_perfil = $imagem_perfil;
+        $this->link = $link;
     }
 
+    /**
+     * @return null
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param null $link
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+    }
 
     public function getIdLocal()
     {
