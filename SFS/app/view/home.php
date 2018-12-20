@@ -27,19 +27,19 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="../../assets/images/gastronomia.jpg" alt="First slide">
+                    <a href="EstabelecimentoController.php?acao=verLista&id=1"><img class="d-block w-100" src="../../assets/images/gastronomia.jpg" alt="First slide"></a>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100"  src="../../assets/images/hospedagem.png" alt="Second slide">
+                    <a href="EstabelecimentoController.php?acao=verLista&id=2"><img class="d-block w-100"  src="../../assets/images/hospedagem.png" alt="Second slide"></a>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/images/servicos.png" alt="Third slide">
+                    <a href="EstabelecimentoController.php?acao=verLista&id=3"><img class="d-block w-100" src="../../assets/images/servicos.png" alt="Third slide"></a>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/images/arquitetura.png" alt="Third slide">
+                    <a href="EstabelecimentoController.php?acao=verLista&id=4"><img class="d-block w-100" src="../../assets/images/arquitetura.png" alt="Third slide"></a>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../../assets/images/museus.png" alt="Third slide">
+                <a href="EstabelecimentoController.php?acao=verLista&id=5"><img class="d-block w-100" src="../../assets/images/museus.png" alt="Third slide"></a>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

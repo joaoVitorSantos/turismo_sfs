@@ -10,6 +10,7 @@ require_once '../crud/CRUD_Pesquisa.php';
 require_once '../crud/CRUD_Imagem_rota.php';
 require_once '../crud/CRUD_Imagem_r.php';
 require_once '../crud/CRUD_local.php';
+require_once '../crud/CRUD_estabelecimento.php';
 
 $c = new CRUD_rota();
 
@@ -244,6 +245,7 @@ if (!isset($_POST['acao'])){
     $rotas = $c->getRotas();
     $num_rotas = count($rotas);
 
+    //$estab = new Estabelecimento(null, null, null, null, null, null)
     $descricoes = [];
     foreach ($rotas as $rota){
         $descricao = $rota->getDescricao();

@@ -15,7 +15,7 @@ class Estabelecimento
     private $imagem_perfil;
     private $tipo_estabelecimento_id_tipo_estabelecimento;
 
-    public function __construct($id_estabelecimento, $nome_estabelecimento, $link_site, $link_maps, $imagem_perfil, $tipo_estabelecimento_id_tipo_estabelecimento)
+    public function __construct($id_estabelecimento = null, $nome_estabelecimento = null, $link_site = null, $link_maps = null, $imagem_perfil = null, $tipo_estabelecimento_id_tipo_estabelecimento = null)
     {
         $this->id_estabelecimento = $id_estabelecimento;
         $this->nome_estabelecimento = $nome_estabelecimento;

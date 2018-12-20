@@ -51,6 +51,115 @@ class CRUD_estabelecimento
 
     }
 
+    public function getEstabelecimentosGastronomia(){
+        $sql = "SELECT * FROM estabelecimento WHERE tipo_estabelecimento_id_tipo_estabelecimento = 1";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $estabelecimentos = array();
+
+        foreach ($resultado as $r){
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
+        }
+
+        return $estabelecimentos;
+
+    }
+
+    public function getEstabelecimentosHospedagem(){
+        $sql = "SELECT * FROM estabelecimento WHERE tipo_estabelecimento_id_tipo_estabelecimento = 2";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $estabelecimentos = array();
+
+        foreach ($resultado as $r){
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
+        }
+
+        return $estabelecimentos;
+
+    }
+
+    public function getEstabelecimentosServicos(){
+        $sql = "SELECT * FROM estabelecimento WHERE tipo_estabelecimento_id_tipo_estabelecimento = 3";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $estabelecimentos = array();
+
+        foreach ($resultado as $r){
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
+        }
+
+        return $estabelecimentos;
+
+    }
+
+    public function getEstabelecimentosArquitetura(){
+        $sql = "SELECT * FROM estabelecimento WHERE tipo_estabelecimento_id_tipo_estabelecimento = 4";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $estabelecimentos = array();
+
+        foreach ($resultado as $r){
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
+        }
+
+        return $estabelecimentos;
+
+    }
+
+    public function getEstabelecimentosMuseus(){
+        $sql = "SELECT * FROM estabelecimento WHERE tipo_estabelecimento_id_tipo_estabelecimento = 5";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        $estabelecimentos = array();
+
+        foreach ($resultado as $r){
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimentos[] = $estabelecimento;
+        }
+
+        return $estabelecimentos;
+
+    }
+
+    public function getCategoriaEstabelecimento(Estabelecimento $e){
+        $sql = "SELECT `desc` FROM `tipo_estabelecimento`, estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = estabelecimento.id_estabelecimento AND estabelecimento.id_estabelecimento = '{$e->getIdEstabelecimento()}'";
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+    }
+
     public function createEstabelecimento(Estabelecimento $l){
         $sql = "INSERT INTO estabelecimento(nome_estabelecimento, link_site, link_maps, imagem_perfil, tipo_estabelecimento_id_tipo_estabelecimento) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
 
@@ -88,4 +197,7 @@ class CRUD_estabelecimento
 
 //Teste FEITO
 
-
+$a = new Estabelecimento(1);
+$b = new CRUD_estabelecimento();
+$c = $b->getCategoriaEstabelecimento($a);
+echo($c);
