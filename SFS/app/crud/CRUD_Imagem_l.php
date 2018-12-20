@@ -95,10 +95,15 @@ class CRUD_Imagem_l
 
     }
 
+    public function getLast(){
+        $sql = "SELECT max(id_imagem) as id FROM imagem_l";
+
+        $id = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return $id['id'];
+
+    }
+
 }
 
 //Teste FEITO
-
-$a = new Imagem_l("a", "b", "");
-$b = new CRUD_Imagem_l();
-$b->create_imagem_l($a);

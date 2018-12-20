@@ -7,6 +7,8 @@
  */
 require_once __DIR__."/../crud/CRUD_estabelecimento.php";
 
+session_start();
+
 function lista(){
     if ($_GET['id'] == 1) {
         $a = new CRUD_estabelecimento();
@@ -47,7 +49,7 @@ function loadEstabelecimento(){
     include_once '../view/estabelecimento.php';
     include_once '../view/template/footer.php';
 }
-if ($_GET['acao'] == 'verLista'){
+if (isset($_GET['acao']) AND $_GET['acao'] == 'verLista'){
         lista();
 }elseif ($_POST['acao'] == 'ver'){
         loadEstabelecimento();

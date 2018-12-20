@@ -56,6 +56,11 @@ class CRUD_Rota_local
 
         return $rotas;
     }
+    public function delete_Rota_local_from_local($idLocal){
+        $sql = "DELETE FROM rota_local WHERE local_id_local = {$idLocal}";
+        $this->conexao->exec($sql);
+    }
+
 }
 
 //Teste FEITO

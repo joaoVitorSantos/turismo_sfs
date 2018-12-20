@@ -11,7 +11,7 @@ class Rota_local
     private $id_rota;
     private $id_local;
 
-    public function __construct($id_rota, $id_local)
+    public function __construct($id_rota= null, $id_local= null)
     {
         $this->id_rota = $id_rota;
         $this->id_local = $id_local;

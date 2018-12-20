@@ -287,9 +287,17 @@
 
         <div class="col-md-7 float-left text-center fundo rounded">
             <h3 class="rotaM">Local no Maps</h3>
-            <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getLocal() ?>" alt="rota">
+            <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
             <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
+    </div>
+
+    <div class="row">
+        <?php foreach ($imgs as $i): ?>
+            <div class="col-md-6">
+                <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop">
+            </div>
+        <?php endforeach; ?>
     </div>
 
 </div>

@@ -77,15 +77,28 @@ class CRUD_local
     public function deleteLocal(Local $local){
         $sql1 = "DELETE FROM `curtir_local` WHERE `local_id_local` = '{$local->getIdLocal()}'";
         $this->conexao->exec($sql1);
+
         $sql2 = "DELETE FROM `imagem_local` WHERE local_id_local = '{$local->getIdLocal()}'";
         $this->conexao->exec($sql2);
+
+        $sql4 = "DELETE FROM `rota_local` WHERE `local_id_local` = '{$local->getIdLocal()}'";
+        $this->conexao->exec($sql4);
+
         $sql = "DELETE FROM local WHERE id_local = {$local->getIdLocal()}";
         $this->conexao->exec($sql);
 
+    }
 
+    public function getLast(){
+        $sql = "SELECT max(id_local) as id FROM local";
+
+        $id = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return $id['id'];
 
     }
-    
+
+
 }
 
 //Teste FEITO

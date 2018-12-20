@@ -283,7 +283,16 @@
             <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
     </div>
-    <div class="container contLocais rounded">
+
+    <div class="row">
+        <?php foreach ($imagens as $i): ?>
+        <div class="col-md-6">
+            <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop">
+        </div>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="container contLocais rounded" style="margin-top: 2em">
         <div class="bgLightGray rounded-top">
             <div class="row ">
                 <div class="col-12 text-center">
@@ -320,4 +329,3 @@
     </div>
 </div>
 
-</div>

@@ -11,6 +11,10 @@
         <div class="row">
             <div class="col-md-6">
                 <h1>Rotas</h1>
+                <form action="Home.php" method="post" style="margin-bottom: 1em">
+                    <input type="text" class="text-hide" name="acao" value="addRotaF">
+                    <button type="submit" class="btn btn-success">Adicionar Rota</button>
+                </form>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -44,6 +48,10 @@
             </div>
             <div class="col-md-6">
                 <h1>Locais</h1>
+                <form action="Home.php" method="post" style="margin-bottom: 1em">
+                    <input type="text" class="text-hide" name="acao" value="addLocalF">
+                    <button type="submit" class="btn btn-success">Adicionar Local</button>
+                </form>
                 <table class="table table-hover">
                     <thead>
                     <tr>

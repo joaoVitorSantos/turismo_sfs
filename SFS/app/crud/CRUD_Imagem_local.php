@@ -20,7 +20,7 @@ class CRUD_Imagem_local
     }
 
     public function get_Images_for_local(Local $l){
-        $sql = "SELECT imagem_l.id_imagem, imagem_l.nome_imagem, imagem_l.local FROM `imagem_local`, local, imagem_l WHERE imagem_local.imagem_l_id_imagem = imagem_l.id_imagem AND imagem_local.local_id_local = local.id_local AND imagem_local.local_id_local = '{$l->getIdLocal()}'";
+        $sql = "SELECT imagem_l.id_imagem, imagem_l.nome_imagem, imagem_l.local FROM `imagem_local`, local, imagem_l WHERE imagem_local.imagem_l_id_imagem = imagem_l.id_imagem AND imagem_local.local_id_local = local.id_local AND imagem_local.local_id_local = '{$l->getIdLocal()}' AND imagem_l.maps != 1";
 
         try{
             $resultado = $this->conexao->query($sql)->fetchALL(PDO::FETCH_ASSOC);
@@ -28,6 +28,7 @@ class CRUD_Imagem_local
             return false;
         }
         $array_imgs = [];
+
         foreach ($resultado as $i) {
             $imagem_l = new Imagem_l($i['nome_imagem'], $i['local']);
             $imagem_l->setIdImagem($i['id_imagem']);
@@ -38,6 +39,7 @@ class CRUD_Imagem_local
 
     public function get_Imagem_l_maps(Local $l){
         $sql = "SELECT * FROM `imagem_local`, local, imagem_l WHERE imagem_local.imagem_l_id_imagem = imagem_l.id_imagem AND imagem_local.local_id_local = local.id_local AND imagem_local.local_id_local = '{$l->getIdLocal()}' AND imagem_l.maps = 1";
+
 
         try{
             $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -66,7 +68,7 @@ class CRUD_Imagem_local
 
     }
 
-    public function delete_Imagem_rota(Imagem_local $i){
+    public function delete_Imagem_local(Imagem_local $i){
 
         $sql = "DELETE FROM `imagem_local` WHERE `imagem_l_id_imagem` = '{$i->getImagemLIdImagem()}' AND `local_id_local` = '{$i->getLocalIdLocal()}'";
 
@@ -80,6 +82,38 @@ class CRUD_Imagem_local
 
 
     }
+
+    public function delete_Imagens_local( $idLocal)
+    {
+        $a = new Local($idLocal);
+        $res = $this->get_Images_for_local($a);
+
+        foreach ($res as $r){
+            $sql = "DELETE FROM imagem_local WHERE local_id_local = {$idLocal} AND imagem_l_id_imagem = {$r->getIdImagem()}";
+            try{
+                $this->conexao->exec($sql);
+            }catch (Exception $e){
+                echo $e->getMessage();
+            }
+        }
+
+        return true;
+
+    }
+
+    public function deleteAllImagensRota($idRota){
+        $sql = "DELETE FROM imagem_local WHERE local_id_local = {$idRota}";
+
+        try{
+            $this->conexao->exec($sql);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
+
+    }
+
 }
 
 //Teste FEITO

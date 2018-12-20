@@ -39,6 +39,8 @@ function load_local(){
 
     }
 
+    $imgs = $cil->get_Images_for_local($local);
+
 
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';

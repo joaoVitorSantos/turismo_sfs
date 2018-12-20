@@ -25,6 +25,7 @@ function loadRota()
 
     $m = new CRUD_Imagem_rota();
     $imgMaps = $m->get_Imagem_r_maps($ro);
+    $imagens = $m->get_Images_for_route($ro);
 
     $l = new CRUD_Rota_local();
     $locais = $l->get_locais_por_rota($res);
