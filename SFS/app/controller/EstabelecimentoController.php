@@ -43,6 +43,7 @@ function loadEstabelecimento(){
     $a = new Estabelecimento($_POST['id_estabelecimento']);
     $b = new CRUD_estabelecimento();
     $res = $b->getEstabelecimento($a);
+    $categoria = $b->getCategoriaEstabelecimento($a);
 
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';

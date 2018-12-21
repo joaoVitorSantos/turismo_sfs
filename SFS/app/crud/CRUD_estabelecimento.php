@@ -151,14 +151,6 @@ class CRUD_estabelecimento
 
     }
 
-    public function getCategoriaEstabelecimento(Estabelecimento $e){
-        $sql = "SELECT `desc` FROM `tipo_estabelecimento`, estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = estabelecimento.id_estabelecimento AND estabelecimento.id_estabelecimento = '{$e->getIdEstabelecimento()}'";
-        try{
-            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
-        }catch (Exception $e){
-            return false;
-        }
-    }
 
     public function createEstabelecimento(Estabelecimento $l){
         $sql = "INSERT INTO estabelecimento(nome_estabelecimento, link_site, link_maps, imagem_perfil, tipo_estabelecimento_id_tipo_estabelecimento) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
@@ -193,11 +185,17 @@ class CRUD_estabelecimento
         $sql2 = "DELETE FROM `estabelecimento` WHERE id_estabelecimento = '{$estabelecimento->getIdEstabelecimento()}'";
         $this->conexao->exec($sql2);
     }
+
+    public function getCategoriaEstabelecimento(Estabelecimento$estabelecimento){
+        $sql = "SELECT tipo_estabelecimento.desc as a FROM `estabelecimento`, tipo_estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = id_estabelecimento and id_estabelecimento = '{$estabelecimento->getIdEstabelecimento()}'";
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return $resultado['a'];
+    }
 }
 
 //Teste FEITO
-
-$a = new Estabelecimento(1);
-$b = new CRUD_estabelecimento();
-$c = $b->getCategoriaEstabelecimento($a);
-echo($c);
