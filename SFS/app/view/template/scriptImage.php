@@ -4,6 +4,7 @@
 
         $('.rotas').hide();
         $('.locais').hide();
+        $('.loca').hide();
 
         var size = $(window).width();
 
@@ -56,6 +57,23 @@
                 $('#iconDropL').attr('src','../../assets/open_iconic/svg/caret-bottom.svg');
             }
         }
+
+        function verificaVisivelLo(){
+            if($('.loca').is(':visible')){
+                $('#iconDropI').attr('src','../../assets/open_iconic/svg/caret-top.svg');
+            }
+            else{
+                $('#iconDropI').attr('src','../../assets/open_iconic/svg/caret-bottom.svg');
+            }
+        }
+
+        $('#tituloI').click(function(){
+            $('.loca').slideToggle(250);
+
+            setTimeout(function(){
+                verificaVisivelLo();
+            }, 265);
+        });
 
         $('#tituloR').click(function(){
             $('.rotas').slideToggle(250);

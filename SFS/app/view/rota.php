@@ -328,7 +328,7 @@
                     </div>
                 </div>
             </div>
-            <div class="locais rounded-bottom ">
+            <div class="loca rounded-bottom ">
                 <div class="row">
                     <?php foreach ($imagens as $i): ?>
                         <div class="col-md-6">
