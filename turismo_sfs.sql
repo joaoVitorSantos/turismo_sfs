@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Dez-2018 às 15:30
+-- Generation Time: 21-Dez-2018 às 14:22
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -53,7 +53,7 @@ CREATE TABLE `curtir_local` (
 --
 
 INSERT INTO `curtir_local` (`local_id_local`, `usuario_id_usuario`, `dt_curtir`, `avaliacao`) VALUES
-(1, 13, '2018-12-20 00:54:26', 5),
+(1, 13, '2018-12-21 12:57:41', 2),
 (1, 8, '2018-12-19 20:42:05', 4);
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE `curtir_rota` (
 --
 
 INSERT INTO `curtir_rota` (`rota_id_rota`, `usuario_id_usuario`, `dt_curtir`, `avaliacao`) VALUES
-(1, 13, '2018-12-19 22:53:58', 4),
+(1, 13, '2018-12-21 10:43:42', 5),
 (1, 8, 'CURRENT_TIMESTAMP', 5);
 
 -- --------------------------------------------------------
@@ -118,8 +118,12 @@ CREATE TABLE `imagem_l` (
 --
 
 INSERT INTO `imagem_l` (`id_imagem`, `nome_imagem`, `local`, `maps`) VALUES
-(1, 'a', 'hotel_vila_real.png', 1),
-(2, 'a', 'b', 0);
+(2, 'a', 'b', 0),
+(3, '2112201801494817122018010921fotoprincipal.jpg', '', 1),
+(4, '21122018014948WhatsApp Image 2018-11-15 at 15.08.25.jpeg', '', 0),
+(5, '2112201801582517122018010921fotoprincipal.jpg', '', 1),
+(6, '2112201801582620122018044811final.jpg', '', 0),
+(7, '2112201802021017122018010921loja.jpg', '', 0);
 
 -- --------------------------------------------------------
 
@@ -137,8 +141,11 @@ CREATE TABLE `imagem_local` (
 --
 
 INSERT INTO `imagem_local` (`imagem_l_id_imagem`, `local_id_local`) VALUES
-(1, 1),
-(2, 1);
+(3, 2),
+(4, 2),
+(5, 1),
+(7, 1),
+(6, 1);
 
 -- --------------------------------------------------------
 
@@ -167,7 +174,9 @@ INSERT INTO `imagem_r` (`id_imagem`, `nome_imagem`, `local`, `maps`) VALUES
 (15, '17122018010553', '', 0),
 (16, '17122018010749', '', 0),
 (17, '17122018010921fotoprincipal.jpg', '', 1),
-(18, '171220180109211712201812235820180816_181100-min.jpg', '', 0);
+(18, '171220180109211712201812235820180816_181100-min.jpg', '', 0),
+(19, '2112201801470717122018010245fotoprincipal.jpg', '', 0),
+(20, '2112201801564417122018010921fotoprincipal.jpg', '', 1);
 
 -- --------------------------------------------------------
 
@@ -185,15 +194,13 @@ CREATE TABLE `imagem_rota` (
 --
 
 INSERT INTO `imagem_rota` (`imagem_r_id_imagem`, `rota_id_rota`) VALUES
+(20, 1),
+(19, 1),
 (2, 1),
 (4, 1),
 (6, 1),
 (8, 1),
 (11, 1),
-(13, 1),
-(15, 1),
-(16, 1),
-(17, 1),
 (18, 1);
 
 -- --------------------------------------------------------
@@ -215,7 +222,8 @@ CREATE TABLE `local` (
 --
 
 INSERT INTO `local` (`id_local`, `nome_local`, `descricao`, `imagem_perfil`, `link`) VALUES
-(1, 'Centro Histórico', 'Um ótimo lugar para visitar', 'fotoprincipal.jpg', 'https://www.google.com.br/maps/dir//Museu+Hist%C3%B3rico+Prefeito+Jos%C3%A9+Schmidt,+R.+Cel.+Carvalho,+1+-+Centro,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.2473461,-48.647829,16.97z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94c2b2ad8ec47:0xccacd6c842722df1!2m2!1d-48.641694!2d-26.2491167+R.+Francisco+Machado+de+Souza,+1135+-+Do+Paulas,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.230175,-48.6294897,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94e6f18cede69:0x69ee994bdf03ac02!2m2!1d-48.627301!2d-26.230175');
+(1, 'Centro Histórico', 'Um ótimo lugar para visitar', 'fotoprincipal.jpg', 'https://www.google.com.br/maps/dir//Museu+Hist%C3%B3rico+Prefeito+Jos%C3%A9+Schmidt,+R.+Cel.+Carvalho,+1+-+Centro,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.2473461,-48.647829,16.97z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94c2b2ad8ec47:0xccacd6c842722df1!2m2!1d-48.641694!2d-26.2491167+R.+Francisco+Machado+de+Souza,+1135+-+Do+Paulas,+S%C3%A3o+Francisco+do+Sul+-+SC,+89240-000/@-26.230175,-48.6294897,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94d94e6f18cede69:0x69ee994bdf03ac02!2m2!1d-48.627301!2d-26.230175'),
+(2, 'AB', 'AB', '21122018014947darth_vader_armor_star_wars_film_hat_snow_93645_1920x1080.jpg', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2');
 
 -- --------------------------------------------------------
 
@@ -237,9 +245,8 @@ CREATE TABLE `rota` (
 --
 
 INSERT INTO `rota` (`id_rota`, `nome_rota`, `tempo_medio`, `imagem_perfil`, `descricao`, `link`) VALUES
-(1, 'Rota Religiosa', '30 minutos', '17122018010921loja.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
-(2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...', NULL),
-(3, 'Rota rápida', '30 minutos', 'a.jpg', 'Está com pouco tempo? ', NULL);
+(1, 'Rota ReligiosaAA', '30 minutos', '2112201801470717122018010008fotoprincipal.jpg', 'Uma rota muito recomendada...', 'https://www.google.com/maps/dir/-26.2423485,-48.6408134/Mercado+Municipal/Igreja+Matriz+Nossa+Senhora+da+Gra%C3%A7a/Parque+Ecol%C3%B3gico+Municipal/@-26.2424886,-48.6403375,357m/data=!3m1!1e3!4m21!4m20!1m0!1m5!1m1!1s0x0:0xcedca16c4a49a752!2m2!1d-48.6399539!2d-26.243185!1m5!1m1!1s0x94d94e7f5b9b3711:0x628263187ba5de10!2m2!1d-48.63858!2d-26.243422!1m5!1m1!1s0x0:0xf07943aea3d66b70!2m2!1d-48.6389168!2d-26.2415026!3e2'),
+(2, 'Tour 1 hora', '1 hora', 'ROTA 3.jpg', 'Uma rota muito completa...', NULL);
 
 -- --------------------------------------------------------
 
@@ -257,11 +264,7 @@ CREATE TABLE `rota_local` (
 --
 
 INSERT INTO `rota_local` (`rota_id_rota`, `local_id_local`) VALUES
-(1, 1),
-(1, 1),
-(1, 1),
-(1, 1),
-(1, 1),
+(1, 2),
 (1, 1);
 
 -- --------------------------------------------------------
@@ -434,25 +437,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `estabelecimento`
 --
 ALTER TABLE `estabelecimento`
-  MODIFY `id_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_estabelecimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `imagem_l`
 --
 ALTER TABLE `imagem_l`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `imagem_r`
 --
 ALTER TABLE `imagem_r`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `local`
 --
 ALTER TABLE `local`
-  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rota`

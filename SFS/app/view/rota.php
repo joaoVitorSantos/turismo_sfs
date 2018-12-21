@@ -284,13 +284,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <?php foreach ($imagens as $i): ?>
-        <div class="col-md-6">
-            <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop">
-        </div>
-        <?php endforeach; ?>
-    </div>
+
 
     <div class="container contLocais rounded" style="margin-top: 2em">
         <div class="bgLightGray rounded-top">
@@ -307,7 +301,7 @@
 
                     <div class="col-md-6 col-lg-4">
                         <div class="card carde">
-                            <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap">
+                            <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap" style="height: 11em">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
                                 <p class="card-text"><?= $lo->getDescricao() ?>
@@ -323,6 +317,25 @@
 
                 <?php endforeach; ?>
 
+            </div>
+        </div>
+
+        <div class="container contLocais rounded" style="margin-top: 2em">
+            <div class="bgLightGray rounded-top">
+                <div class="row ">
+                    <div class="col-12 text-center">
+                        <h1 id="tituloI" class="rotaTitulo">Imagens <img id="iconDropI" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="locais rounded-bottom ">
+                <div class="row">
+                    <?php foreach ($imagens as $i): ?>
+                        <div class="col-md-6">
+                            <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop" style="height: 15em; width: 20em">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
 

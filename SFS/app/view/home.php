@@ -25,7 +25,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" //Igualar ao tamanho do Carrossel do IF>
             <div class="carousel-item active">
                     <a href="EstabelecimentoController.php?acao=verLista&id=1"><img class="d-block w-100" src="../../assets/images/gastronomia.jpg" alt="First slide"></a>
             </div>

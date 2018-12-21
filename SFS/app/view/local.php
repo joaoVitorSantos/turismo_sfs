@@ -285,19 +285,30 @@
         </div>
 
 
-        <div class="col-md-7 float-left text-center fundo rounded">
+       <div class="col-md-7 float-left text-center fundo rounded">
             <h3 class="rotaM">Local no Maps</h3>
             <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
             <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
         </div>
     </div>
 
-    <div class="row">
-        <?php foreach ($imgs as $i): ?>
-            <div class="col-md-6">
-                <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop">
+    <div class="container contLocais rounded" style="margin-top: 2em">
+        <div class="bgLightGray rounded-top">
+            <div class="row ">
+                <div class="col-12 text-center">
+                    <h1 id="tituloL" class="rotaTitulo">Imagens <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                </div>
             </div>
-        <?php endforeach; ?>
+        </div>
+        <div class="locais rounded-bottom ">
+            <div class="row">
+                <?php foreach ($imgs as $i): ?>
+                    <div class="col-md-6">
+                        <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="foto" class="img-fluid shadow marginTop" style="height: 15em; width: 20em">
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 
 </div>
