@@ -166,8 +166,7 @@ class CRUD_estabelecimento
     }
 
     public function updateEstabelecimento(Estabelecimento $l){
-        $sql = "UPDATE `estabelecimento` SET nome_estabelecimento='{$l->getNomeEstabelecimento()}',`link_site`='{$l->getLinkSite()}', link_maps = '{$l->getLinkMaps()}', imagem_perfil = '{$l->getImagemPerfil()}', tipo_estabelecimento_id_tipo_estabelecimento = '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}'
-                WHERE id_estabelecimento = {$l->getIdEstabelecimento()}";
+        $sql = "UPDATE `estabelecimento` SET `nome_estabelecimento`= '{$l->getNomeEstabelecimento()}',`link_site`= '{$l->getLinkSite()}',`link_maps`= '{$l->getLinkMaps()}',`imagem_perfil` = '{$l->getImagemPerfil()}', `tipo_estabelecimento_id_tipo_estabelecimento`= '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}' WHERE `id_estabelecimento`= '{$l->getIdEstabelecimento()}'";
 
         try{
             $this->conexao->exec($sql);

@@ -54,33 +54,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-
-                    <label for="imgs" style="padding-left: 1em">Fotos ja Cadastradas: </label>
-                    <div class="imgs">
-                        <?php foreach ($imgs as $i): ?>
-                            <div class="row borda rounded " style="padding: 1em 1em 0 1em; margin: 1em 1em 1em 0">
-                                <div class="col-md-4 col-sm-4">
-                                    <img src="../../assets/images/<?= $i->getNomeImagem() ?>" alt="" class="img-fluid rounded" style="height: 10em; padding: 0 0 1em 0">
-                                </div>
-                                <div class="col-md-6 col-sm-3 check">
-                                    <input class="align-center" type="checkbox" value="<?= $i->getIdImagem() ?>" checked="checked" name="fotos[]">
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
-                <div class="imagens">
-                    <div class="form-group">
-                        <div class="custom-file">
-                            <label for="customFile">Outras Fotos: </label>
-                            <input type="file" name="outrasFotos1"  id="outrasFotos1">
-
-                        </div>
-                    </div>
-                </div>
-                <a class="btn btn-info text-center text-white" id="addImg">+ Fotos</a>
                 <br>
 
                 <div class="row">

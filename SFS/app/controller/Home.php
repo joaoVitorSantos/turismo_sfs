@@ -574,7 +574,90 @@ function addEstabelecimento(){
 
 }
 
+function editaEstabelecimentoF(){
+    $e= new CRUD_estabelecimento();
+    $estab = new Estabelecimento($_POST['id']);
+    $estabelecimento = $e->getEstabelecimento($estab);
+    $categorias = $e->getCategorias();
+    $categoria[] = $estabelecimento->getTipoEstabelecimentoIdTipoEstabelecimento();
+    $ids = [];
 
+    foreach ($categorias as $c){
+        $ids[] = $c['id_tipo_estabelecimento'];
+    }
+
+//    $asd = new Rota_local(null, $_POST['id']);
+//    $rotasJ = $cRL->get_rotas_por_local($asd);
+//    $ids = array();
+//
+//    foreach ($rotasJ as $rr){
+//        $ids[] = $rr->getIdRota();
+//    }
+//
+//    $imgMaps = $cI->get_Imagem_l_maps($local);
+//
+//    $imgs = $cI->get_Images_for_local($local);
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/editEstabelecimento.php';
+    include_once '../view/template/footer.php';
+
+}
+function editaEstabelecimento(){
+
+    $e = new CRUD_estabelecimento();
+    $b = new Estabelecimento($_POST['id']);
+    $estabe = $e->getEstabelecimento($b);
+    $estab = new Estabelecimento($_POST['id'], $_POST['nome'], $_POST['link_site'], $_POST['link'], $_FILES['fotoPrincipal']['name'], $_POST['categorias']);
+
+
+    if ($_FILES['fotoPrincipal']['size'] != 0) {
+        $ft_principal = date('dmYhis') . $_FILES['fotoPrincipal']['name'];
+        move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/' . $ft_principal);
+        $estab->setImagemPerfil($ft_principal);
+    }else{
+        $ft_principal = $estabe->getImagemPerfil();
+        $estab->setImagemPerfil($ft_principal);
+    }
+
+
+
+    $e->updateEstabelecimento($estab);
+
+
+    header('location: Home.php');
+
+}
+
+function excluirEstabelecimento(){
+    $e = new CRUD_estabelecimento();
+    $es = new Estabelecimento($_POST['id']);
+
+    $e->deleteEstabelecimento($es);
+
+    echo "
+<form id='formA' method='post' action='Home.php' class='text-hide'>
+<input name='acao' value='viewAdmin'>
+</form>
+<script>
+       document.getElementById('formA').submit();
+</script>
+";
+}
+
+function confirmarExcluirE(){
+    $c = new CRUD_estabelecimento();
+    $es = new Estabelecimento($_POST['id']);
+    $estabelecimento = $c->getEstabelecimento($es);
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/confirmaDE.php';
+    include_once '../view/template/footer.php';
+
+
+}
 
 if (!isset($_POST['acao'])){
 
@@ -694,6 +777,17 @@ else {
         case 'addEstabelecimento':
             addEstabelecimento();
             break;
+        case 'editarE':
+            editaEstabelecimentoF();
+            break;
+        case 'editarEstabelecimento':
+            editaEstabelecimento();
+            break;
+        case 'excluirE':
+            confirmarExcluirE();
+            break;
+        case 'deleteEstabelecimento':
+            excluirEstabelecimento();
         default:
             index();
             break;
