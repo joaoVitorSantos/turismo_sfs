@@ -24,10 +24,6 @@
                         <label for="nome">Nome da Rota</label>
                         <input type="text" value="" required name="nome" class="form-control" id="nome" placeholder="Nome da Rota">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="tempo_medio">Tempo Médio</label>
-                        <input type="text" value="" required name="tempo_medio" class="form-control" id="tempo_medio" placeholder="Ex: 1 hora">
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição</label>

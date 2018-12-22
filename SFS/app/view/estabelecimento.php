@@ -12,10 +12,12 @@
 
         var avaliacao = 0;
         var id_usuario = $("#id_usuario").text();
-        var id_rota = $("#id_rota").text();
-        var avaliacao_propria = $("#avaliacao_propria").html();
+        var id_estabelecimento = $("#id_estabelecimento").text();
+        var avaliacao_propria = $("#avaliacao_propria").text();
         var avaliacao_geral = $("#avaliacao_geral").html();
         var avaliacao_geral_real = $("#avaliacao_geral_real").html();
+        //alert(avaliacao_propria);
+
 
 
         if (avaliacao_propria == 5){
@@ -57,12 +59,12 @@
             $('#5').attr('src','../../assets/images/estrelaN.jpg');
             $('#2').attr('src','../../assets/images/estrelaN.jpg');
 
-            $.post("RotaController.php",
+            $.post("EstabelecimentoController.php",
                 {
                     acao: 'curtir',
                     avaliacao: 1,
                     id_usuario: id_usuario,
-                    id_rota: id_rota
+                    id_estabelecimento: id_estabelecimento
                 },
                 function(data){
                     if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
@@ -74,10 +76,10 @@
                     }
                     else{alert('Avaliação Cadastrada!');
                         //location.reload();
-                        $.post("RotaController.php",
+                        $.post("EstabelecimentoController.php",
                             {
                                 acao: 'avalMed',
-                                id_rota: id_rota
+                                id_estabelecimento: id_estabelecimento
                             },
                             function (data) {
                                 $('#avaliacao_geral_real').text(data);
@@ -94,12 +96,12 @@
             $('#4').attr('src','../../assets/images/estrelaN.jpg');
             $('#5').attr('src','../../assets/images/estrelaN.jpg');
 
-            $.post("RotaController.php",
+            $.post("EstabelecimentoController.php",
                 {
                     acao: 'curtir',
                     avaliacao: 2,
                     id_usuario: id_usuario,
-                    id_rota: id_rota
+                    id_estabelecimento: id_estabelecimento
                 },
                 function(data){
                     if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
@@ -111,10 +113,10 @@
                     }
                     else{alert('Avaliação Cadastrada!');
                         //location.reload();
-                        $.post("RotaController.php",
+                        $.post("EstabelecimentoController.php",
                             {
                                 acao: 'avalMed',
-                                id_rota: id_rota
+                                id_estabelecimento: id_estabelecimento
                             },
                             function (data) {
                                 $('#avaliacao_geral_real').text(data);
@@ -131,12 +133,12 @@
             $('#4').attr('src','../../assets/images/estrelaN.jpg');
             $('#5').attr('src','../../assets/images/estrelaN.jpg');
 
-            $.post("RotaController.php",
+            $.post("EstabelecimentoController.php",
                 {
                     acao: 'curtir',
                     avaliacao: 3,
                     id_usuario: id_usuario,
-                    id_rota: id_rota
+                    id_estabelecimento: id_estabelecimento
                 },
                 function(data){
 
@@ -149,10 +151,10 @@
                     }
                     else{alert('Avaliação Cadastrada!');
                         //location.reload();
-                        $.post("RotaController.php",
+                        $.post("EstabelecimentoController.php",
                             {
                                 acao: 'avalMed',
-                                id_rota: id_rota
+                                id_estabelecimento: id_estabelecimento
                             },
                             function (data) {
                                 $('#avaliacao_geral_real').text(data);
@@ -169,12 +171,12 @@
             $('#3').attr('src','../../assets/images/estrelaC.jpg');
             $('#5').attr('src','../../assets/images/estrelaN.jpg');
 
-            $.post("RotaController.php",
+            $.post("EstabelecimentoController.php",
                 {
                     acao: 'curtir',
                     avaliacao: 4,
                     id_usuario: id_usuario,
-                    id_rota: id_rota
+                    id_estabelecimento: id_estabelecimento
                 },
                 function(data){
                     if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
@@ -187,10 +189,10 @@
                     else{alert('Avaliação Cadastrada!');
                         //location.reload();
 
-                        $.post("RotaController.php",
+                        $.post("EstabelecimentoController.php",
                             {
                                 acao: 'avalMed',
-                                id_rota: id_rota
+                                id_estabelecimento: id_estabelecimento
                             },
                             function (data) {
                                 $('#avaliacao_geral_real').text(data);
@@ -207,12 +209,12 @@
             $('#3').attr('src','../../assets/images/estrelaC.jpg');
             $('#4').attr('src','../../assets/images/estrelaC.jpg');
 
-            $.post("RotaController.php",
+            $.post("EstabelecimentoController.php",
                 {
                     acao: 'curtir',
                     avaliacao: 5,
                     id_usuario: id_usuario,
-                    id_rota: id_rota
+                    id_estabelecimento: id_estabelecimento
                 },
                 function(data){
                     if (data == 'nao'){alert('Faça Login ou Cadastre-se!');
@@ -225,10 +227,10 @@
                     else{
                         alert('Avaliação Cadastrada!');
                         // location.reload();
-                        $.post("RotaController.php",
+                        $.post("EstabelecimentoController.php",
                             {
                                 acao: 'avalMed',
-                                id_rota: id_rota
+                                id_estabelecimento: id_estabelecimento
                             },
                             function (data) {
                                 $('#avaliacao_geral_real').text(data);
@@ -242,9 +244,9 @@
     });
 </script>
 <p id="id_usuario" class="text-hide"><?= $_SESSION['id_usuario'] ?></p>
-<p id="id_local" class="text-hide"><?= $res->getIdEstabelecimento(); ?></p>
-<p id="avaliacao_propria" class="text-hide"><?php //$avaliacaoPropria ?></p>
-<p id="avaliacao_geral" class="text-hide"><?php //$avaliacaoGeral?></p>
+<p id="id_estabelecimento" class="text-hide"><?= $res->getIdEstabelecimento(); ?></p>
+<p id="avaliacao_propria" class="text-hide"><?= $avaliacaoPropria ?></p>
+<p id="avaliacao_geral" class="text-hide"><?= $avaliacaoGeral?></p>
 <body>
 
 <div class="container">
@@ -279,7 +281,7 @@
 
             </div>
             <br>
-            <h7>Média Geral dos Usuários: <p id="avaliacao_geral_real" style="display: inline"><?php //$avaliacaoGeralReal ?></p></h7>
+            <h7>Média Geral dos Usuários: <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
         </div>
 
 

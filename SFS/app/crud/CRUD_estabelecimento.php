@@ -186,7 +186,7 @@ class CRUD_estabelecimento
         $this->conexao->exec($sql2);
     }
 
-    public function getCategoriaEstabelecimento(Estabelecimento$estabelecimento){
+    public function getCategoriaEstabelecimento(Estabelecimento $estabelecimento){
         $sql = "SELECT tipo_estabelecimento.desc as a FROM `estabelecimento`, tipo_estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = id_estabelecimento and id_estabelecimento = '{$estabelecimento->getIdEstabelecimento()}'";
         try{
             $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
@@ -196,6 +196,18 @@ class CRUD_estabelecimento
 
         return $resultado['a'];
     }
+
+    public function getCategorias(){
+        $sql = "SELECT tipo_estabelecimento.desc as categorias, id_tipo_estabelecimento FROM tipo_estabelecimento";
+        try{
+            $resultado = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return $resultado;
+    }
 }
 
 //Teste FEITO
+

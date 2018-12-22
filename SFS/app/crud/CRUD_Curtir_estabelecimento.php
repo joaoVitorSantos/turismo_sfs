@@ -31,7 +31,20 @@ class CRUD_Curtir_estabelecimento
         return $curtir_estabelecimento;
     }
 
-    public function get_media_Curtidas_estabelecimento(Curtir_estabelecimento $c)
+    public function get_Curtir_estabelecimento_verificacao(Curtir_estabelecimento $c)
+    {
+        $sql = "SELECT * FROM `curtir_estabelecimento` WHERE `estabelecimento_id_estabelecimento` = '{$c->getIdEstabelecimento()}' and `usuario_id_usuario` = '{$c->getIdUsuario()}'";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+        $curtir_estabelecimento = new Curtir_estabelecimento($resultado['estabelecimento_id_estabelecimento'], $resultado['usuario_id_usuario'], $resultado['avaliacao']);
+        return $curtir_estabelecimento;
+    }
+
+    public function get_media_Curtidas_estabelecimento_round(Curtir_estabelecimento $c)
     {
         $sql = "SELECT AVG(avaliacao) as media FROM `curtir_estabelecimento` WHERE estabelecimento_id_estabelecimento = '{$c->getIdEstabelecimento()}'";
 
@@ -41,6 +54,19 @@ class CRUD_Curtir_estabelecimento
             return false;
         }
         $resultadoF = round($resultado['media']);
+        return $resultadoF;
+    }
+
+    public function get_media_Curtidas_estabelecimento(Curtir_estabelecimento $c)
+    {
+        $sql = "SELECT AVG(avaliacao) as media FROM `curtir_estabelecimento` WHERE estabelecimento_id_estabelecimento = '{$c->getIdEstabelecimento()}'";
+
+        try{
+            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+        }catch (Exception $e){
+            return false;
+        }
+        $resultadoF = round($resultado['media'], 4);
         return $resultadoF;
     }
 

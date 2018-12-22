@@ -97,6 +97,9 @@ function viewAdmin(){
     $d = new CRUD_local();
     $locais = $d->getLocais();
 
+    $e = new CRUD_estabelecimento();
+    $estabelecimentos = $e->getEstabelecimentos();
+
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';
     include_once '../view/admin.php';
@@ -536,6 +539,43 @@ function excluirLocal(){
 ";
 }
 
+function addEstabelecimentoF(){
+    $crud = new CRUD_estabelecimento();
+    $categorias = $crud->getCategorias();
+
+    include_once '../view/template/header.php';
+    include_once '../view/template/navbar.php';
+    include_once '../view/addEstabelecimento.php';
+    include_once '../view/template/footer.php';
+}
+
+function addEstabelecimento(){
+
+    $estabelecimento = new Estabelecimento(null, $_POST['nome'], $_POST['link_site'], $_POST['link'], null, $_POST['categorias']);
+
+    $fotoP = date('dmYhis') . $_FILES['fotoPrincipal']['name'];
+    move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/' . $fotoP);
+
+    $estabelecimento->setImagemPerfil($fotoP);
+
+
+    $c = new CRUD_estabelecimento();
+
+    $c->createEstabelecimento($estabelecimento);
+
+    echo "
+<form id='formA' method='post' action='Home.php' class='text-hide'>
+<input name='acao' value='viewAdmin' class='text-hide'>
+</form>
+<script>
+       document.getElementById('formA').submit();
+</script>
+";
+
+}
+
+
+
 if (!isset($_POST['acao'])){
 
     $c = new CRUD_rota();
@@ -648,7 +688,12 @@ else {
         case 'addLocal':
             addLocal();
             break;
-
+        case 'addEstabelecimentoF':
+            addEstabelecimentoF();
+            break;
+        case 'addEstabelecimento':
+            addEstabelecimento();
+            break;
         default:
             index();
             break;

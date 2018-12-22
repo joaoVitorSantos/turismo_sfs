@@ -300,7 +300,7 @@
                 <?php foreach ($locais as $lo): ?>
 
                     <div class="col-md-6 col-lg-4">
-                        <div class="card carde">
+                        <div class="card carde" style="margin-top: 2em">
                             <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap" style="height: 11em">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
