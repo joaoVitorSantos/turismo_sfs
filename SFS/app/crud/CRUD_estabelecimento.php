@@ -186,7 +186,7 @@ class CRUD_estabelecimento
     }
 
     public function getCategoriaEstabelecimento(Estabelecimento $estabelecimento){
-        $sql = "SELECT tipo_estabelecimento.desc as a FROM `estabelecimento`, tipo_estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = id_estabelecimento and id_estabelecimento = '{$estabelecimento->getIdEstabelecimento()}'";
+        $sql = "SELECT tipo_estabelecimento.desc as a FROM `estabelecimento`, tipo_estabelecimento WHERE tipo_estabelecimento.id_tipo_estabelecimento = id_tipo_estabelecimento and tipo_estabelecimento_id_tipo_estabelecimento = '{$estabelecimento->getTipoEstabelecimentoIdTipoEstabelecimento()}'";
         try{
             $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
         }catch (Exception $e){
@@ -210,3 +210,11 @@ class CRUD_estabelecimento
 
 //Teste FEITO
 
+//$a = new Estabelecimento(3);
+//$b = new CRUD_estabelecimento();
+//$c = $b->getEstabelecimento($a);
+//$b->getTipoEstabelecimentoIdTipoEstabelecimento($c);
+//print_r($c);
+//die();
+//$d = $b->getCategoriaEstabelecimento($c);
+//echo $d;

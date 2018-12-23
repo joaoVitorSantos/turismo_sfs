@@ -62,7 +62,7 @@ class CRUD_usuario
 
     public function createUsuario(Usuario $usuario){
 
-        $sql = "INSERT INTO `usuario`(`email`, `senha`, `user`, `tipo_usuario_id_tipo_usuario`) VALUES ('{$usuario->getEmail()}','{$usuario->getSenha()}','{$usuario->getUser()}','{$usuario->getTipoUsuarioIdTipoUsuario()}')";
+        $sql = "INSERT INTO `usuario`(`email`, `senha`, `user`, `tipo_usuario_id_tipo_usuario`) VALUES ('{$usuario->getEmail()}','{$this->criptografarPass($usuario->getSenha())}','{$usuario->getUser()}','{$usuario->getTipoUsuarioIdTipoUsuario()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -75,22 +75,31 @@ class CRUD_usuario
     }
 
     public function verificaUsuario($email, $senha){
-        $sql = "SELECT * FROM usuario WHERE email = '{$email}' AND senha = '{$senha}'";
+//        $sql = "SELECT * FROM usuario WHERE email = '{$email}' AND senha = '{$senha}'";
+//
+//        try {
+//            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
+//        }catch (Exception $e){
+//            return $e->getMessage();
+//        }
+//
+//        if (is_array($resultado) and count($resultado) > 0){
+//            $res = new Usuario($resultado['id_usuario'], $resultado['email'], $resultado['senha'], $resultado['user'], $resultado['tipo_usuario_id_tipo_usuario']);
+//            return $res;
+//        }
+//
+//        else {
+//            return false;
 
-        try {
-            $resultado = $this->conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
-        }catch (Exception $e){
-            return $e->getMessage();
-        }
+        $users = $this->getUsuarios();
 
-        if (is_array($resultado) and count($resultado) > 0){
-            $res = new Usuario($resultado['id_usuario'], $resultado['email'], $resultado['senha'], $resultado['user'], $resultado['tipo_usuario_id_tipo_usuario']);
-            return $res;
+        foreach ($users as $u){
+            if (password_verify($senha, $u->getSenha()) and $email == $u->getEmail()){
+                $resultado = $this->getUsuario($u);
+                return $resultado;
+            }
         }
-
-        else {
-            return false;
-        }
+        return "nao";
 
     }
 
@@ -125,6 +134,11 @@ class CRUD_usuario
 
         return true;
 
+    }
+
+    public function criptografarPass($senha){
+        $novaSenha = password_hash($senha, PASSWORD_DEFAULT);
+        return $novaSenha;
     }
 
 }

@@ -247,6 +247,7 @@
 <p id="id_estabelecimento" class="text-hide"><?= $res->getIdEstabelecimento(); ?></p>
 <p id="avaliacao_propria" class="text-hide"><?= $avaliacaoPropria ?></p>
 <p id="avaliacao_geral" class="text-hide"><?= $avaliacaoGeral?></p>
+<p id="link_site" class="text-hide"><?= $res->getLinkSite() ?></p>
 <body>
 
 <div class="container">
@@ -263,7 +264,7 @@
                 <h1 class="card-tittle" style="font-family: Cocogoose"><?= $categoria ?></h1>
             </div>
             <div class="card-footer">
-                Link do Site: <a><div id="btnLink" name="<?= $res->getLinkSite() ?>" style="display: inline"><?= $res->getLinkSite() ?></div></a>
+                 <span>Link do site:<button id="btnLink" name="<?= $res->getLinkSite() ?>" class="btn btn-link" style="display: inline"><?= $res->getLinkSite() ?></button></span>
             </div>
         </div>
     </div>

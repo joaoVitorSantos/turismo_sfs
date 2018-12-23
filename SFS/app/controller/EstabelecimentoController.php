@@ -44,7 +44,8 @@ function loadEstabelecimento(){
     $a = new Estabelecimento($_POST['id_estabelecimento']);
     $b = new CRUD_estabelecimento();
     $res = $b->getEstabelecimento($a);
-    $categoria = $b->getCategoriaEstabelecimento($a);
+    $categoria = $b->getCategoriaEstabelecimento($res);
+
 
     if(isset($_SESSION['id_usuario'])) {
         $id_usuario = $_SESSION['id_usuario'];
