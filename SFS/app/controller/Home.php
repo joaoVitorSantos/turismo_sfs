@@ -1,4 +1,3 @@
-
 <?php
 
     session_start();
@@ -771,23 +770,31 @@ else {
         case 'addLocal':
             addLocal();
             break;
+
         case 'addEstabelecimentoF':
             addEstabelecimentoF();
             break;
+
         case 'addEstabelecimento':
             addEstabelecimento();
             break;
+
         case 'editarE':
             editaEstabelecimentoF();
             break;
+
         case 'editarEstabelecimento':
             editaEstabelecimento();
             break;
+
         case 'excluirE':
             confirmarExcluirE();
             break;
+
         case 'deleteEstabelecimento':
             excluirEstabelecimento();
+            break;
+
         default:
             index();
             break;

@@ -19,9 +19,25 @@
                             <th scope="row"><?= $r['nome'] ?></th>
                             <td><?= $r['tipo'] ?></td>
                             <td>
-                                <form action="Home.php" method="post">
+                                <form action="<?php
+                                    if ($r['tipo'] == "Local"){
+                                        echo 'LocalController.php';
+                                    }
+
+                                    else{
+                                        echo 'RotaController.php';
+                                    }
+                                ?>" method="post">
                                     <input type="text" name="acao" class="text-hide" value="ver">
-                                    <input type="text" name="id" class="text-hide" value="<?= $r['id'] ?>">
+                                    <input type="text" name="<?php
+                                    if ($r['tipo'] == "Local"){
+                                        echo 'id_local';
+                                    }
+
+                                    else{
+                                        echo 'id_rota';
+                                    }
+                                    ?>" class="text-hide" value="<?= $r['id'] ?>">
                                     <input type="submit" class="btn btn-success small" value="Ver">
                                 </form>
                             </td>

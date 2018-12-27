@@ -1,6 +1,5 @@
-
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,7 +15,7 @@
     <link rel="stylesheet" href="../../assets/style/mycss.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 
-    <script src="../view/template/scriptImage.php"></script>
-    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="../view/template/scriptImage.js"></script>
+    <script src="../view/template/validateForm.js"></script>
 
 </head>
