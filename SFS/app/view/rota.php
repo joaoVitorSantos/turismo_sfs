@@ -246,18 +246,20 @@
     <div class="card bg-dark" style="margin-top: 2em">
         <img class="card-img" id="imagemRota" src="../../assets/images/<?= $res->getImagemPerfil() ?>" alt="">
         <div class="card-img-overlay" style="margin-top: -1.3em; margin-left: -1.3em; margin-right: -1.3em">
-            <div class="card-title text-center text-light tituloCard rounded"><?= $res->getNomeRota() ?></div>
+            <div class="card-title text-center text-light tituloCard rounded"><?php if ($_SESSION['lang'] == 'en'){traduzir($res->getNomeRota()  );} else {echo $res->getNomeRota()  ;}?></div>
         </div>
     </div>
 
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="card cardeR">
             <div class="card-body">
-                <h1 class="card-tittle" style="font-family: Cocogoose">Descrição</h1>
-                <p class="card-text"><?= $res->getDescricao() ?></p>
+                <h1 class="card-tittle" style="font-family: Cocogoose"><?php if ($_SESSION['lang'] == 'en'){traduzir('Descrição:');} else {echo 'Descrição:';}?>
+                </h1>
+                <p class="card-text"><?php if ($_SESSION['lang'] == 'en'){traduzir($res->getDescricao() );} else {echo $res->getDescricao() ;}?>
+                    </p>
             </div>
             <div class="card-footer">
-                Tempo Médio: <?= $res->getTempoMedio() ?>
+                <?php if ($_SESSION['lang'] == 'en'){traduzir('Tempo Médio:');} else {echo 'Tempo Médio:';}?> <?= $res->getTempoMedio() ?>
             </div>
         </div>
     </div>
@@ -273,14 +275,17 @@
                     <!--<button class="small btn btn-outline-primary" id="avaliar">Avaliar</button>-->
                 </div>
                 <br>
-                <h7>Média Geral dos Usuários: <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
+                <h7><?php if ($_SESSION['lang'] == 'en'){traduzir('Média Geral dos Usuários: ');} else {echo 'Média Geral dos Usuários: ';}?>
+                     <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
             </div>
 
 
         <div class="col-md-7 float-left text-center fundo rounded">
-            <h3 class="rotaM">Rota no Maps</h3>
+            <h3 class="rotaM"><?php if ($_SESSION['lang'] == 'en'){traduzir('Rota no Maps');} else {echo 'Rota no Maps';}?>
+                </h3>
             <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
-            <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
+            <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success"><?php if ($_SESSION['lang'] == 'en'){traduzir('Ir!');} else {echo 'Ir!';}?>
+            </button>
         </div>
     </div>
 
@@ -290,7 +295,8 @@
         <div class="bgLightGray rounded-top">
             <div class="row ">
                 <div class="col-12 text-center">
-                    <h1 id="tituloL" class="rotaTitulo">Locais <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                    <h1 id="tituloL" class="rotaTitulo"><?php if ($_SESSION['lang'] == 'en'){traduzir('Locais');} else {echo 'Locais';}?>
+                        <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
                 </div>
             </div>
         </div>
@@ -303,12 +309,12 @@
                         <div class="card carde" style="margin-top: 2em">
                             <img class="card-img-top" src="../../assets/images/<?= $lo->getImagemPerfil() ?>" alt="Card image cap" style="height: 11em">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $lo->getNomeLocal() ?></h5>
-                                <p class="card-text"><?= $lo->getDescricao() ?>
+                                <h5 class="card-title"><?php if ($_SESSION['lang'] == 'en'){traduzir($lo->getNomeLocal());} else {echo $lo->getNomeLocal();}  ?></h5>
+                                <p class="card-text"><?php if ($_SESSION['lang'] == 'en'){traduzir($lo->getDescricao());} else {echo $lo->getDescricao();} ?>
                                 <form class="" method="post" action="LocalController.php">
                                     <input class="text-hide" value="ver" name="acao">
                                     <input class="text-hide" value="<?= $lo->getIdLocal() ?>" name="id_local">
-                                    <button class="btn btn-outline-primary" type="submit">Ver</button>
+                                    <button class="btn btn-outline-primary" type="submit"><?php if ($_SESSION['lang'] == 'en'){traduzir('Ver');} else {echo 'Ver';} ?></button>
                                 </form>
                             </div>
                         </div>
@@ -324,7 +330,7 @@
             <div class="bgLightGray rounded-top">
                 <div class="row ">
                     <div class="col-12 text-center">
-                        <h1 id="tituloI" class="rotaTitulo">Imagens <img id="iconDropI" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                        <h1 id="tituloI" class="rotaTitulo"><?php if ($_SESSION['lang'] == 'en'){traduzir('Imagens');} else {echo 'Imagens';}?> <img id="iconDropI" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
                     </div>
                 </div>
             </div>

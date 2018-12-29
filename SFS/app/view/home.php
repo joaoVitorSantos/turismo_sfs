@@ -55,7 +55,7 @@
     <div class="rounded-top">
     <div class="row ">
         <div class="col-12 text-center" style="margin-top: 1em;">
-            <h1 id="tituloR" class="rotaTitulo">Rotas <img id="iconDrop" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+            <h1 id="tituloR" class="rotaTitulo"><?php if ($_SESSION['lang'] == 'en'){traduzir('Rotas');} else {echo 'Rotas';} ?> <img id="iconDrop" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
         </div>
     </div>
     </div>
@@ -80,16 +80,16 @@
                     <img class="card-img-top img_miniatura_index" src="../../assets/images/<?= $r->getImagemPerfil() ?>" alt="Card image cap">
 
                     <div class="card-body">
-                        <h5 class="card-title"><?= $r->getNomeRota() ?></h5>
-                        <p class="card-text"><?= $r->getDescricao() ?>
+                        <h5 class="card-title"><?php if ($_SESSION['lang'] == 'en'){traduzir($r->getNomeRota());} else {echo $r->getNomeRota();} ?></h5>
+                        <p class="card-text"><?php if ($_SESSION['lang'] == 'en'){traduzir($r->getDescricao());} else {echo $r->getDescricao();}?>
                         <form class="" method="post" action="RotaController.php">
                             <input class="text-hide" value="ver" name="acao">
                             <input class="text-hide" value="<?= $r->getIdRota() ?>" name="id_rota">
-                            <button class="btn btn-outline-primary" type="submit">Ver</button>
+                            <button class="btn btn-outline-primary" type="submit"><?php if ($_SESSION['lang'] == 'en'){traduzir('Ver');} else {echo 'Ver';}?></button>
                         </form>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Tempo Médio de duração: <?= $r->getTempoMedio() ?></small>
+                        <small class="text-muted"><?php if ($_SESSION['lang'] == 'en'){traduzir('Tempo Médio de duração:');} else {echo 'Tempo Médio de duração:';}?> <?= $r->getTempoMedio() ?></small>
                     </div>
                 </div>
                 </div>

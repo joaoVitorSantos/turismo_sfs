@@ -2,7 +2,6 @@
 
     session_start();
 
-
 require_once '../crud/CRUD_rota.php';
 require_once '../crud/CRUD_usuario.php';
 require_once '../crud/CRUD_Pesquisa.php';
@@ -14,6 +13,7 @@ require_once '../crud/CRUD_local.php';
 require_once '../crud/CRUD_Rota_local.php';
 require_once '../model/Rota_local.php';
 require_once '../crud/CRUD_estabelecimento.php';
+require_once '../composer/traducao.php';
 
 $c = new CRUD_rota();
 
@@ -660,9 +660,25 @@ function confirmarExcluirE(){
 
 if (!isset($_POST['acao'])){
 
+    if (!isset($_SESSION['lang'])){
+        header('location: Index.php');
+    }
+
     $c = new CRUD_rota();
     $rotas = $c->getRotas();
     $num_rotas = count($rotas);
+
+    if (isset($_POST['lang'])) {
+
+        $lang = $_POST['lang'];
+
+        if ($lang == 'pt') {
+            $_SESSION['lang'] = 'pt';
+        } else {
+            $_SESSION['lang'] = 'en';
+        }
+
+    }
 
     //$estab = new Estabelecimento(null, null, null, null, null, null)
     $descricoes = [];

@@ -254,15 +254,15 @@
     <div class="card bg-dark" style="margin-top: 2em">
         <img class="card-img" id="imagemRota" src="../../assets/images/<?= $res->getImagemPerfil() ?>" alt="">
         <div class="card-img-overlay" style="margin-top: -1.3em; margin-left: -1.3em; margin-right: -1.3em">
-            <div class="card-title text-center text-light tituloCard rounded"><?= $res->getNomeLocal() ?></div>
+            <div class="card-title text-center text-light tituloCard rounded"><?php if ($_SESSION['lang'] == 'en'){traduzir($res->getNomeLocal());} else {echo $res->getNomeLocal();} ?></div>
         </div>
     </div>
 
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="card cardeR">
             <div class="card-body">
-                <h1 class="card-tittle" style="font-family: Cocogoose">Descrição</h1>
-                <p class="card-text"><?= $res->getDescricao() ?></p>
+                <h1 class="card-tittle" style="font-family: Cocogoose"><?php if ($_SESSION['lang'] == 'en'){traduzir('Descrição:');} else {echo 'Descrição:';}?></h1>
+                <p class="card-text"><?php if ($_SESSION['lang'] == 'en'){traduzir($res->getDescricao());} else {echo $res->getDescricao();} ?></p>
             </div>
             <div class="card-footer">
                  <?php //$res->getTempoMedio() ?>
@@ -281,14 +281,15 @@
 
             </div>
             <br>
-            <h7>Média Geral dos Usuários: <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
+            <h7><?php if ($_SESSION['lang'] == 'en'){traduzir('Média Geral dos Usuários: ');} else {echo 'Média Geral dos Usuários: ';}?>
+                <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
         </div>
 
 
        <div class="col-md-7 float-left text-center fundo rounded">
-            <h3 class="rotaM">Local no Maps</h3>
+            <h3 class="rotaM"><?php if ($_SESSION['lang'] == 'en'){traduzir('Local no Maps');} else {echo 'Local no Maps';}?></h3>
             <img class="img-fluid rounded" src="../../assets/images/<?= $imgMaps->getNomeImagem() ?>" alt="rota">
-            <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success">Ir!</button>
+            <button id="btnIr" name="<?= $res->getLink() ?>" class="btn btn-success"><?php if ($_SESSION['lang'] == 'en'){traduzir('Ir!');} else {echo 'Ir!';}?></button>
         </div>
     </div>
 
@@ -296,7 +297,7 @@
         <div class="bgLightGray rounded-top">
             <div class="row ">
                 <div class="col-12 text-center">
-                    <h1 id="tituloL" class="rotaTitulo">Imagens <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
+                    <h1 id="tituloL" class="rotaTitulo"><?php if ($_SESSION['lang'] == 'en'){traduzir('Imagens');} else {echo 'Imagens';}?>  <img id="iconDropL" class="icon" src="../../assets/open_iconic/svg/caret-bottom.svg" alt="icon name"></h1>
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@
 require_once __DIR__."/../crud/CRUD_local.php";
 require_once __DIR__."/../crud/CRUD_Curtir_local.php";
 require_once __DIR__."/../crud/CRUD_Imagem_local.php";
+require_once '../composer/traducao.php';
 
 session_start();
 

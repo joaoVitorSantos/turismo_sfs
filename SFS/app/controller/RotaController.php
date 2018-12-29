@@ -15,6 +15,7 @@ require_once '../crud/CRUD_Imagem_rota.php';
 require_once '../crud/CRUD_Imagem_r.php';
 require_once __DIR__. '/../crud/CRUD_Curtir_rota.php';
 require_once __DIR__. '/../crud/CRUD_Rota_local.php';
+require_once '../composer/traducao.php';
 
 function loadRota()
 {
