@@ -658,9 +658,9 @@ function confirmarExcluirE(){
 
 }
 
-if (!isset($_POST['acao'])){
+if (!isset($_POST['acao'])) {
 
-    if (!isset($_SESSION['lang'])){
+    if (!isset($_SESSION['lang'])) {
         header('location: Index.php');
     }
 
@@ -681,24 +681,29 @@ if (!isset($_POST['acao'])){
     }
 
     //$estab = new Estabelecimento(null, null, null, null, null, null)
-    $descricoes = [];
-    foreach ($rotas as $rota){
+    //$descricoes = [];
+    //for ($j = 0; $j<= $num_rotas; $j++) {
+    $descc = [];
+    $desc = [];
+    foreach ($rotas as $rota) {
         $descricao = $rota->getDescricao();
         $descricao_array = str_split($descricao);
-        $descricoes[] = $descricao;
+        //$desc = [];
+        //$descc = [];
+
+        for ($i = 0; $i <= 35; $i++) {
+            $desc[] = $descricao_array[$i];
+        }
+        $descc[] = implode($desc) . "...";
+        $count = count($descc);
+        $desc = [];
+        for ($j = $count - 1; $j < $count; $j++) {
+            $rota->setDescricao($descc[$j]);
+        }
+
+
+
     }
-//    $matrizes = [];
-//    $palavras_encurtadas = [];
-//    foreach ($descricoes as $descricao){
-//        $matriz = str_split($descricao);
-//        for ($i = 0; $i<= 10; $i++){
-//            $palavras_encurtadas[] = $matriz[$i];
-//        }
-//        $matrizes[] = $matriz;
-//    }
-
-
-
     include_once '../view/template/header.php';
     include_once '../view/template/navbar.php';
     include_once '../view/home.php';

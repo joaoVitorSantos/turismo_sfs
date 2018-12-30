@@ -7,6 +7,7 @@
  */
 require_once __DIR__."/../crud/CRUD_estabelecimento.php";
 require_once __DIR__."/../crud/CRUD_Curtir_estabelecimento.php";
+require_once '../composer/traducao.php';
 
 session_start();
 

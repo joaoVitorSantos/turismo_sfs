@@ -74,6 +74,7 @@
                 </li>
             </ul></div>-->
         <div class="row">
+            <?php //foreach ($descc as $desc): ?>
             <?php foreach ($rotas as $r): ?>
                 <div class="col-md-6 col-lg-4 rotaCard">
                 <div class="card carde">
@@ -94,6 +95,7 @@
                 </div>
                 </div>
             <?php endforeach; ?>
+            <?php //endforeach; ?>
         </div>
         </div>
 
