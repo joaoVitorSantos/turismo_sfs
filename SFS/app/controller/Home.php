@@ -691,9 +691,13 @@ if (!isset($_POST['acao'])) {
         //$desc = [];
         //$descc = [];
 
+
         for ($i = 0; $i <= 35; $i++) {
-            $desc[] = $descricao_array[$i];
+            if (isset($descricao_array[$i])) {
+                $desc[] = $descricao_array[$i];
+            }
         }
+
         $descc[] = implode($desc) . "...";
         $count = count($descc);
         $desc = [];
