@@ -1,12 +1,12 @@
 <body>
     <div class="container">
         <div class="col-md-12">
-            <h1>Resultados de sua pesquisa!</h1>
+            <h1 class="text-left"><?php if ($_SESSION['lang'] == 'en'){traduzir('Resultados de sua pesquisa!');} else {echo 'Resultados de sua pesquisa!';}?></h1>
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Tipo</th>
+                    <th scope="col"><?php if ($_SESSION['lang'] == 'en'){traduzir('Nome');} else {echo 'Nome';}?></th>
+                    <th scope="col"><?php if ($_SESSION['lang'] == 'en'){traduzir('Tipo');} else {echo 'Tipo';}?></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -16,8 +16,8 @@
                 foreach ($resultado as $re): ?>
                     <?php foreach ($re as $r): ?>
                         <tr>
-                            <th scope="row"><?= $r['nome'] ?></th>
-                            <td><?= $r['tipo'] ?></td>
+                            <th scope="row"><?php if ($_SESSION['lang'] == 'en'){traduzir( $r['nome']);} else {echo  $r['nome'];}  ?></th>
+                            <td><?php if ($_SESSION['lang'] == 'en'){traduzir( $r['tipo']);} else {echo  $r['tipo'];} ?></td>
                             <td>
                                 <form action="<?php
                                     if ($r['tipo'] == "Local"){
@@ -38,7 +38,7 @@
                                         echo 'id_rota';
                                     }
                                     ?>" class="text-hide" value="<?= $r['id'] ?>">
-                                    <input type="submit" class="btn btn-success small" value="Ver">
+                                    <input type="submit" class="btn btn-success small" value="<?php if ($_SESSION['lang'] == 'en'){traduzir('Ver');} else {echo 'Ver';}  ?>">
                                 </form>
                             </td>
                         </tr>
@@ -48,3 +48,4 @@
             </table>
         </div>
     </div>
+<div class="marginFooter" style="margin-bottom: 20em"></div>
