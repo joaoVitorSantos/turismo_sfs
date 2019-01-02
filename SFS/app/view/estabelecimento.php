@@ -261,10 +261,10 @@
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="card cardeR">
             <div class="card-body">
-                <h1 class="card-tittle" style="font-family: Cocogoose"><?= $categoria ?></h1>
+                <h1 class="card-tittle" style="font-family: Cocogoose"><?php if ($_SESSION['lang'] == 'en'){traduzir($categoria);} else {echo $categoria;}?></h1>
             </div>
             <div class="card-footer">
-                 <span>Link do site:<button id="btnLink" name="<?= $res->getLinkSite() ?>" class="btn btn-link" style="display: inline"><?= $res->getLinkSite() ?></button></span>
+                 <span><?php if ($_SESSION['lang'] == 'en'){traduzir("Link do site:");} else {echo "Link do Site:" ;}?><button id="btnLink" name="<?= $res->getLinkSite() ?>" class="btn btn-link" style="display: inline"><?= $res->getLinkSite() ?></button></span>
             </div>
         </div>
     </div>
@@ -282,13 +282,13 @@
 
             </div>
             <br>
-            <h7>Média Geral dos Usuários: <p id="avaliacao_geral_real" style="display: inline"><?= $avaliacaoGeralReal ?></p></h7>
+            <h7><?php if ($_SESSION['lang'] == 'en'){traduzir("Média Geral dos Usuários: ");} else {echo "Média Geral dos Usuários: ";}?><p id="avaliacao_geral_real" style="display: inline"><?= " $avaliacaoGeralReal" ?></p></h7>
         </div>
 
 
         <div class="col-md-7 float-left text-center fundo rounded" style="margin-top: 1em">
-            <h3 class="rotaM">Local no Maps</h3>
-            <button id="btnIr" name="<?= $res->getLinkMaps() ?>" class="btn btn-success">Ir!</button>
+            <h3 class="rotaM"><?php if ($_SESSION['lang'] == 'en'){traduzir("Local no Maps");} else {echo "Local no Maps";}?></h3>
+            <button id="btnIr" name="<?= $res->getLinkMaps() ?>" class="btn btn-success"><?php if ($_SESSION['lang'] == 'en'){traduzir("IR!");} else {echo "IR!";}?></button>
         </div>
     </div>
 

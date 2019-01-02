@@ -97,24 +97,24 @@
         <div class="col-md-6 formLogin rounded" style="margin: 15% 0 15% 0; padding: 1em 1em 1em 1em">
             <form action="../controller/Home.php" method="post" onsubmit="return validarSenha(this);" class="formulario">
                 <div class="form-group">
-                    <label for="email">Endereço de Email</label>
-                    <input type="email" required="required" name="email" class="form-control" id="email" placeholder="Seu email">
-                    <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com ninguém</small>
+                    <label for="email"><?php if ($_SESSION['lang'] == 'en'){traduzir("Endereço de email");} else {echo "Endereço de email";}?></label>
+                    <input type="email" required="required" name="email" class="form-control" id="email" placeholder="<?php if ($_SESSION['lang'] == 'en'){traduzir("Seu email");} else {echo "Seu email";}?>">
+                    <small id="emailHelp" class="form-text text-muted"><?php if ($_SESSION['lang'] == 'en'){traduzir("Nunca compartilharemos seu email com ninguém");} else {echo "Nunca compartilharemos seu email com ninguém";}?></small>
                 </div>
                 <div class="form-group">
-                    <label for="user">Nome de Usuário</label>
-                    <input type="text" required="required" name="user" class="form-control" id="user" placeholder="Usuário">
+                    <label for="user"><?php if ($_SESSION['lang'] == 'en'){traduzir("Nome de Usuário");} else {echo "Nome de Usuário";}?></label>
+                    <input type="text" required="required" name="user" class="form-control" id="user" placeholder="<?php if ($_SESSION['lang'] == 'en'){traduzir("Usuário");} else {echo "Usuário";}?>">
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" required="required" name="senha" class="form-control senha" id="password" placeholder="Senha">
+                    <label for="password"><?php if ($_SESSION['lang'] == 'en'){traduzir("Senha");} else {echo "Senha";}?></label>
+                    <input type="password" required="required" name="senha" class="form-control senha" id="password" placeholder="<?php if ($_SESSION['lang'] == 'en'){traduzir("Senha");} else {echo "Senha";}?>">
                 </div>
                 <div class="form-group">
-                    <label for="password_rp">Repita sua Senha</label>
-                    <input type="password" required="required" name="senha_rp" class="form-control password_rp" id="password_rp" placeholder="Repita sua Senha">
+                    <label for="password_rp"><?php if ($_SESSION['lang'] == 'en'){traduzir("Repita sua Senha");} else {echo "Repita sua Senha";}?></label>
+                    <input type="password" required="required" name="senha_rp" class="form-control password_rp" id="password_rp" placeholder="<?php if ($_SESSION['lang'] == 'en'){traduzir("Repita sua Senha");} else {echo "Repita sua Senha";}?>">
                 </div>
                 <input type="text" class="text-hide" value="cadastroUsuario" name="acao">
-                <button type="button" id="btnEnviar" class="btn btn-primary disabled">Enviar</button>
+                <button type="button" id="btnEnviar" class="btn btn-primary disabled"><?php if ($_SESSION['lang'] == 'en'){traduzir("Enviar");} else {echo "Enviar";}?></button>
             </form>
         </div>
     </div>
