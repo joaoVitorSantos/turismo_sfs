@@ -14,8 +14,10 @@ class Estabelecimento
     private $link_maps;
     private $imagem_perfil;
     private $tipo_estabelecimento_id_tipo_estabelecimento;
+    private $descricao;
 
-    public function __construct($id_estabelecimento = null, $nome_estabelecimento = null, $link_site = null, $link_maps = null, $imagem_perfil = null, $tipo_estabelecimento_id_tipo_estabelecimento = null)
+
+    public function __construct($id_estabelecimento = null, $nome_estabelecimento = null, $link_site = null, $link_maps = null, $imagem_perfil = null, $tipo_estabelecimento_id_tipo_estabelecimento = null, $descricao = null)
     {
         $this->id_estabelecimento = $id_estabelecimento;
         $this->nome_estabelecimento = $nome_estabelecimento;
@@ -23,8 +25,25 @@ class Estabelecimento
         $this->link_maps = $link_maps;
         $this->imagem_perfil = $imagem_perfil;
         $this->tipo_estabelecimento_id_tipo_estabelecimento = $tipo_estabelecimento_id_tipo_estabelecimento;
+        $this->descricao = $descricao;
     }
 
+
+    /**
+     * @return null
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * @param null $descricao
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+    }
 
     /**
      * @return mixed

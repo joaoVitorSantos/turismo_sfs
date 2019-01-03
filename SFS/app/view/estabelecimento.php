@@ -261,7 +261,10 @@
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="card cardeR">
             <div class="card-body">
-                <h1 class="card-tittle" style="font-family: Cocogoose"><?php if ($_SESSION['lang'] == 'en'){traduzir($categoria);} else {echo $categoria;}?></h1>
+                <h1 class="card-tittle" style="font-family: Cocogoose"><?php if ($_SESSION['lang'] == 'en'){traduzir('Descrição:');} else {echo 'Descrição:';}?>
+                </h1>
+                <p class="card-text"><?php if ($_SESSION['lang'] == 'en'){traduzir($res->getDescricao() );} else {echo $res->getDescricao() ;}?>
+                </p>
             </div>
             <div class="card-footer">
                  <span><?php if ($_SESSION['lang'] == 'en'){traduzir("Link do site:");} else {echo "Link do Site:" ;}?><button id="btnLink" name="<?= $res->getLinkSite() ?>" class="btn btn-link" style="display: inline"><?= $res->getLinkSite() ?></button></span>

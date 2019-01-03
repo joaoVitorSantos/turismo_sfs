@@ -11,6 +11,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea style="height: 10em" required name="descricao" class="form-control" id="descricao" placeholder="Descrição do Estabelecimento"><?= $estabelecimento->getDescricao() ?></textarea>
+                </div>
+                <div class="form-group">
                     <label for="link">Link do Site/Facebook</label>
                     <textarea style="height: 10em" required name="link_site" class="form-control" id="link_site" placeholder="Link do Site"><?= $estabelecimento->getLinkSite() ?></textarea>
                 </div>

@@ -26,7 +26,7 @@ class CRUD_estabelecimento
             return false;
         }
 
-        $estabelecimento = new Estabelecimento($res['id_estabelecimento'], $res['nome_estabelecimento'], $res['link_site'], $res['link_maps'], $res['imagem_perfil'], $res['tipo_estabelecimento_id_tipo_estabelecimento']);
+        $estabelecimento = new Estabelecimento($res['id_estabelecimento'], $res['nome_estabelecimento'], $res['link_site'], $res['link_maps'], $res['imagem_perfil'], $res['tipo_estabelecimento_id_tipo_estabelecimento'], $res['descricao']);
 
         return $estabelecimento;
     }
@@ -43,7 +43,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -63,7 +63,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -83,7 +83,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -103,7 +103,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -123,7 +123,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -143,7 +143,7 @@ class CRUD_estabelecimento
         $estabelecimentos = array();
 
         foreach ($resultado as $r){
-            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento']);
+            $estabelecimento = new Estabelecimento($r['id_estabelecimento'], $r['nome_estabelecimento'], $r['link_site'], $r['link_maps'], $r['imagem_perfil'], $r['tipo_estabelecimento_id_tipo_estabelecimento'], $r['descricao']);
             $estabelecimentos[] = $estabelecimento;
         }
 
@@ -153,7 +153,7 @@ class CRUD_estabelecimento
 
 
     public function createEstabelecimento(Estabelecimento $l){
-        $sql = "INSERT INTO estabelecimento(nome_estabelecimento, link_site, link_maps, imagem_perfil, tipo_estabelecimento_id_tipo_estabelecimento) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}')";
+        $sql = "INSERT INTO estabelecimento(nome_estabelecimento, link_site, link_maps, imagem_perfil, tipo_estabelecimento_id_tipo_estabelecimento, descricao) VALUES ('{$l->getNomeEstabelecimento()}','{$l->getLinkSite()}','{$l->getLinkMaps()}', '{$l->getImagemPerfil()}', '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}', '{$l->getDescricao()}')";
 
         try{
             $this->conexao->exec($sql);
@@ -166,7 +166,7 @@ class CRUD_estabelecimento
     }
 
     public function updateEstabelecimento(Estabelecimento $l){
-        $sql = "UPDATE `estabelecimento` SET `nome_estabelecimento`= '{$l->getNomeEstabelecimento()}',`link_site`= '{$l->getLinkSite()}',`link_maps`= '{$l->getLinkMaps()}',`imagem_perfil` = '{$l->getImagemPerfil()}', `tipo_estabelecimento_id_tipo_estabelecimento`= '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}' WHERE `id_estabelecimento`= '{$l->getIdEstabelecimento()}'";
+        $sql = "UPDATE `estabelecimento` SET `nome_estabelecimento`= '{$l->getNomeEstabelecimento()}',`link_site`= '{$l->getLinkSite()}',`link_maps`= '{$l->getLinkMaps()}',`imagem_perfil` = '{$l->getImagemPerfil()}', `tipo_estabelecimento_id_tipo_estabelecimento`= '{$l->getTipoEstabelecimentoIdTipoEstabelecimento()}', descricao = '{$l->getDescricao()}' WHERE `id_estabelecimento`= '{$l->getIdEstabelecimento()}'";
 
         try{
             $this->conexao->exec($sql);
@@ -210,11 +210,3 @@ class CRUD_estabelecimento
 
 //Teste FEITO
 
-//$a = new Estabelecimento(3);
-//$b = new CRUD_estabelecimento();
-//$c = $b->getEstabelecimento($a);
-//$b->getTipoEstabelecimentoIdTipoEstabelecimento($c);
-//print_r($c);
-//die();
-//$d = $b->getCategoriaEstabelecimento($c);
-//echo $d;

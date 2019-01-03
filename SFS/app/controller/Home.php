@@ -550,7 +550,7 @@ function addEstabelecimentoF(){
 
 function addEstabelecimento(){
 
-    $estabelecimento = new Estabelecimento(null, $_POST['nome'], $_POST['link_site'], $_POST['link'], null, $_POST['categorias']);
+    $estabelecimento = new Estabelecimento(null, $_POST['nome'], $_POST['link_site'], $_POST['link'], null, $_POST['categorias'], $_POST['descricao']);
 
     $fotoP = date('dmYhis') . $_FILES['fotoPrincipal']['name'];
     move_uploaded_file($_FILES['fotoPrincipal']['tmp_name'], '../../assets/images/' . $fotoP);
@@ -608,7 +608,7 @@ function editaEstabelecimento(){
     $e = new CRUD_estabelecimento();
     $b = new Estabelecimento($_POST['id']);
     $estabe = $e->getEstabelecimento($b);
-    $estab = new Estabelecimento($_POST['id'], $_POST['nome'], $_POST['link_site'], $_POST['link'], $_FILES['fotoPrincipal']['name'], $_POST['categorias']);
+    $estab = new Estabelecimento($_POST['id'], $_POST['nome'], $_POST['link_site'], $_POST['link'], $_FILES['fotoPrincipal']['name'], $_POST['categorias'], $_POST['descricao']);
 
 
     if ($_FILES['fotoPrincipal']['size'] != 0) {
@@ -680,19 +680,15 @@ if (!isset($_POST['acao'])) {
 
     }
 
-    //$estab = new Estabelecimento(null, null, null, null, null, null)
-    //$descricoes = [];
-    //for ($j = 0; $j<= $num_rotas; $j++) {
+
     $descc = [];
     $desc = [];
     foreach ($rotas as $rota) {
         $descricao = $rota->getDescricao();
         $descricao_array = str_split($descricao);
-        //$desc = [];
-        //$descc = [];
 
 
-        for ($i = 0; $i <= 35; $i++) {
+        for ($i = 0; $i <= 30; $i++) {
             if (isset($descricao_array[$i])) {
                 $desc[] = $descricao_array[$i];
             }
