@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd68fcd3-a1ad-44aa-b5bf-e6bf7827e184" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/resPes.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/resPes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/app/view/template/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SFS/assets/style/mycss.css" beforeDir="false" afterPath="$PROJECT_DIR$/SFS/assets/style/mycss.css" afterDir="false" />
-    </list>
+    <list default="true" id="dd68fcd3-a1ad-44aa-b5bf-e6bf7827e184" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,17 +70,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="2115" />
+          <entry key="css" value="2141" />
           <entry key="js" value="3" />
-          <entry key="php" value="36585" />
+          <entry key="php" value="36597" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="2115" />
+          <entry key="CSS" value="2141" />
           <entry key="HTML" value="27" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="36558" />
+          <entry key="PHP" value="36570" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -96,20 +92,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SFS/app/view/template/navbar.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
+              <caret line="2" column="120" selection-start-line="2" selection-start-column="120" selection-end-line="2" selection-end-column="120" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SFS/assets/style/mycss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="143" column="1" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
+            <state relative-caret-position="313">
+              <caret line="141" column="1" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -258,8 +254,8 @@
         <option value="$PROJECT_DIR$/SFS/app/view/estabelecimento.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/cadastro.php" />
         <option value="$PROJECT_DIR$/SFS/app/view/resPes.php" />
-        <option value="$PROJECT_DIR$/SFS/app/view/template/navbar.php" />
         <option value="$PROJECT_DIR$/SFS/assets/style/mycss.css" />
+        <option value="$PROJECT_DIR$/SFS/app/view/template/navbar.php" />
       </list>
     </option>
   </component>
@@ -473,12 +469,12 @@
       <workItem from="1546172145967" duration="14086000" />
       <workItem from="1546200519273" duration="269000" />
       <workItem from="1546446105784" duration="5115000" />
-      <workItem from="1546471963412" duration="1303000" />
+      <workItem from="1546471963412" duration="1622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266121000" />
+    <option name="totallyTimeSpent" value="266440000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -863,17 +859,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SFS/app/view/template/navbar.php">
+    <entry file="file://$PROJECT_DIR$/SFS/assets/style/mycss.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
+        <state relative-caret-position="313">
+          <caret line="141" column="1" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SFS/assets/style/mycss.css">
+    <entry file="file://$PROJECT_DIR$/SFS/app/view/template/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="143" column="1" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
+        <state relative-caret-position="36">
+          <caret line="2" column="120" selection-start-line="2" selection-start-column="120" selection-end-line="2" selection-end-column="120" />
         </state>
       </provider>
     </entry>
