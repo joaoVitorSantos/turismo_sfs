@@ -661,7 +661,9 @@ function confirmarExcluirE(){
 if (!isset($_POST['acao'])) {
 
     if (!isset($_SESSION['lang'])) {
-        header('location: Index.php');
+        if (!isset($_POST['lang'])){
+            header('location: Index.php');
+        }
     }
 
     $c = new CRUD_rota();
