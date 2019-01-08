@@ -27,20 +27,43 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                    <a href="EstabelecimentoController.php?acao=verLista&id=1"><img class="d-block w-100" src="../../assets/images/gastronomia.jpg" alt="First slide"></a>
+                <?php if ($_SESSION['lang'] == 'pt'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=1\"><img class=\"d-block w-100\" src=\"../../assets/images/gastronomia.jpg\" alt=\"First slide\"></a>";
+                    } elseif ($_SESSION['lang'] == 'en'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=1\"><img class=\"d-block w-100\" src=\"../../assets/images/1.jpg\" alt=\"First slide\"></a>";
+                    }
+                ?>
             </div>
             <div class="carousel-item">
-                    <a href="EstabelecimentoController.php?acao=verLista&id=2"><img class="d-block w-100"  src="../../assets/images/hospedagem.png" alt="Second slide"></a>
+                <?php if ($_SESSION['lang'] == 'pt'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=2\"><img class=\"d-block w-100\" src=\"../../assets/images/hospedagem.png\" alt=\"Second slide\"></a>";
+                } elseif ($_SESSION['lang'] == 'en'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=2\"><img class=\"d-block w-100\" src=\"../../assets/images/2.jpg\" alt=\"Second slide\"></a>";
+                }
+                ?>
             </div>
             <div class="carousel-item">
-                    <a href="EstabelecimentoController.php?acao=verLista&id=3"><img class="d-block w-100" src="../../assets/images/servicos.png" alt="Third slide"></a>
+                <?php if ($_SESSION['lang'] == 'pt'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=3\"><img class=\"d-block w-100\" src=\"../../assets/images/servicos.png\" alt=\"Third slide\"></a>";
+                } elseif ($_SESSION['lang'] == 'en'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=3\"><img class=\"d-block w-100\" src=\"../../assets/images/5.jpg\" alt=\"Third slide\"></a>";
+                }
+                ?>
             </div>
             <div class="carousel-item">
-                    <a href="EstabelecimentoController.php?acao=verLista&id=4"><img class="d-block w-100" src="../../assets/images/arquitetura.png" alt="Third slide"></a>
-            </div>
+                <?php if ($_SESSION['lang'] == 'pt'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=4\"><img class=\"d-block w-100\" src=\"../../assets/images/arquitetura.png\" alt=\"Fourth slide\"></a>";
+                } elseif ($_SESSION['lang'] == 'en'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=4\"><img class=\"d-block w-100\" src=\"../../assets/images/3.jpg\" alt=\"Fourth slide\"></a>";
+                }
+                ?>                </div>
             <div class="carousel-item">
-                <a href="EstabelecimentoController.php?acao=verLista&id=5"><img class="d-block w-100" src="../../assets/images/museus.png" alt="Third slide"></a>
-            </div>
+                <?php if ($_SESSION['lang'] == 'pt'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=5\"><img class=\"d-block w-100\" src=\"../../assets/images/museus.png\" alt=\"Second slide\"></a>";
+                } elseif ($_SESSION['lang'] == 'en'){
+                    echo"<a href=\"EstabelecimentoController.php?acao=verLista&id=5\"><img class=\"d-block w-100\" src=\"../../assets/images/4.jpg\" alt=\"Second slide\"></a>";
+                }
+                ?>                 </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
