@@ -1,228 +1,228 @@
-
-@font-face {
-    font-family: 'Anydore';
-    src: url("Anydore.otf");
-}
-
-@font-face {
-    font-family: 'Cocogoose';
-    src: url("Cocogoose Pro Semilight-trial.ttf");
-}
-
-@media only screen and (min-width: 600px) {
-    .contLocais{
-        padding-bottom: 0.8em !important;
-        padding-top: 0 !important;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .carde{
-        height: 25em;
-    }
-
-    .tituloCard{
-        font-size: 5em;
-    }
-
-    .cardeR{
-        margin: 0 -1em 0 -1em ;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .tituloCard{
-        font-size: 2em;
-    }
-
-    .check{
-        text-align: center;
-    }
-
-}
-
-.titulonav{
-    font-family: Anydore !important;
-    font-size: 1.7em !important;
-}
-
-
-.marginTop{
-    margin-top: 2em !important ;
-}
-
-.error{
-    color: red;
-    font-size: small;
-}
-
-.cardeR{
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.formNav{
-    margin: 0.2em 0.2em 0.2em 0.2em;
-}
-
-
-.estrela{
-    height: 20px;
-    width: 20px;
-}
-
-.rotaTitulo{
-    font-family: Cocogoose;
-    margin-top: 0.15em;
-    }
-
-.icon{
-    height: 0.5em;
-    width: 0.5em;
-}
-
-.estrelaA{
-    display: inline;
-}
-
-.estrelas{
-    margin-top: 1em;
-}
-body{
-    background: #F5F5F5 !important; ;
-}
-
-.noMargin{
-    margin: 0 0 0 0 !important;
-}
-
-.page-footer{
-    padding: 0 0 0 0;
-}
-
-.card_rota{
-    padding: 0 0 0 0;
-}
-
-.imagemTitulo{
-    opacity: 0.5;
-}
-
-.imagemPrincipal{
-    opacity: 0.5;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 0;
-}
-
-.marginFooter{
-    padding-bottom: 1.5em;
-}
-
-.container{
-    background: #F5F5F5;
-    margin: 0 0 2em 0;
-}
-
-.inicio{
-    margin-bottom: -0.5em;
-}
-
-.contRotas{
-    padding: 2em 0 0 0;
-}
-
-.contLocais{
-    padding: 1em 0 1em 0;
-}
-
-.rota{
-    padding: 2em 1em 2em 1em;
-    background: #F5F5F5;
-}
-
-hr{
-    margin: 0.5em !important;
-}
-
-#imagemRota{
-    opacity: 0.5;
-}
-
-.imagemI{
-    height: 380px !important;
-}
-
-.titulo{
-    font-family: Anydore;
-}
-
-.imagemRota{
-    width: 100%;
-    height: 100%;
-}
-
-.rotaCard{
-    padding-top: 1em;
-}
-
-.rotas{
-    padding: 2em;
-}
-
-.locais{
-    padding: 2em;
-
-}
-
-.text{
-    font-size: 1.2em;
-    border: 0.05em solid;
-    padding: 0 0.5em 0 0.5em;
-    border-radius: 0.5em;
-    text-shadow: 0.1em 0.1em lightblue;
-}
-
-.formLogin{
-    border: 2px solid gray;
-}
-
-.tituloCard{
-    width: 100%;
-    background: #343a40;
-    font-family: Anydore;
-}
-
-.img_miniatura_index{
-    height: 12em !important;
-}
-
-#btnIr{
-    margin-top: 1em;
-}
-
-.fundo{
-    background: white;
-    padding: 1em 1em 1em 1em;
-    border: 1px solid rgba(0,0,0,.125);
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: 2em;
-}
-
-.rotaM{
-    margin-bottom: 0.8em;
-    font-family: Cocogoose;
-}
-
-.linhaForm{
-    margin: 2em 0 2em 0;
-}
-
-.btnEnviar{
-    width: 100%;
-}
-
-.borda{
-    border: 1px solid rgba(0,0,0,.125);
+
+@font-face {
+    font-family: 'Anydore';
+    src: url("Anydore.otf");
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url("Cocogoose Pro Semilight-trial.ttf");
+}
+
+@media only screen and (min-width: 600px) {
+    .contLocais{
+        padding-bottom: 0.8em !important;
+        padding-top: 0 !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .carde{
+        height: 25em;
+    }
+
+    .tituloCard{
+        font-size: 5em;
+    }
+
+    .cardeR{
+        margin: 0 -1em 0 -1em ;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .tituloCard{
+        font-size: 2em;
+    }
+
+    .check{
+        text-align: center;
+    }
+
+}
+
+.titulonav{
+    font-family: Anydore !important;
+    font-size: 1.7em !important;
+}
+
+
+.marginTop{
+    margin-top: 2em !important ;
+}
+
+.error{
+    color: red;
+    font-size: small;
+}
+
+.cardeR{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.formNav{
+    margin: 0.2em 0.2em 0.2em 0.2em;
+}
+
+
+.estrela{
+    height: 20px;
+    width: 20px;
+}
+
+.rotaTitulo{
+    font-family: Cocogoose;
+    margin-top: 0.15em;
+    }
+
+.icon{
+    height: 0.5em;
+    width: 0.5em;
+}
+
+.estrelaA{
+    display: inline;
+}
+
+.estrelas{
+    margin-top: 1em;
+}
+body{
+    background: #F5F5F5 !important; ;
+}
+
+.noMargin{
+    margin: 0 0 0 0 !important;
+}
+
+.page-footer{
+    padding: 0 0 0 0;
+}
+
+.card_rota{
+    padding: 0 0 0 0;
+}
+
+.imagemTitulo{
+    opacity: 0.5;
+}
+
+.imagemPrincipal{
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.marginFooter{
+    padding-bottom: 1.5em;
+}
+
+.container{
+    background: #F5F5F5;
+    margin: 0 0 2em 0;
+}
+
+.inicio{
+    margin-bottom: -0.5em;
+}
+
+.contRotas{
+    padding: 2em 0 0 0;
+}
+
+.contLocais{
+    padding: 1em 0 1em 0;
+}
+
+.rota{
+    padding: 2em 1em 2em 1em;
+    background: #F5F5F5;
+}
+
+hr{
+    margin: 0.5em !important;
+}
+
+#imagemRota{
+    opacity: 0.5;
+}
+
+.imagemI{
+    height: 380px !important;
+}
+
+.titulo{
+    font-family: Anydore;
+}
+
+.imagemRota{
+    width: 100%;
+    height: 100%;
+}
+
+.rotaCard{
+    padding-top: 1em;
+}
+
+.rotas{
+    padding: 2em;
+}
+
+.locais{
+    padding: 2em;
+
+}
+
+.text{
+    font-size: 1.2em;
+    border: 0.05em solid;
+    padding: 0 0.5em 0 0.5em;
+    border-radius: 0.5em;
+    text-shadow: 0.1em 0.1em lightblue;
+}
+
+.formLogin{
+    border: 2px solid gray;
+}
+
+.tituloCard{
+    width: 100%;
+    background: #343a40;
+    font-family: Anydore;
+}
+
+.img_miniatura_index{
+    height: 12em !important;
+}
+
+#btnIr{
+    margin-top: 1em;
+}
+
+.fundo{
+    background: white;
+    padding: 1em 1em 1em 1em;
+    border: 1px solid rgba(0,0,0,.125);
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.rotaM{
+    margin-bottom: 0.8em;
+    font-family: Cocogoose;
+}
+
+.linhaForm{
+    margin: 2em 0 2em 0;
+}
+
+.btnEnviar{
+    width: 100%;
+}
+
+.borda{
+    border: 1px solid rgba(0,0,0,.125);
 }
